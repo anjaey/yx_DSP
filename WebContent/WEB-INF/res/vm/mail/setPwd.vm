@@ -1,0 +1,25 @@
+<div>
+	<div style="text-align: center;">
+		<span style="font-weight: bold;">优效ADX登录帐号激活</span>
+	</div>
+	<br/>
+	<br/>
+	
+	Hi，$!{email}：
+	<br/>
+	
+	我们收到了您的注册优效ADX平台DSP帐号的申请，现将帐号设置密码的地址发送给您，
+	请点击以下链接完成初始密码的设置完成帐号的激活。（链接24小时内有效） 
+	<br/>
+	
+	<a href="$!{doMainName}$!{setPwdUrl}" target="_blank">$!{doMainName}$!{setPwdUrl}</a>（如果上面的链接无法直接点击，可以将其复制到浏览器地址栏进行验证）
+	如果您未申请开通帐号，请忽略此邮件.
+	<br/>
+	<br/>
+	
+	优效ADX服务团队 
+	<br/>
+	服务邮箱：dengying@yandui.com
+	<br/>
+	联系电话：18680762163
+</div>

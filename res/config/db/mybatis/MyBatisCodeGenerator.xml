@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- ant <classPathEntry location="../lib/mysql-connector-java-5.1.24-bin.jar" 
+		/> -->
+	<classPathEntry location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.35.jar" />
+
+	<context id="bhecms" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<!-- -->
+		<plugin type="com.hy.util.dbhelper.MySQLForMybatis3Plugin"></plugin>
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/yx_marketing_terrace"
+			userId="root" password="469565980">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.hy.dao.mybatis.model" targetProject="src">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.hy.dao.mybatis.mapper" targetProject="res">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.hy.dao.mybatis.mapper" targetProject="src">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 
+			实体生成方式
+			单次生成，对于已有表请勿重新生成，否则会重置
+		 -->
+		<!-- 复制出来生成后在删除
+		
+		<table tableName="yx_userbasic" domainObjectName="Userbasic" />
+			<table tableName="yx_userdetil" domainObjectName="UserDetil" />
+			<table tableName="yx_role" domainObjectName="Role" />
+			<table tableName="yx_user_role" domainObjectName="UserRole" />
+			<table tableName="yx_navigation" domainObjectName="Navigation" />
+			<table tableName="yx_nav_privilege" domainObjectName="NavPrivilege" />
+			<table tableName="yx_function" domainObjectName="Function" />
+			<table tableName="yx_function_role" domainObjectName="FunctionRole" />
+			<table tableName="yx_advertisement" domainObjectName="Advertisement" />
+			<table tableName="yx_advertisement_basic" domainObjectName="AdvertisementBasic" />
+			<table tableName="yx_advertisement_pricing" domainObjectName="AdvertisementPricing" />
+			<table tableName="yx_alignment_platform" domainObjectName="AlignmentStages" />
+			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
+			<table tableName="yx_popularize_activity" domainObjectName="PopularizeActivity" />
+			<table tableName="yx_refund_record" domainObjectName="RefundRecord" />
+			<table tableName="yx_creative" domainObjectName="Creative" />
+			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
+			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
+			<table tableName="yx_pay_record" domainObjectName="PayRecord" />
+			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
+			<table tableName="yx_creative" domainObjectName="Creative" />
+		-->	
+		<table tableName="yx_userbasic" domainObjectName="Userbasic" />
+			<table tableName="yx_userdetil" domainObjectName="UserDetil" />
+			<table tableName="yx_role" domainObjectName="Role" />
+			<table tableName="yx_user_role" domainObjectName="UserRole" />
+			<table tableName="yx_navigation" domainObjectName="Navigation" />
+			<table tableName="yx_nav_privilege" domainObjectName="NavPrivilege" />
+			<table tableName="yx_function" domainObjectName="Function" />
+			<table tableName="yx_function_role" domainObjectName="FunctionRole" />
+			<table tableName="yx_advertisement" domainObjectName="Advertisement" />
+			<table tableName="yx_advertisement_basic" domainObjectName="AdvertisementBasic" />
+			<table tableName="yx_advertisement_pricing" domainObjectName="AdvertisementPricing" />
+			<table tableName="yx_alignment_platform" domainObjectName="AlignmentStages" />
+			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
+			<table tableName="yx_popularize_activity" domainObjectName="PopularizeActivity" />
+			<table tableName="yx_refund_record" domainObjectName="RefundRecord" />
+			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
+			<table tableName="yx_pay_record" domainObjectName="PayRecord" />
+			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
+			<table tableName="yx_creative" domainObjectName="Creative" />	
+			
+	</context>
+
+</generatorConfiguration>

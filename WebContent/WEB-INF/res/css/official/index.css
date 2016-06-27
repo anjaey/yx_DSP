@@ -1,0 +1,143 @@
+/* CSS Document */
+.header{height:78px;background:#1770d6;}
+.logo{float:left;width:128px;height:46px;margin-top:18px;}
+.MainNav{float:left;height:40px;line-height:40px;margin-top:19px;margin-left:80px;}
+.MainNav a{display:inline-block;height:40px;line-height:40px;color:#a7c0eb;font-size:18px;margin-right:42px;}
+.MainNav a.hover,.MainNav a:hover{color:#fff;}
+.HeadName{float:right;height:40px;line-height:40px;margin-top:19px;color:#cddbf3;font-size:14px;}
+.HeadName span,.HeadName a{padding:0 10px;color:#cddbf3;}
+.HeadName span{position:relative;display:inline-block;height:40px;line-height:40px;padding-left:26px;}
+.HeadName span:after{position:absolute;left:0;top:50%;margin-top:-10px;width:20px;height:20px;content: "~\"url(../images/official/name-ico.png)\"";background:url(../images/official/name-ico.png) no-repeat;text-indent:-9999px;}
+.HeadName a:hover{color:#fff;text-decoration:underline;}
+
+.MainCon{padding:30px 0;}
+.TitleBox{height:40px;margin-bottom:30px;}
+.TitleBox h2{font-size:24px;color:#333;line-height:40px;padding-left:20px;font-weight:normal;position:relative;}
+.TitleBox h2:after{position:absolute;left:0;top:50%;margin-top:-10px;width:4px;height:23px;content:"~\url(../images/official/Tit-ico.png)\"";background:url(../images/official/Tit-ico.jpg) no-repeat;text-indent:-9999px;}
+.EntryBox{position:relative;width:1000px;height:760px;overflow:hidden;}
+.EntryList{position:absolute;top:0;left:0;width:1100px;height:760px;overflow:hidden;}
+.EntryList li{float:left;width:480px;height:360px;margin:0 40px 40px 0;}
+.EntryList .EntryTit{height:180px;position:relative;}
+.EntryList .EntryTit h3{padding-top:116px;font-size:24px;color:#fff;text-align:center;font-weight:normal;}
+.EntryLightBlue{background-color:#8ab8e6;}
+.EntryBlue{background-color:#6f92d6;}
+.EntryViolet{background-color:#8080c2;}
+.EntryGreen{background-color:#a5d9c2;}
+.EntryLightBlue:after{position:absolute;top:36px;left:50%;margin-left:-36.5px;width:73px;height:67px;content:"~\url(../images/official/Entry_a.png)\""; background-image:url(../images/official/Entry_a.png); background-repeat:no-repeat;text-indent:-9999px;}
+.EntryBlue:after{position:absolute;top:36px;left:50%;margin-left:-36.5px;width:73px;height:73px;content:"~\url(../images/official/Entry_b.png)\""; background-image:url(../images/official/Entry_b.png); background-repeat:no-repeat;text-indent:-9999px;}
+.EntryViolet:after{position:absolute;top:36px;left:50%;margin-left:-39px;width:78px;height:56px;content:"~\url(../images/official/Entry_c.png)\""; background-image:url(../images/official/Entry_c.png); background-repeat:no-repeat;text-indent:-9999px;}
+.EntryGreen:after{position:absolute;top:36px;left:50%;margin-left:-38.5px;width:77px;height:67px;content:"~\url(../images/official/Entry_d.png)\""; background-image:url(../images/official/Entry_d.png); background-repeat:no-repeat;text-indent:-9999px;}
+.EntryCon{border:1px solid #e0e0e0;border-top:none;background:#f7f7f7;height:179px;}
+.EntryCon p{text-align:center;font-size:14px;color:#333;line-height:24px;padding:18px 0;}
+.EntryCon .EntryBtn{display:block;width:200px;height:42px;background:#79b440; border-radius:4px;margin:0 auto;font-size:18px;text-align:center;line-height:40px;color:#fff;}
+/*联系我们
+.Contact{margin-top:40px;border-top:1px solid #e0e0e0;padding:20px 0;}
+.Contact h2{font-size:48px;text-align:center;color:#808080;font-weight:100;margin-bottom:40px;}
+.ContactTel{width:690px;border-right:1px solid #efefef;}
+.ContTel{border-bottom:1px solid #efefef;padding-bottom:20px;}
+.ContTex{width:345px;overflow:hidden;}
+.ContTex h3{font-size:20px;color:#666;margin-bottom:20px;}
+.ContTex p{font-size:14px;color:#808080;}
+.ContTex span{color:#4c4c4c;font-weight:bold;}
+.ContTex a{display:inline-block; vertical-align:middle;padding-left:10px;}
+.RightContTel{width:270px;}
+.RightContTel .ContTxt{height:36px;line-height:36px;padding-left:42px;font-size:14px;color:#4c4c4c;position:relative;margin-bottom:30px;}
+.RightContTel .TelIco:after{position:absolute;left:0;top:0;width:36px;height:36px;content:"~\url(../images/official/tel.png)\""; background:url(../images/official/tel.png) no-repeat;text-indent:-9999px;}
+.RightContTel .MailIco:after{position:absolute;left:0;top:0;width:36px;height:36px;content:"~\url(../images/official/email.png)\""; background:url(../images/official/email.png) no-repeat;text-indent:-9999px;}
+.ContImg{height:146px;}
+.ContImg p{float:left;width:110px;height:146px;line-height:30px;text-align:center;font-size:14px;color:#4c4c4c;margin:0 12px;}
+*/
+/*---------------页脚开始---------------*/
+.Contact{padding:60px 0;width:100%;height: auto;font-family: "微软雅黑";background-color: #292929;overflow: hidden;padding-bottom: 10px;}
+.Contact h2{font-size:48px;color:#808080;line-height:60px;text-align:center;font-weight:100;margin-bottom:58px;}
+.Contact_top{width: 1000px;height: auto;overflow: hidden;margin:0px auto;}
+.Contact_topLeft{float: left;width: 600px;height: auto;overflow: hidden;}
+.Contact_topLeft table{table-layout: fixed;width: 100%;}
+.Contact_topLeft table tr th{color:#e5e5e5; font-size: 18px; height: 50px; vertical-align: top;}
+.Contact_topLeft table tr td{color:#b2b2b2; font-size: 14px; height: 26px; line-height: 26px;}
+.Contact_topLeft table tr td a{color: #b2b2b2;}
+.Contact_topRight{float: right;width: 262px;height: auto;overflow: hidden;}
+.Contact_bottom{color: #808080;float: left;width: 100%;height: auto;margin-top: 36px;text-align: center;border-top: solid 1px #3e3e3e;}
+.Contact_bottom span{float:left; margin-top: 10px; margin-bottom: 10px; width: 100%; height: 20px; line-height: 20px;}
+.Contact_bottom a{color: #cccccc; margin-left: 5px; margin-right: 5px;}
+/*---------------页脚结束---------------*/
+/*---------------联系我们---------------*/
+.contactMe_ca{width: 100%;height: 486px;margin-top: 150px;background: url(../images/official/contactMe.png) no-repeat;overflow: hidden;}
+.contactMe_QQ_1,
+.contactMe_QQ_2,
+.contactMe_QQ_3,
+.contactMe_QQ_4{position: relative;display: block;width: 90px;height: 28px;cursor: pointer;background: url(../images/official/contactMe_QQ.png) no-repeat;overflow: hidden;}
+.contactMe_QQ_1{left: 140px; top: 238px;}
+.contactMe_QQ_2{left: 747px; top: 208px;}
+.contactMe_QQ_3{left: 140px; top: 400px;}
+.contactMe_QQ_4{left: 747px; top: 372px;}
+/*---------------联系我们 over---------------*/
+
+/*帐户管理*/
+.Account{height:340px;}
+.AccountLeft,.AccountRight{width:450px;height:340px;background:#fafafa;}
+.AccountLeft h2,.AccountRight h2{height:40px;line-height:40px;border-bottom:1px solid #ebebeb;padding-left:15px;font-weight:normal;font-size:14px;color:#333;}
+.TableBox{width:90%;margin:20px auto 0 auto;}
+.DataTable tr th,
+.DataTable tr td{height:45px;line-height:45px;text-align:left;font-size:14px;color:#333;}
+.DataTable tr th{color:#808080;font-size:14px;text-align:right; width:100px;}
+.TableBox input[type="button"]{float:left;color:#a0a0a0;width:auto;height:32px;padding:0 20px;margin-left:30px;cursor:pointer;border:1px solid #dbdbdb;border-radius:4px;-moz-border-radius:4px;background:#f0f0f0;}
+.TableBox input[type="button"]:hover{background:#e7e7e7;}
+.TableBox input[type="submit"]{float:left;color:#a0a0a0;width:auto;height:32px;padding:0 20px;margin-left:30px;cursor:pointer;border:1px solid #dbdbdb;border-radius:4px;-moz-border-radius:4px;background:#f0f0f0;}
+.TableBox input[type="submit"]:hover{background:#e7e7e7;}
+.TableBox input[type="password"]{float:left;border:1px solid #e0e0e0;background:#fff;width:168px;height:32px;line-height:32px;padding:0 5px;}
+.DataTable tr td .TabTi{float:left;line-height:32px;line-height:32px;margin-left:5px;color:#f00;}
+.DataTable tr td .TabBule{color:#6eb215;}
+.MainTit{float:left;height:42px;line-height:42px;border-left:1px solid #458dde;color:#bbcdef;margin-left:30px;margin-top:18px;font-size:18px;padding-left:20px;}
+.TitleBox h3{font-size:14px;color:#333;font-weight:normal;line-height:40px;}
+.BackBox{width: 678px;background:#fafafa;border:1px solid #e0e0e0; margin: 0 auto;}
+.BackCon{width:678px;margin:0 auto;}
+.BackCon .BackTxt{height:38px;line-height:38px;margin-bottom:15px;}
+.BackCon .BackTxt .BackTitCon{ float:left; width: 120px;height:38px;font-size: 14px; text-align: right; color:#333;}
+.BackCon .BackTxt .BackTitCon i{ display: inline-block;line-height: 38px; font-style: normal; color:#f00;margin-left: 15px; margin-right: 5px;}
+.BackCon .BackTxt select{ display:inline-block; width:322px; height: 34px;border:1px solid #e0e0e0;}
+.BackCon .BackTxt input[type="text"],.BackCon .BackTxt input[type="password"]{float:left;width:310px;height:34px;line-height:34px;border:1px solid #e0e0e0;background:#fff;padding:0 6px;}
+.BackCon .BackTxt input[type="text"]:hover,.BackCon .BackTxt input[type="password"]:hover{border:1px solid #318cf5;}
+.BackCon .BackTxt .BackTi{float:left;color:#f00;font-size:12px;line-height:36px;margin-left:10px;}
+.BackCon .BackTxt input[type="text"].YanTxt{width:120px;}
+.BackCon .BackBorder input[type="text"],.BackCon .BackBorder input[type="password"]{border:1px solid #f00;}
+.BackCon .BackTxt .YanMa{float:left;width:76px;height:36px;margin-left:10px;}
+.BackTxt input[type="button"]{width:310px;height:42px;background:#cccccc;border:none;color:#fff;font-size:18px;text-align:center; border-radius:6px; cursor:pointer;}
+.BackTxt input[type="submit"],.RegistBtn input[type="button"]{width:310px;height:42px;background:#318cf5;border:none;color:#fff;font-size:18px;text-align:center; border-radius:6px; cursor:pointer;}
+.BackTxt input[type="submit"]:hover,.RegistBtn input[type="button"]:hover{background:#4094f5;}
+.BackTxt input[type="submit"]:active,.RegistBtn input[type="button"]:active{background:#2e84e6;}
+.BackMail{padding:60px 0 30px 0;text-align:center;font-size:14px;color:#4c4c4c;line-height:28px;background:url(../images/official/mailico.png) center 20px no-repeat;}
+.BackCon h2{height:40px;line-height:40px;text-align:left;font-size:24px;font-weight:normal;color:#4c4c4c;margin-bottom:50px;border-bottom: 1px solid #dbdada;padding: 5px 0;}
+.BackTxt input[type="checkbox"]{display:inline-block; vertical-align:middle;}
+.BackLogin{font-size:14px;}
+.BackLogin a,.BackCon .BackTxt a,.TextListBox li a{color:#318cf5;}
+.BackLogin a:hover,.BackCon .BackTxt a:hover,.TextListBox li a:hover{ text-decoration:underline;}
+
+.RegisteredBox{padding:100px 0;border-bottom:1px solid #f0f0f0;}
+.RegistTxt{position:relative;padding-top:60px;text-align:center;font-size:14px;color:#4c4c4c;}
+.RegistTxt:after{position:absolute;top:0px;left:50%;margin-left:-14px;width:40px;height:28px;content:"~\url(../images/official/mailico.png)\"";background:url(../images/official/mailico.png) no-repeat;text-indent:-9999px;}
+.RegistBtn{height:40px;margin-top:40px;text-align:center;}
+.TextList{padding:10px 0;}
+.TextList h3{height:40px;line-height:40px;font-size:16px;color:#333;font-weight:normal;}
+.TextListBox li{height:26px;line-height:26px;padding-left:14px;background:url(../images/official/dian.png) left center no-repeat;color:#808080;font-size:14px;}
+
+
+.footer{padding:30px 0;background:#1c1d1f;}
+.FootMenu{font-size:12px;color:#d6d6d6;text-align:center;}
+.FootMenu a{color:#d6d6d6;padding:0 10px;}
+.Copyright{color:#808080;font-size:12px;line-height:26px;text-align:center;margin-top:20px;}
+
+.Agreement{padding:66px 0;}
+.Agreement h2{color:#404040;font-size:36px;text-align:center;line-height:50px;font-weight:normal;margin-bottom:20px;}
+.AgreementCon{border:1px solid #e5e5e5;border-top:5px solid #e5e5e5;height:540px;padding:10px;overflow-y:auto;}
+.AgreementCon h3{font-size:14px; font-family:'宋体';color:#808080;}
+.AgreementCon p{color:#808080;font-size:14px;line-height:26px;margin-bottom:10px;text-indent:24px;}
+
+.passwordGrade_list{width:273px;height:16px;line-height:16px;text-align:center;margin-bottom:15px;overflow:hidden;margin-left:120px;}
+.passwordGrade{color:#7d7d7d;float:left;width:88px;height:100%;font-size:12px;margin-right:2px;background-color:#dcdcdc;}
+
+.sendMailcode input[type="button"]{width:116px;height:38px;background:#318cf5;border:none;color:#fff;font-size:18px;text-align:center; border-radius:6px; cursor:pointer;}
+.sendMailcode input[type="button"]:hover{background:#4094f5;}
+.sendMailcode input[type="button"]:active{background:#2e84e6;}
+.disablsed input[type="button"]{width:116px;height:38px;background:#cccccc;border:none;color:#fff;font-size:18px;text-align:center; border-radius:6px; cursor:pointer;}
+.disablsed input[type="button"]:active{background:#cccccc;}

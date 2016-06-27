@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.dao.mybatis.mapper.UserDetilMapper" >
+  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.UserDetil" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="user_base_id" property="userBaseId" jdbcType="INTEGER" />
+    <result column="compellation" property="compellation" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="weChat" property="wechat" jdbcType="VARCHAR" />
+    <result column="mobilePhone" property="mobilephone" jdbcType="VARCHAR" />
+    <result column="epithet" property="epithet" jdbcType="VARCHAR" />
+    <result column="ico" property="ico" jdbcType="VARCHAR" />
+    <result column="connection_emial" property="connectionEmial" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_base_id, compellation, qq, weChat, mobilePhone, epithet, ico, connection_emial
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.UserDetilCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_userdetil
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.UserDetilKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from yx_userdetil
+    where id = #{id,jdbcType=INTEGER}
+      and user_base_id = #{userBaseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.hy.dao.mybatis.model.UserDetilKey" >
+    delete from yx_userdetil
+    where id = #{id,jdbcType=INTEGER}
+      and user_base_id = #{userBaseId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.UserDetilCriteria" >
+    delete from yx_userdetil
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hy.dao.mybatis.model.UserDetil" >
+    insert into yx_userdetil (id, user_base_id, compellation, 
+      qq, weChat, mobilePhone, 
+      epithet, ico, connection_emial
+      )
+    values (#{id,jdbcType=INTEGER}, #{userBaseId,jdbcType=INTEGER}, #{compellation,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{mobilephone,jdbcType=VARCHAR}, 
+      #{epithet,jdbcType=VARCHAR}, #{ico,jdbcType=VARCHAR}, #{connectionEmial,jdbcType=VARCHAR}
+      )
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.UserDetil" >
+    insert into yx_userdetil
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userBaseId != null" >
+        user_base_id,
+      </if>
+      <if test="compellation != null" >
+        compellation,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wechat != null" >
+        weChat,
+      </if>
+      <if test="mobilephone != null" >
+        mobilePhone,
+      </if>
+      <if test="epithet != null" >
+        epithet,
+      </if>
+      <if test="ico != null" >
+        ico,
+      </if>
+      <if test="connectionEmial != null" >
+        connection_emial,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userBaseId != null" >
+        #{userBaseId,jdbcType=INTEGER},
+      </if>
+      <if test="compellation != null" >
+        #{compellation,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="epithet != null" >
+        #{epithet,jdbcType=VARCHAR},
+      </if>
+      <if test="ico != null" >
+        #{ico,jdbcType=VARCHAR},
+      </if>
+      <if test="connectionEmial != null" >
+        #{connectionEmial,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.UserDetilCriteria" resultType="java.lang.Integer" >
+    select count(*) from yx_userdetil
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update yx_userdetil
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userBaseId != null" >
+        user_base_id = #{record.userBaseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compellation != null" >
+        compellation = #{record.compellation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        weChat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobilephone != null" >
+        mobilePhone = #{record.mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.epithet != null" >
+        epithet = #{record.epithet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ico != null" >
+        ico = #{record.ico,jdbcType=VARCHAR},
+      </if>
+      <if test="record.connectionEmial != null" >
+        connection_emial = #{record.connectionEmial,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update yx_userdetil
+    set id = #{record.id,jdbcType=INTEGER},
+      user_base_id = #{record.userBaseId,jdbcType=INTEGER},
+      compellation = #{record.compellation,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      weChat = #{record.wechat,jdbcType=VARCHAR},
+      mobilePhone = #{record.mobilephone,jdbcType=VARCHAR},
+      epithet = #{record.epithet,jdbcType=VARCHAR},
+      ico = #{record.ico,jdbcType=VARCHAR},
+      connection_emial = #{record.connectionEmial,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.UserDetil" >
+    update yx_userdetil
+    <set >
+      <if test="compellation != null" >
+        compellation = #{compellation,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        weChat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        mobilePhone = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="epithet != null" >
+        epithet = #{epithet,jdbcType=VARCHAR},
+      </if>
+      <if test="ico != null" >
+        ico = #{ico,jdbcType=VARCHAR},
+      </if>
+      <if test="connectionEmial != null" >
+        connection_emial = #{connectionEmial,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and user_base_id = #{userBaseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.UserDetil" >
+    update yx_userdetil
+    set compellation = #{compellation,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      weChat = #{wechat,jdbcType=VARCHAR},
+      mobilePhone = #{mobilephone,jdbcType=VARCHAR},
+      epithet = #{epithet,jdbcType=VARCHAR},
+      ico = #{ico,jdbcType=VARCHAR},
+      connection_emial = #{connectionEmial,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and user_base_id = #{userBaseId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_userdetil
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

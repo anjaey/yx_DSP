@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:util="http://www.springframework.org/schema/util"  
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/integration/kafka
+		http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+		 
+
+    <!-- 注解扫描 -->
+	<context:annotation-config />
+	<!-- 配置扫描包路径选项 -->
+	<context:component-scan base-package="com.hy.controller,com.hy.business,com.hy.dao,com.hy.util" />
+	
+	<!-- spring 启动时加载的Bean信息, 注释即可 -->
+	<bean class="com.hy.util.sys.init.spring.claz.InstantiationTracingBeanPostProcessor" />
+	
+	
+	<!-- 加载配置文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="properties">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="locations">
+			<list>
+				<value>classpath:base.properties</value>
+				<value>classpath:redis.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<import resource="redis.xml"/>
+	
+	<util:properties id="sql" location="classpath:sql.properties"/>  
+	
+	<!-- 数据源配置 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${name}"></property>
+		<property name="password" value="${psd}"></property>
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}"></property>
+		<property name="minIdle" value="${minIdle}"></property>
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<property name="initialSize" value="${initialSize}"></property>
+		<property name="testOnBorrow" value="true"></property>
+		<property name="testWhileIdle" value="true"></property>
+		<property name="testOnReturn" value="true"></property>
+	</bean>
+	<!-- ssp -->
+	<bean id="dataSourceSsp" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${ssp.driverClassName}"></property>
+		<property name="url" value="${ssp.url}"></property>
+		<property name="username" value="${ssp.name}"></property>
+		<property name="password" value="${ssp.psd}"></property>
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}"></property>
+		<property name="minIdle" value="${minIdle}"></property>
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<property name="initialSize" value="${initialSize}"></property>
+		<property name="testOnBorrow" value="true"></property>
+		<property name="testWhileIdle" value="true"></property>
+		<property name="testOnReturn" value="true"></property>
+	</bean>
+	
+	<!-- common数据层配置,springjdbc注入配置 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="jdbcTemplateSsp" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceSsp"></property>
+	</bean>
+	
+	<!-- 通用DAO注入 -->
+	<bean id="commonDao" class="com.hy.dao.common.impl.CommonDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+
+	<!-- mybatis config -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.hy.dao.mybatis" />
+	</bean>
+
+	<!-- 自动组装数据层 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.hy.dao.mybatis" />
+	</bean>
+	
+	<!-- 定义数据源事件 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- 事务控制   -->  
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 定义事务传播属性 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="select*" propagation="NOT_SUPPORTED" read-only="true" />
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception,RuntimeException" />
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception,RuntimeException" />
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception,RuntimeException" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 配制哪些对象需要SPRING去管理事务 -->
+	<!-- com包（及子包）下面所有以BusinessImpl结尾的对象都拥有事务语义 -->
+	<aop:config>
+		<aop:pointcut id="servicesPointcut" expression="execution(* com..*BusinessImpl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicesPointcut" />
+	</aop:config>
+  
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
+        <property name="maxIdle" value="${redis.maxIdle}" />  
+        <property name="maxTotal" value="${redis.maxActive}" />  
+        <property name="maxWaitMillis" value="${redis.maxWait}" />  
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />  
+    </bean>  
+      
+    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"  
+        p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}"  p:pool-config-ref="poolConfig"/>  
+      
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
+        <property name="connectionFactory"   ref="connectionFactory" />  
+        <!--         如果不配置Serializer，那么存储的时候智能使用String，如果用User类型存储，那么会提示错误User can't cast to String！！！  -->        
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<!--   
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+		</property> -->
+		<property name="valueSerializer">  
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />  
+        </property>
+    </bean>         
+	<!-- redis数据源配置 -->
+   
+	<bean id="es" class="java.util.concurrent.Executors" factory-method="newCachedThreadPool"> </bean> 
+
+</beans>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.dao.mybatis.mapper.PayRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.PayRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pay_money" property="payMoney" jdbcType="DECIMAL" />
+    <result column="pay_way" property="payWay" jdbcType="INTEGER" />
+    <result column="pay_time" property="payTime" jdbcType="BIGINT" />
+    <result column="pay_voucher" property="payVoucher" jdbcType="VARCHAR" />
+    <result column="payment_account" property="paymentAccount" jdbcType="INTEGER" />
+    <result column="payment_bank" property="paymentBank" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="check_state" property="checkState" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, pay_money, pay_way, pay_time, pay_voucher, payment_account, payment_bank, bank_account, 
+    check_state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.PayRecordCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_pay_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yx_pay_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yx_pay_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.PayRecordCriteria" >
+    delete from yx_pay_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hy.dao.mybatis.model.PayRecord" >
+    insert into yx_pay_record (id, pay_money, pay_way, 
+      pay_time, pay_voucher, payment_account, 
+      payment_bank, bank_account, check_state
+      )
+    values (#{id,jdbcType=INTEGER}, #{payMoney,jdbcType=DECIMAL}, #{payWay,jdbcType=INTEGER}, 
+      #{payTime,jdbcType=BIGINT}, #{payVoucher,jdbcType=VARCHAR}, #{paymentAccount,jdbcType=INTEGER}, 
+      #{paymentBank,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, #{checkState,jdbcType=INTEGER}
+      )
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.PayRecord" >
+    insert into yx_pay_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="payMoney != null" >
+        pay_money,
+      </if>
+      <if test="payWay != null" >
+        pay_way,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="payVoucher != null" >
+        pay_voucher,
+      </if>
+      <if test="paymentAccount != null" >
+        payment_account,
+      </if>
+      <if test="paymentBank != null" >
+        payment_bank,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="checkState != null" >
+        check_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="payMoney != null" >
+        #{payMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null" >
+        #{payWay,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=BIGINT},
+      </if>
+      <if test="payVoucher != null" >
+        #{payVoucher,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null" >
+        #{paymentAccount,jdbcType=INTEGER},
+      </if>
+      <if test="paymentBank != null" >
+        #{paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        #{checkState,jdbcType=INTEGER},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.PayRecordCriteria" resultType="java.lang.Integer" >
+    select count(*) from yx_pay_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update yx_pay_record
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.payMoney != null" >
+        pay_money = #{record.payMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payWay != null" >
+        pay_way = #{record.payWay,jdbcType=INTEGER},
+      </if>
+      <if test="record.payTime != null" >
+        pay_time = #{record.payTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.payVoucher != null" >
+        pay_voucher = #{record.payVoucher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentAccount != null" >
+        payment_account = #{record.paymentAccount,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymentBank != null" >
+        payment_bank = #{record.paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankAccount != null" >
+        bank_account = #{record.bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkState != null" >
+        check_state = #{record.checkState,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update yx_pay_record
+    set id = #{record.id,jdbcType=INTEGER},
+      pay_money = #{record.payMoney,jdbcType=DECIMAL},
+      pay_way = #{record.payWay,jdbcType=INTEGER},
+      pay_time = #{record.payTime,jdbcType=BIGINT},
+      pay_voucher = #{record.payVoucher,jdbcType=VARCHAR},
+      payment_account = #{record.paymentAccount,jdbcType=INTEGER},
+      payment_bank = #{record.paymentBank,jdbcType=VARCHAR},
+      bank_account = #{record.bankAccount,jdbcType=VARCHAR},
+      check_state = #{record.checkState,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.PayRecord" >
+    update yx_pay_record
+    <set >
+      <if test="payMoney != null" >
+        pay_money = #{payMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null" >
+        pay_way = #{payWay,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=BIGINT},
+      </if>
+      <if test="payVoucher != null" >
+        pay_voucher = #{payVoucher,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentAccount != null" >
+        payment_account = #{paymentAccount,jdbcType=INTEGER},
+      </if>
+      <if test="paymentBank != null" >
+        payment_bank = #{paymentBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        check_state = #{checkState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.PayRecord" >
+    update yx_pay_record
+    set pay_money = #{payMoney,jdbcType=DECIMAL},
+      pay_way = #{payWay,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=BIGINT},
+      pay_voucher = #{payVoucher,jdbcType=VARCHAR},
+      payment_account = #{paymentAccount,jdbcType=INTEGER},
+      payment_bank = #{paymentBank,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      check_state = #{checkState,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_pay_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

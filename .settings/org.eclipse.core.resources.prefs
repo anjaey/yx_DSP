@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/res/css/official/index.css=UTF-8
+encoding//WebContent/WEB-INF/views/admin/privilege/addPrivilege.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/official/footer.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/official/header.jsp=UTF-8
+encoding//res/base.properties=UTF-8
+encoding//res/config.properties=UTF-8
+encoding//res/dir.properties=UTF-8
+encoding//res/log4j.properties=UTF-8
+encoding//res/mail.properties=UTF-8
+encoding//res/redis.properties=UTF-8
+encoding/<project>=UTF-8

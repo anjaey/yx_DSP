@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
+
+    <!-- <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool">
+    <constructor-arg index="0" ref="jedisPoolConfig"/>
+    <constructor-arg index="1">
+      <list>
+      在这里进行分布式的主从配置
+         <bean name="slaver">
+          <constructor-arg index="0" value="${redis.slaver.host}"/>
+          <constructor-arg index="1" value="${redis.slaver.port}" type="int"/>
+        </bean>
+         <bean name="master">
+          <constructor-arg index="0" value="${redis.master.host}"/>
+          <constructor-arg index="1" value="${redis.master.port}" type="int"/>
+        </bean>
+      </list>
+    </constructor-arg>
+  </bean>
+
+  <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+    <property name="maxTotal" value="2048" />
+    <property name="maxIdle" value="200" />
+    <property name="numTestsPerEvictionRun" value="1024"/>
+    <property name="timeBetweenEvictionRunsMillis" value="30000" />
+    <property name="minEvictableIdleTimeMillis" value="-1" />
+    <property name="softMinEvictableIdleTimeMillis" value="10000" />
+    <property name="maxWaitMillis" value="1500"/>
+    <property name="testOnBorrow" value="true" />
+    <property name="testWhileIdle" value="true"/>
+    <property name="testOnReturn" value="false"/>
+    <property name="jmxEnabled" value="true"/>
+    <property name="jmxNamePrefix" value="youyuan"/>
+    <property name="blockWhenExhausted" value="false"/>
+  </bean> -->
+  
+  <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="50" />
+        <property name="maxIdle" value="8" />
+        <property name="maxWaitMillis" value="1000" />
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <!-- <property name="testWhileIdle" value="true"/> -->
+    </bean>
+
+    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool"  scope="singleton">
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+        <constructor-arg index="1">
+            <list>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg name="host" value="${redis.host}" />
+                    <constructor-arg name="port" value="${redis.port}" />
+                    <constructor-arg name="timeout" value="${redis.timeout}" />
+                    <constructor-arg name="weight" value="1" />
+                </bean>
+                <!--  <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg name="host" value="${redis.host}"/>
+                    <constructor-arg name="port" value="${redis.slaver.port}" />
+                    <constructor-arg name="timeout" value="${redis.timeout}" />
+                    <constructor-arg name="weight" value="1" />
+                </bean> -->
+            </list>
+        </constructor-arg>
+    </bean>
+  
+</beans>
