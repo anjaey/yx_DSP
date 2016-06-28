@@ -1,6 +1,6 @@
 package com.hy.dao.mybatis.model;
 
-public class AlignmentStages {
+public class AlignmentPlatform {
     private Integer id;
 
     private String name;

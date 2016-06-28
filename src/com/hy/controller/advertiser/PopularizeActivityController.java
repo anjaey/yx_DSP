@@ -76,11 +76,11 @@ public class PopularizeActivityController extends BaseController{
 	public void findPopularizeActivityListAndPage(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
 		Map<String, Object> map1 = new HashMap<String, Object>();
 		try {
-//			List<Map<String, Object>> listmap = popularizeActivityBusiness.selectActivityAndPage(parammap, queryPage);
+			List<Map<String, Object>> listmap = popularizeActivityBusiness.selectActivityAndPage(parammap, queryPage);
 
 			String vmPath = File.separator + "vm" + File.separator + "popularizeActivity";
 
-//			map1 = initpage("popularizeActivityPage.vm", vmPath, listmap, queryPage);
+			map1 = initpage("popularizeActivityPage.vm", vmPath, listmap, queryPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -3,7 +3,7 @@ package com.hy.dao.mybatis.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlignmentStagesCriteria {
+public class AlignmentPlatformCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -14,7 +14,7 @@ public class AlignmentStagesCriteria {
 
     protected Integer limitEnd;
 
-    public AlignmentStagesCriteria() {
+    public AlignmentPlatformCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

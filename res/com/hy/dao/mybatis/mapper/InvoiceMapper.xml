@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.dao.mybatis.mapper.InvoiceMapper" >
+  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.Invoice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="invoice_encoding" property="invoiceEncoding" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="tax_rate" property="taxRate" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="proposer_user" property="proposerUser" jdbcType="INTEGER" />
+    <result column="invoice_title" property="invoiceTitle" jdbcType="VARCHAR" />
+    <result column="project" property="project" jdbcType="VARCHAR" />
+    <result column="proposer_money" property="proposerMoney" jdbcType="DECIMAL" />
+    <result column="proposer_time" property="proposerTime" jdbcType="BIGINT" />
+    <result column="on_invoice_money" property="onInvoiceMoney" jdbcType="DECIMAL" />
+    <result column="on_invoice_paper_no" property="onInvoicePaperNo" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="on_invoice_time" property="onInvoiceTime" jdbcType="BIGINT" />
+    <result column="on_invoice_user" property="onInvoiceUser" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, invoice_encoding, type, tax_rate, category, create_time, proposer_user, invoice_title, 
+    project, proposer_money, proposer_time, on_invoice_money, on_invoice_paper_no, number, 
+    on_invoice_time, on_invoice_user, state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.InvoiceCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yx_invoice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yx_invoice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.InvoiceCriteria" >
+    delete from yx_invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hy.dao.mybatis.model.Invoice" >
+    insert into yx_invoice (id, invoice_encoding, type, 
+      tax_rate, category, create_time, 
+      proposer_user, invoice_title, project, 
+      proposer_money, proposer_time, on_invoice_money, 
+      on_invoice_paper_no, number, on_invoice_time, 
+      on_invoice_user, state)
+    values (#{id,jdbcType=INTEGER}, #{invoiceEncoding,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{taxRate,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, #{createTime,jdbcType=BIGINT}, 
+      #{proposerUser,jdbcType=INTEGER}, #{invoiceTitle,jdbcType=VARCHAR}, #{project,jdbcType=VARCHAR}, 
+      #{proposerMoney,jdbcType=DECIMAL}, #{proposerTime,jdbcType=BIGINT}, #{onInvoiceMoney,jdbcType=DECIMAL}, 
+      #{onInvoicePaperNo,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{onInvoiceTime,jdbcType=BIGINT}, 
+      #{onInvoiceUser,jdbcType=INTEGER}, #{state,jdbcType=INTEGER})
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.Invoice" >
+    insert into yx_invoice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invoiceEncoding != null" >
+        invoice_encoding,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="taxRate != null" >
+        tax_rate,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="proposerUser != null" >
+        proposer_user,
+      </if>
+      <if test="invoiceTitle != null" >
+        invoice_title,
+      </if>
+      <if test="project != null" >
+        project,
+      </if>
+      <if test="proposerMoney != null" >
+        proposer_money,
+      </if>
+      <if test="proposerTime != null" >
+        proposer_time,
+      </if>
+      <if test="onInvoiceMoney != null" >
+        on_invoice_money,
+      </if>
+      <if test="onInvoicePaperNo != null" >
+        on_invoice_paper_no,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="onInvoiceTime != null" >
+        on_invoice_time,
+      </if>
+      <if test="onInvoiceUser != null" >
+        on_invoice_user,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceEncoding != null" >
+        #{invoiceEncoding,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="proposerUser != null" >
+        #{proposerUser,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceTitle != null" >
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null" >
+        #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="proposerMoney != null" >
+        #{proposerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="proposerTime != null" >
+        #{proposerTime,jdbcType=BIGINT},
+      </if>
+      <if test="onInvoiceMoney != null" >
+        #{onInvoiceMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="onInvoicePaperNo != null" >
+        #{onInvoicePaperNo,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="onInvoiceTime != null" >
+        #{onInvoiceTime,jdbcType=BIGINT},
+      </if>
+      <if test="onInvoiceUser != null" >
+        #{onInvoiceUser,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.InvoiceCriteria" resultType="java.lang.Integer" >
+    select count(*) from yx_invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update yx_invoice
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.invoiceEncoding != null" >
+        invoice_encoding = #{record.invoiceEncoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxRate != null" >
+        tax_rate = #{record.taxRate,jdbcType=INTEGER},
+      </if>
+      <if test="record.category != null" >
+        category = #{record.category,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.proposerUser != null" >
+        proposer_user = #{record.proposerUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.invoiceTitle != null" >
+        invoice_title = #{record.invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.project != null" >
+        project = #{record.project,jdbcType=VARCHAR},
+      </if>
+      <if test="record.proposerMoney != null" >
+        proposer_money = #{record.proposerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.proposerTime != null" >
+        proposer_time = #{record.proposerTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.onInvoiceMoney != null" >
+        on_invoice_money = #{record.onInvoiceMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.onInvoicePaperNo != null" >
+        on_invoice_paper_no = #{record.onInvoicePaperNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.number != null" >
+        number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.onInvoiceTime != null" >
+        on_invoice_time = #{record.onInvoiceTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.onInvoiceUser != null" >
+        on_invoice_user = #{record.onInvoiceUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update yx_invoice
+    set id = #{record.id,jdbcType=INTEGER},
+      invoice_encoding = #{record.invoiceEncoding,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=INTEGER},
+      tax_rate = #{record.taxRate,jdbcType=INTEGER},
+      category = #{record.category,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      proposer_user = #{record.proposerUser,jdbcType=INTEGER},
+      invoice_title = #{record.invoiceTitle,jdbcType=VARCHAR},
+      project = #{record.project,jdbcType=VARCHAR},
+      proposer_money = #{record.proposerMoney,jdbcType=DECIMAL},
+      proposer_time = #{record.proposerTime,jdbcType=BIGINT},
+      on_invoice_money = #{record.onInvoiceMoney,jdbcType=DECIMAL},
+      on_invoice_paper_no = #{record.onInvoicePaperNo,jdbcType=INTEGER},
+      number = #{record.number,jdbcType=VARCHAR},
+      on_invoice_time = #{record.onInvoiceTime,jdbcType=BIGINT},
+      on_invoice_user = #{record.onInvoiceUser,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.Invoice" >
+    update yx_invoice
+    <set >
+      <if test="invoiceEncoding != null" >
+        invoice_encoding = #{invoiceEncoding,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="taxRate != null" >
+        tax_rate = #{taxRate,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="proposerUser != null" >
+        proposer_user = #{proposerUser,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceTitle != null" >
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null" >
+        project = #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="proposerMoney != null" >
+        proposer_money = #{proposerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="proposerTime != null" >
+        proposer_time = #{proposerTime,jdbcType=BIGINT},
+      </if>
+      <if test="onInvoiceMoney != null" >
+        on_invoice_money = #{onInvoiceMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="onInvoicePaperNo != null" >
+        on_invoice_paper_no = #{onInvoicePaperNo,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="onInvoiceTime != null" >
+        on_invoice_time = #{onInvoiceTime,jdbcType=BIGINT},
+      </if>
+      <if test="onInvoiceUser != null" >
+        on_invoice_user = #{onInvoiceUser,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.Invoice" >
+    update yx_invoice
+    set invoice_encoding = #{invoiceEncoding,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      tax_rate = #{taxRate,jdbcType=INTEGER},
+      category = #{category,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=BIGINT},
+      proposer_user = #{proposerUser,jdbcType=INTEGER},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      project = #{project,jdbcType=VARCHAR},
+      proposer_money = #{proposerMoney,jdbcType=DECIMAL},
+      proposer_time = #{proposerTime,jdbcType=BIGINT},
+      on_invoice_money = #{onInvoiceMoney,jdbcType=DECIMAL},
+      on_invoice_paper_no = #{onInvoicePaperNo,jdbcType=INTEGER},
+      number = #{number,jdbcType=VARCHAR},
+      on_invoice_time = #{onInvoiceTime,jdbcType=BIGINT},
+      on_invoice_user = #{onInvoiceUser,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from yx_invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

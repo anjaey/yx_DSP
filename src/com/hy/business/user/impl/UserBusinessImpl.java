@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hy.business.user.IUserBusiness;
 import com.hy.dao.mybatis.mapper.AdvertiserMapper;
+import com.hy.dao.mybatis.mapper.UserDetilMapper;
 import com.hy.dao.mybatis.mapper.UserbasicMapper;
 import com.hy.dao.mybatis.model.Advertiser;
 import com.hy.dao.mybatis.model.AdvertiserCriteria;
+import com.hy.dao.mybatis.model.UserDetil;
+import com.hy.dao.mybatis.model.UserDetilCriteria;
 import com.hy.dao.mybatis.model.Userbasic;
 import com.hy.dao.mybatis.model.UserbasicCriteria;
 import com.hy.dao.mybatis.model.UserbasicCriteria.Criteria;
@@ -38,6 +41,8 @@ public class UserBusinessImpl implements IUserBusiness{
 	private UserbasicMapper userbasicMapper;
 	@Autowired
 	private AdvertiserMapper advertiserMapper;
+	@Autowired
+	private UserDetilMapper userDetilMapper;
 
 	/**
 	 * 
@@ -52,6 +57,7 @@ public class UserBusinessImpl implements IUserBusiness{
 	 * @update
 	 * @date
 	 */
+	@SuppressWarnings("unused")
 	private boolean reCaptcha(Map<String, Object> map, Map<String, Object> returnParam, HttpServletRequest reqeust) {
 
 		Object errorcount = reqeust.getSession().getAttribute(ConstantUtil.RECAPTCHA_NUM);
@@ -219,6 +225,24 @@ public class UserBusinessImpl implements IUserBusiness{
 			e.printStackTrace();
 		}
 		return retuanmap;
+	}
+
+	@Override
+	public Map<String, Object> selectUserDetilByid(Integer userid) {
+		Map<String, Object> map = null;
+		try {
+			UserDetilCriteria udc = new UserDetilCriteria();
+
+			com.hy.dao.mybatis.model.UserDetilCriteria.Criteria criteria = udc.createCriteria();
+
+			criteria.andUserBaseIdEqualTo(userid);
+			UserDetil userDetil = userDetilMapper.selectByExampleForOne(udc);
+			map = ListMapUtil.convertEntityToMap(userDetil);;
+		} catch (Exception e) {
+			//  Auto-generated catch block
+			e.printStackTrace();
+		}
+		return map;
 	}
 
 	@SuppressWarnings("unchecked")

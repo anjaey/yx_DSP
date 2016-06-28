@@ -22,6 +22,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.hy.util.common.DateUtil;
 import com.hy.util.common.StringUtils;
+import com.hy.util.common.UuidUtil;
 
 /**
  * 上传工具
@@ -89,10 +90,12 @@ public class UploadUtils {
                         String fileName = file.getOriginalFilename();  
                         // 如果名称不为“”,说明该文件存在，否则说明该文件不存在  
                         if (fileName.trim() != "") {
+                        	//生成uuid，防止图片重名
+                        	String uuid = UuidUtil.generateClusterUUID();
                         	
                         	UploadBean uploadBean = new UploadBean();
                         	uploadBean.setMultipartFile(file);
-                        	uploadBean.setNameOld(fileName);
+                        	uploadBean.setNameOld(uuid + "-" + fileName);
                         	
                         	// 文件大小
                         	if (maxSize != null 

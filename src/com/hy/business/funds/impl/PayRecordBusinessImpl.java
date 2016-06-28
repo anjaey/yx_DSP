@@ -12,6 +12,7 @@ import com.hy.dao.mybatis.model.PayRecordCriteria.Criteria;
 import com.hy.dao.mybatis.model.PayRecord;
 import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantUtil;
+import com.hy.util.common.DateUtil;
 import com.hy.util.common.ListMapUtil;
 import com.hy.util.common.PageUtil;
 import com.hy.util.common.QueryPage;
@@ -59,6 +60,18 @@ public class PayRecordBusinessImpl implements IPayRecordBusiness{
 			//查询
 			List<PayRecord> rolelist = payRecordMapper.selectByExample(prc);
 			listmap = ListMapUtil.convertListEntityToListMap(rolelist);
+			
+			for (Map<String, Object> payRecordmap : listmap) {
+				//申请日期
+				Object proposerTimeobj = payRecordmap.get("proposerTime");
+				String proposerTime = DateUtil.getDateStrByLongObj(proposerTimeobj, DateUtil.YYYY_MM_DD);
+				payRecordmap.put("proposerTimestr", proposerTime);
+				
+				//上账日期
+				Object onInvoiceTimeobj = payRecordmap.get("onInvoiceTime");
+				String onInvoiceTime = DateUtil.getDateStrByLongObj(onInvoiceTimeobj, DateUtil.YYYY_MM_DD);
+				payRecordmap.put("onInvoiceTime", onInvoiceTime);
+			}
 
 			//统计数量
 			int pagecount = payRecordMapper.countByExample(prc);

@@ -9,7 +9,7 @@ import com.hy.util.common.QueryPage;
 
 /**
  * 
- * 支付记录
+ * 支付/充值记录
  * 
  * @author hy
  *
@@ -18,7 +18,7 @@ import com.hy.util.common.QueryPage;
 public interface IPayRecordBusiness {
 	
 	/**
-	 * 分页查询支付记录，
+	 * 分页查询支付/充值记录，
 	 * @author hy
 	 * @date 2016年6月17日下午3:38:04
 	 * @param parammap
@@ -31,7 +31,7 @@ public interface IPayRecordBusiness {
 			QueryPage queryPage);
  
 	/**
-	 * 添加支付记录信息
+	 * 添加支付记录信息,充值记录，充值
 	 * @author hy
 	 * @date 2016年6月17日下午3:39:32
 	 * @param map

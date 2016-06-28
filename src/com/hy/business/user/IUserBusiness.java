@@ -15,6 +15,25 @@ import com.hy.dao.mybatis.model.Userbasic;
 public interface IUserBusiness {
 	
 	/**
+	 * 根据userid查询详细信息
+	 * 
+	 * @author hy
+	 * @date 2016年5月3日下午2:29:31
+	 * @param map 可以是任意条件 其中key为 userBasic表字段名称
+	 * @return map
+	 * map中格式为：
+	 * 
+	 *  key 为 userBasic   value 为个人基本信息，如果不存在，为空
+	 *  key 为 userDetil   value 为个人详细信息，如果不存在，为空
+	 *  
+	 *  
+	 * @update
+	 * @date
+	 */
+	public Map<String, Object> selectUserDetilByid(Integer userid);
+	
+	
+	/**
 	 * 比较session中的user 和数据库的user 是否有改变
 	 * 如果有改变 强制返回登录页面
 	 * @author hy

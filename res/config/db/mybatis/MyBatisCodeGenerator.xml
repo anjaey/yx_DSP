@@ -69,7 +69,7 @@
 			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
 			<table tableName="yx_creative" domainObjectName="Creative" />
 		-->	
-		<table tableName="yx_userbasic" domainObjectName="Userbasic" />
+				<table tableName="yx_userbasic" domainObjectName="Userbasic" />
 			<table tableName="yx_userdetil" domainObjectName="UserDetil" />
 			<table tableName="yx_role" domainObjectName="Role" />
 			<table tableName="yx_user_role" domainObjectName="UserRole" />
@@ -80,14 +80,17 @@
 			<table tableName="yx_advertisement" domainObjectName="Advertisement" />
 			<table tableName="yx_advertisement_basic" domainObjectName="AdvertisementBasic" />
 			<table tableName="yx_advertisement_pricing" domainObjectName="AdvertisementPricing" />
-			<table tableName="yx_alignment_platform" domainObjectName="AlignmentStages" />
+			<table tableName="yx_alignment_platform" domainObjectName="AlignmentPlatform" />
 			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
 			<table tableName="yx_popularize_activity" domainObjectName="PopularizeActivity" />
 			<table tableName="yx_refund_record" domainObjectName="RefundRecord" />
+			<table tableName="yx_creative" domainObjectName="Creative" />
+			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
 			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
 			<table tableName="yx_pay_record" domainObjectName="PayRecord" />
 			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
-			<table tableName="yx_creative" domainObjectName="Creative" />	
+			<table tableName="yx_creative" domainObjectName="Creative" />
+			<table tableName="yx_invoice" domainObjectName="Invoice" />
 			
 	</context>
 

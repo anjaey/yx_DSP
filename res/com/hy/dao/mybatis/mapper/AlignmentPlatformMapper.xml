@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hy.dao.mybatis.mapper.AlignmentStagesMapper" >
-  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.AlignmentStages" >
+<mapper namespace="com.hy.dao.mybatis.mapper.AlignmentPlatformMapper" >
+  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.AlignmentPlatform" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
@@ -77,7 +77,7 @@
     id, name, type, company_name, IDcard, address_city, address_area, address_detail, 
     url, create_user, create_time, aptitudes_file
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AlignmentStagesCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AlignmentPlatformCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -104,13 +104,13 @@
     delete from yx_alignment_platform
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.AlignmentStagesCriteria" >
+  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.AlignmentPlatformCriteria" >
     delete from yx_alignment_platform
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hy.dao.mybatis.model.AlignmentStages" >
+  <insert id="insert" parameterType="com.hy.dao.mybatis.model.AlignmentPlatform" >
     insert into yx_alignment_platform (id, name, type, 
       company_name, IDcard, address_city, 
       address_area, address_detail, url, 
@@ -125,7 +125,7 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.AlignmentStages" >
+  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.AlignmentPlatform" >
     insert into yx_alignment_platform
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -207,7 +207,7 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.AlignmentStagesCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.AlignmentPlatformCriteria" resultType="java.lang.Integer" >
     select count(*) from yx_alignment_platform
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -275,7 +275,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.AlignmentStages" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.AlignmentPlatform" >
     update yx_alignment_platform
     <set >
       <if test="name != null" >
@@ -314,7 +314,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.AlignmentStages" >
+  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.AlignmentPlatform" >
     update yx_alignment_platform
     set name = #{name,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},

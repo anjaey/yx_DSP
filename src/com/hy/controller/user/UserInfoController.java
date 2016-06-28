@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.hy.business.user.IPrivilegeBusiness;
 import com.hy.business.user.IRoleBusiness;
 import com.hy.business.user.IUserBusiness;
@@ -23,7 +22,6 @@ import com.hy.util.common.ConstantUtil;
 import com.hy.util.common.DirUtil;
 import com.hy.util.common.JsonUtil;
 import com.hy.util.common.ListMapUtil;
-import com.hy.util.common.MD5Util;
 import com.hy.util.upload.UploadBean;
 import com.hy.util.upload.UploadException;
 import com.hy.util.upload.UploadUtils;
@@ -191,9 +189,8 @@ public class UserInfoController extends BaseController{
 		}
 	}
 	
-
 	/**
-	 * 后台修改用户密码
+	 * 修改用户密码
 	 * @author hy
 	 * @date 2016年5月5日下午2:26:33
 	 * @update
@@ -220,7 +217,7 @@ public class UserInfoController extends BaseController{
 		response.setHeader("Pragma","no-cache"); 
 		response.setDateHeader ("Expires", 0); 
 		this.getSession().removeAttribute(ConstantUtil.COMMON_IMG_SESSIONID);
-		this.getSession().removeAttribute(ConstantUtil.SESSION_NAV_USER);
+		this.getSession().removeAttribute(ConstantUtil.SESSION_LOGIN_USER);
 	}
 
 	/**
