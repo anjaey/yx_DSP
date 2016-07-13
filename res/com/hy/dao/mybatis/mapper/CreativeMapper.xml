@@ -1,48 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hy.dao.mybatis.mapper.CreativeMapper">
-  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.Creative">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="creative_id" jdbcType="VARCHAR" property="creativeId" />
-    <result column="advertisement_id" jdbcType="INTEGER" property="advertisementId" />
-    <result column="traffic_type" jdbcType="INTEGER" property="trafficType" />
-    <result column="creative_type" jdbcType="INTEGER" property="creativeType" />
-    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
-    <result column="click_url" jdbcType="VARCHAR" property="clickUrl" />
-    <result column="advert_id" jdbcType="INTEGER" property="advertId" />
-    <result column="monitor_url" jdbcType="VARCHAR" property="monitorUrl" />
-    <result column="height" jdbcType="INTEGER" property="height" />
-    <result column="weight" jdbcType="INTEGER" property="weight" />
-    <result column="creative_address" jdbcType="VARCHAR" property="creativeAddress" />
-    <result column="creative_name" jdbcType="VARCHAR" property="creativeName" />
-    <result column="creative_down_url" jdbcType="VARCHAR" property="creativeDownUrl" />
-    <result column="creative_des" jdbcType="VARCHAR" property="creativeDes" />
-    <result column="creative_app_size" jdbcType="REAL" property="creativeAppSize" />
-    <result column="create_time" jdbcType="BIGINT" property="createTime" />
-    <result column="check_time" jdbcType="BIGINT" property="checkTime" />
-    <result column="check_state" jdbcType="INTEGER" property="checkState" />
-    <result column="check_conclusion" jdbcType="VARCHAR" property="checkConclusion" />
-    <result column="create_id" jdbcType="INTEGER" property="createId" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.dao.mybatis.mapper.CreativeMapper" >
+  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.Creative" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="creative_id" property="creativeId" jdbcType="VARCHAR" />
+    <result column="advertisement_id" property="advertisementId" jdbcType="INTEGER" />
+    <result column="traffic_type" property="trafficType" jdbcType="INTEGER" />
+    <result column="creative_type" property="creativeType" jdbcType="INTEGER" />
+    <result column="target_url" property="targetUrl" jdbcType="VARCHAR" />
+    <result column="click_url" property="clickUrl" jdbcType="VARCHAR" />
+    <result column="advert_id" property="advertId" jdbcType="INTEGER" />
+    <result column="monitor_url" property="monitorUrl" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="creative_address" property="creativeAddress" jdbcType="VARCHAR" />
+    <result column="creative_name" property="creativeName" jdbcType="VARCHAR" />
+    <result column="creative_down_url" property="creativeDownUrl" jdbcType="VARCHAR" />
+    <result column="creative_des" property="creativeDes" jdbcType="VARCHAR" />
+    <result column="creative_app_size" property="creativeAppSize" jdbcType="REAL" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="check_time" property="checkTime" jdbcType="BIGINT" />
+    <result column="check_state" property="checkState" jdbcType="INTEGER" />
+    <result column="check_conclusion" property="checkConclusion" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="deduct_quantity_proportion_before" property="deductQuantityProportionBefore" jdbcType="REAL" />
+    <result column="deduct_quantity_proportion_update_userid" property="deductQuantityProportionUpdateUserid" jdbcType="INTEGER" />
+    <result column="deduct_quantity_proportion_update_time" property="deductQuantityProportionUpdateTime" jdbcType="BIGINT" />
+    <result column="deduct_quantity_proportion_later" property="deductQuantityProportionLater" jdbcType="REAL" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -53,25 +57,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -82,53 +86,56 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, creative_id, advertisement_id, traffic_type, creative_type, target_url, click_url, 
     advert_id, monitor_url, height, weight, creative_address, creative_name, creative_down_url, 
     creative_des, creative_app_size, create_time, check_time, check_state, check_conclusion, 
-    create_id
+    create_user, deduct_quantity_proportion_before, deduct_quantity_proportion_update_userid, 
+    deduct_quantity_proportion_update_time, deduct_quantity_proportion_later
   </sql>
-  <select id="selectByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from yx_creative
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
-    <if test="limitStart != null and limitStart&gt;=0">
+    <if test="limitStart != null and limitStart>=0" >
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from yx_creative
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from yx_creative
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria">
+  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" >
     delete from yx_creative
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hy.dao.mybatis.model.Creative">
+  <insert id="insert" parameterType="com.hy.dao.mybatis.model.Creative" >
     insert into yx_creative (id, creative_id, advertisement_id, 
       traffic_type, creative_type, target_url, 
       click_url, advert_id, monitor_url, 
       height, weight, creative_address, 
       creative_name, creative_down_url, creative_des, 
       creative_app_size, create_time, check_time, 
-      check_state, check_conclusion, create_id
+      check_state, check_conclusion, create_user, 
+      deduct_quantity_proportion_before, deduct_quantity_proportion_update_userid, 
+      deduct_quantity_proportion_update_time, deduct_quantity_proportion_later
       )
     values (#{id,jdbcType=INTEGER}, #{creativeId,jdbcType=VARCHAR}, #{advertisementId,jdbcType=INTEGER}, 
       #{trafficType,jdbcType=INTEGER}, #{creativeType,jdbcType=INTEGER}, #{targetUrl,jdbcType=VARCHAR}, 
@@ -136,226 +143,264 @@
       #{height,jdbcType=INTEGER}, #{weight,jdbcType=INTEGER}, #{creativeAddress,jdbcType=VARCHAR}, 
       #{creativeName,jdbcType=VARCHAR}, #{creativeDownUrl,jdbcType=VARCHAR}, #{creativeDes,jdbcType=VARCHAR}, 
       #{creativeAppSize,jdbcType=REAL}, #{createTime,jdbcType=BIGINT}, #{checkTime,jdbcType=BIGINT}, 
-      #{checkState,jdbcType=INTEGER}, #{checkConclusion,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}
+      #{checkState,jdbcType=INTEGER}, #{checkConclusion,jdbcType=VARCHAR}, #{createUser,jdbcType=INTEGER}, 
+      #{deductQuantityProportionBefore,jdbcType=REAL}, #{deductQuantityProportionUpdateUserid,jdbcType=INTEGER}, 
+      #{deductQuantityProportionUpdateTime,jdbcType=BIGINT}, #{deductQuantityProportionLater,jdbcType=REAL}
       )
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.Creative">
+  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.Creative" >
     insert into yx_creative
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="creativeId != null">
+      <if test="creativeId != null" >
         creative_id,
       </if>
-      <if test="advertisementId != null">
+      <if test="advertisementId != null" >
         advertisement_id,
       </if>
-      <if test="trafficType != null">
+      <if test="trafficType != null" >
         traffic_type,
       </if>
-      <if test="creativeType != null">
+      <if test="creativeType != null" >
         creative_type,
       </if>
-      <if test="targetUrl != null">
+      <if test="targetUrl != null" >
         target_url,
       </if>
-      <if test="clickUrl != null">
+      <if test="clickUrl != null" >
         click_url,
       </if>
-      <if test="advertId != null">
+      <if test="advertId != null" >
         advert_id,
       </if>
-      <if test="monitorUrl != null">
+      <if test="monitorUrl != null" >
         monitor_url,
       </if>
-      <if test="height != null">
+      <if test="height != null" >
         height,
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         weight,
       </if>
-      <if test="creativeAddress != null">
+      <if test="creativeAddress != null" >
         creative_address,
       </if>
-      <if test="creativeName != null">
+      <if test="creativeName != null" >
         creative_name,
       </if>
-      <if test="creativeDownUrl != null">
+      <if test="creativeDownUrl != null" >
         creative_down_url,
       </if>
-      <if test="creativeDes != null">
+      <if test="creativeDes != null" >
         creative_des,
       </if>
-      <if test="creativeAppSize != null">
+      <if test="creativeAppSize != null" >
         creative_app_size,
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != null" >
         check_time,
       </if>
-      <if test="checkState != null">
+      <if test="checkState != null" >
         check_state,
       </if>
-      <if test="checkConclusion != null">
+      <if test="checkConclusion != null" >
         check_conclusion,
       </if>
-      <if test="createId != null">
-        create_id,
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="deductQuantityProportionBefore != null" >
+        deduct_quantity_proportion_before,
+      </if>
+      <if test="deductQuantityProportionUpdateUserid != null" >
+        deduct_quantity_proportion_update_userid,
+      </if>
+      <if test="deductQuantityProportionUpdateTime != null" >
+        deduct_quantity_proportion_update_time,
+      </if>
+      <if test="deductQuantityProportionLater != null" >
+        deduct_quantity_proportion_later,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="creativeId != null">
+      <if test="creativeId != null" >
         #{creativeId,jdbcType=VARCHAR},
       </if>
-      <if test="advertisementId != null">
+      <if test="advertisementId != null" >
         #{advertisementId,jdbcType=INTEGER},
       </if>
-      <if test="trafficType != null">
+      <if test="trafficType != null" >
         #{trafficType,jdbcType=INTEGER},
       </if>
-      <if test="creativeType != null">
+      <if test="creativeType != null" >
         #{creativeType,jdbcType=INTEGER},
       </if>
-      <if test="targetUrl != null">
+      <if test="targetUrl != null" >
         #{targetUrl,jdbcType=VARCHAR},
       </if>
-      <if test="clickUrl != null">
+      <if test="clickUrl != null" >
         #{clickUrl,jdbcType=VARCHAR},
       </if>
-      <if test="advertId != null">
+      <if test="advertId != null" >
         #{advertId,jdbcType=INTEGER},
       </if>
-      <if test="monitorUrl != null">
+      <if test="monitorUrl != null" >
         #{monitorUrl,jdbcType=VARCHAR},
       </if>
-      <if test="height != null">
+      <if test="height != null" >
         #{height,jdbcType=INTEGER},
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         #{weight,jdbcType=INTEGER},
       </if>
-      <if test="creativeAddress != null">
+      <if test="creativeAddress != null" >
         #{creativeAddress,jdbcType=VARCHAR},
       </if>
-      <if test="creativeName != null">
+      <if test="creativeName != null" >
         #{creativeName,jdbcType=VARCHAR},
       </if>
-      <if test="creativeDownUrl != null">
+      <if test="creativeDownUrl != null" >
         #{creativeDownUrl,jdbcType=VARCHAR},
       </if>
-      <if test="creativeDes != null">
+      <if test="creativeDes != null" >
         #{creativeDes,jdbcType=VARCHAR},
       </if>
-      <if test="creativeAppSize != null">
+      <if test="creativeAppSize != null" >
         #{creativeAppSize,jdbcType=REAL},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         #{createTime,jdbcType=BIGINT},
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != null" >
         #{checkTime,jdbcType=BIGINT},
       </if>
-      <if test="checkState != null">
+      <if test="checkState != null" >
         #{checkState,jdbcType=INTEGER},
       </if>
-      <if test="checkConclusion != null">
+      <if test="checkConclusion != null" >
         #{checkConclusion,jdbcType=VARCHAR},
       </if>
-      <if test="createId != null">
-        #{createId,jdbcType=INTEGER},
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="deductQuantityProportionBefore != null" >
+        #{deductQuantityProportionBefore,jdbcType=REAL},
+      </if>
+      <if test="deductQuantityProportionUpdateUserid != null" >
+        #{deductQuantityProportionUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="deductQuantityProportionUpdateTime != null" >
+        #{deductQuantityProportionUpdateTime,jdbcType=BIGINT},
+      </if>
+      <if test="deductQuantityProportionLater != null" >
+        #{deductQuantityProportionLater,jdbcType=REAL},
       </if>
     </trim>
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" resultType="java.lang.Integer" >
     select count(*) from yx_creative
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update yx_creative
-    <set>
-      <if test="record.id != null">
+    <set >
+      <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.creativeId != null">
+      <if test="record.creativeId != null" >
         creative_id = #{record.creativeId,jdbcType=VARCHAR},
       </if>
-      <if test="record.advertisementId != null">
+      <if test="record.advertisementId != null" >
         advertisement_id = #{record.advertisementId,jdbcType=INTEGER},
       </if>
-      <if test="record.trafficType != null">
+      <if test="record.trafficType != null" >
         traffic_type = #{record.trafficType,jdbcType=INTEGER},
       </if>
-      <if test="record.creativeType != null">
+      <if test="record.creativeType != null" >
         creative_type = #{record.creativeType,jdbcType=INTEGER},
       </if>
-      <if test="record.targetUrl != null">
+      <if test="record.targetUrl != null" >
         target_url = #{record.targetUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.clickUrl != null">
+      <if test="record.clickUrl != null" >
         click_url = #{record.clickUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.advertId != null">
+      <if test="record.advertId != null" >
         advert_id = #{record.advertId,jdbcType=INTEGER},
       </if>
-      <if test="record.monitorUrl != null">
+      <if test="record.monitorUrl != null" >
         monitor_url = #{record.monitorUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.height != null">
+      <if test="record.height != null" >
         height = #{record.height,jdbcType=INTEGER},
       </if>
-      <if test="record.weight != null">
+      <if test="record.weight != null" >
         weight = #{record.weight,jdbcType=INTEGER},
       </if>
-      <if test="record.creativeAddress != null">
+      <if test="record.creativeAddress != null" >
         creative_address = #{record.creativeAddress,jdbcType=VARCHAR},
       </if>
-      <if test="record.creativeName != null">
+      <if test="record.creativeName != null" >
         creative_name = #{record.creativeName,jdbcType=VARCHAR},
       </if>
-      <if test="record.creativeDownUrl != null">
+      <if test="record.creativeDownUrl != null" >
         creative_down_url = #{record.creativeDownUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.creativeDes != null">
+      <if test="record.creativeDes != null" >
         creative_des = #{record.creativeDes,jdbcType=VARCHAR},
       </if>
-      <if test="record.creativeAppSize != null">
+      <if test="record.creativeAppSize != null" >
         creative_app_size = #{record.creativeAppSize,jdbcType=REAL},
       </if>
-      <if test="record.createTime != null">
+      <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=BIGINT},
       </if>
-      <if test="record.checkTime != null">
+      <if test="record.checkTime != null" >
         check_time = #{record.checkTime,jdbcType=BIGINT},
       </if>
-      <if test="record.checkState != null">
+      <if test="record.checkState != null" >
         check_state = #{record.checkState,jdbcType=INTEGER},
       </if>
-      <if test="record.checkConclusion != null">
+      <if test="record.checkConclusion != null" >
         check_conclusion = #{record.checkConclusion,jdbcType=VARCHAR},
       </if>
-      <if test="record.createId != null">
-        create_id = #{record.createId,jdbcType=INTEGER},
+      <if test="record.createUser != null" >
+        create_user = #{record.createUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductQuantityProportionBefore != null" >
+        deduct_quantity_proportion_before = #{record.deductQuantityProportionBefore,jdbcType=REAL},
+      </if>
+      <if test="record.deductQuantityProportionUpdateUserid != null" >
+        deduct_quantity_proportion_update_userid = #{record.deductQuantityProportionUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductQuantityProportionUpdateTime != null" >
+        deduct_quantity_proportion_update_time = #{record.deductQuantityProportionUpdateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.deductQuantityProportionLater != null" >
+        deduct_quantity_proportion_later = #{record.deductQuantityProportionLater,jdbcType=REAL},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update yx_creative
     set id = #{record.id,jdbcType=INTEGER},
       creative_id = #{record.creativeId,jdbcType=VARCHAR},
@@ -377,78 +422,94 @@
       check_time = #{record.checkTime,jdbcType=BIGINT},
       check_state = #{record.checkState,jdbcType=INTEGER},
       check_conclusion = #{record.checkConclusion,jdbcType=VARCHAR},
-      create_id = #{record.createId,jdbcType=INTEGER}
-    <if test="_parameter != null">
+      create_user = #{record.createUser,jdbcType=INTEGER},
+      deduct_quantity_proportion_before = #{record.deductQuantityProportionBefore,jdbcType=REAL},
+      deduct_quantity_proportion_update_userid = #{record.deductQuantityProportionUpdateUserid,jdbcType=INTEGER},
+      deduct_quantity_proportion_update_time = #{record.deductQuantityProportionUpdateTime,jdbcType=BIGINT},
+      deduct_quantity_proportion_later = #{record.deductQuantityProportionLater,jdbcType=REAL}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.Creative">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.Creative" >
     update yx_creative
-    <set>
-      <if test="creativeId != null">
+    <set >
+      <if test="creativeId != null" >
         creative_id = #{creativeId,jdbcType=VARCHAR},
       </if>
-      <if test="advertisementId != null">
+      <if test="advertisementId != null" >
         advertisement_id = #{advertisementId,jdbcType=INTEGER},
       </if>
-      <if test="trafficType != null">
+      <if test="trafficType != null" >
         traffic_type = #{trafficType,jdbcType=INTEGER},
       </if>
-      <if test="creativeType != null">
+      <if test="creativeType != null" >
         creative_type = #{creativeType,jdbcType=INTEGER},
       </if>
-      <if test="targetUrl != null">
+      <if test="targetUrl != null" >
         target_url = #{targetUrl,jdbcType=VARCHAR},
       </if>
-      <if test="clickUrl != null">
+      <if test="clickUrl != null" >
         click_url = #{clickUrl,jdbcType=VARCHAR},
       </if>
-      <if test="advertId != null">
+      <if test="advertId != null" >
         advert_id = #{advertId,jdbcType=INTEGER},
       </if>
-      <if test="monitorUrl != null">
+      <if test="monitorUrl != null" >
         monitor_url = #{monitorUrl,jdbcType=VARCHAR},
       </if>
-      <if test="height != null">
+      <if test="height != null" >
         height = #{height,jdbcType=INTEGER},
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         weight = #{weight,jdbcType=INTEGER},
       </if>
-      <if test="creativeAddress != null">
+      <if test="creativeAddress != null" >
         creative_address = #{creativeAddress,jdbcType=VARCHAR},
       </if>
-      <if test="creativeName != null">
+      <if test="creativeName != null" >
         creative_name = #{creativeName,jdbcType=VARCHAR},
       </if>
-      <if test="creativeDownUrl != null">
+      <if test="creativeDownUrl != null" >
         creative_down_url = #{creativeDownUrl,jdbcType=VARCHAR},
       </if>
-      <if test="creativeDes != null">
+      <if test="creativeDes != null" >
         creative_des = #{creativeDes,jdbcType=VARCHAR},
       </if>
-      <if test="creativeAppSize != null">
+      <if test="creativeAppSize != null" >
         creative_app_size = #{creativeAppSize,jdbcType=REAL},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time = #{createTime,jdbcType=BIGINT},
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != null" >
         check_time = #{checkTime,jdbcType=BIGINT},
       </if>
-      <if test="checkState != null">
+      <if test="checkState != null" >
         check_state = #{checkState,jdbcType=INTEGER},
       </if>
-      <if test="checkConclusion != null">
+      <if test="checkConclusion != null" >
         check_conclusion = #{checkConclusion,jdbcType=VARCHAR},
       </if>
-      <if test="createId != null">
-        create_id = #{createId,jdbcType=INTEGER},
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="deductQuantityProportionBefore != null" >
+        deduct_quantity_proportion_before = #{deductQuantityProportionBefore,jdbcType=REAL},
+      </if>
+      <if test="deductQuantityProportionUpdateUserid != null" >
+        deduct_quantity_proportion_update_userid = #{deductQuantityProportionUpdateUserid,jdbcType=INTEGER},
+      </if>
+      <if test="deductQuantityProportionUpdateTime != null" >
+        deduct_quantity_proportion_update_time = #{deductQuantityProportionUpdateTime,jdbcType=BIGINT},
+      </if>
+      <if test="deductQuantityProportionLater != null" >
+        deduct_quantity_proportion_later = #{deductQuantityProportionLater,jdbcType=REAL},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.Creative">
+  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.Creative" >
     update yx_creative
     set creative_id = #{creativeId,jdbcType=VARCHAR},
       advertisement_id = #{advertisementId,jdbcType=INTEGER},
@@ -469,505 +530,24 @@
       check_time = #{checkTime,jdbcType=BIGINT},
       check_state = #{checkState,jdbcType=INTEGER},
       check_conclusion = #{checkConclusion,jdbcType=VARCHAR},
-      create_id = #{createId,jdbcType=INTEGER}
+      create_user = #{createUser,jdbcType=INTEGER},
+      deduct_quantity_proportion_before = #{deductQuantityProportionBefore,jdbcType=REAL},
+      deduct_quantity_proportion_update_userid = #{deductQuantityProportionUpdateUserid,jdbcType=INTEGER},
+      deduct_quantity_proportion_update_time = #{deductQuantityProportionUpdateTime,jdbcType=BIGINT},
+      deduct_quantity_proportion_later = #{deductQuantityProportionLater,jdbcType=REAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByExampleForOne" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from yx_creative
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.Creative">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="creative_id" jdbcType="VARCHAR" property="creativeId" />
-    <result column="advertisement_id" jdbcType="INTEGER" property="advertisementId" />
-    <result column="traffic_type" jdbcType="INTEGER" property="trafficType" />
-    <result column="creative_type" jdbcType="INTEGER" property="creativeType" />
-    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
-    <result column="click_url" jdbcType="VARCHAR" property="clickUrl" />
-    <result column="advert_id" jdbcType="INTEGER" property="advertId" />
-    <result column="monitor_url" jdbcType="VARCHAR" property="monitorUrl" />
-    <result column="height" jdbcType="INTEGER" property="height" />
-    <result column="weight" jdbcType="INTEGER" property="weight" />
-    <result column="creative_address" jdbcType="VARCHAR" property="creativeAddress" />
-    <result column="creative_name" jdbcType="VARCHAR" property="creativeName" />
-    <result column="creative_down_url" jdbcType="VARCHAR" property="creativeDownUrl" />
-    <result column="creative_des" jdbcType="VARCHAR" property="creativeDes" />
-    <result column="creative_app_size" jdbcType="REAL" property="creativeAppSize" />
-    <result column="create_time" jdbcType="BIGINT" property="createTime" />
-    <result column="check_time" jdbcType="BIGINT" property="checkTime" />
-    <result column="check_state" jdbcType="INTEGER" property="checkState" />
-    <result column="check_conclusion" jdbcType="VARCHAR" property="checkConclusion" />
-    <result column="create_id" jdbcType="INTEGER" property="createId" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, creative_id, advertisement_id, traffic_type, creative_type, target_url, click_url, 
-    advert_id, monitor_url, height, weight, creative_address, creative_name, creative_down_url, 
-    creative_des, creative_app_size, create_time, check_time, check_state, check_conclusion, 
-    create_id
-  </sql>
-  <select id="selectByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from yx_creative
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <if test="limitStart != null and limitStart&gt;=0">
-      limit #{limitStart} , #{limitEnd}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from yx_creative
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from yx_creative
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria">
-    delete from yx_creative
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.hy.dao.mybatis.model.Creative">
-    insert into yx_creative (id, creative_id, advertisement_id, 
-      traffic_type, creative_type, target_url, 
-      click_url, advert_id, monitor_url, 
-      height, weight, creative_address, 
-      creative_name, creative_down_url, creative_des, 
-      creative_app_size, create_time, check_time, 
-      check_state, check_conclusion, create_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{creativeId,jdbcType=VARCHAR}, #{advertisementId,jdbcType=INTEGER}, 
-      #{trafficType,jdbcType=INTEGER}, #{creativeType,jdbcType=INTEGER}, #{targetUrl,jdbcType=VARCHAR}, 
-      #{clickUrl,jdbcType=VARCHAR}, #{advertId,jdbcType=INTEGER}, #{monitorUrl,jdbcType=VARCHAR}, 
-      #{height,jdbcType=INTEGER}, #{weight,jdbcType=INTEGER}, #{creativeAddress,jdbcType=VARCHAR}, 
-      #{creativeName,jdbcType=VARCHAR}, #{creativeDownUrl,jdbcType=VARCHAR}, #{creativeDes,jdbcType=VARCHAR}, 
-      #{creativeAppSize,jdbcType=REAL}, #{createTime,jdbcType=BIGINT}, #{checkTime,jdbcType=BIGINT}, 
-      #{checkState,jdbcType=INTEGER}, #{checkConclusion,jdbcType=VARCHAR}, #{createId,jdbcType=INTEGER}
-      )
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-  </insert>
-  <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.Creative">
-    insert into yx_creative
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="creativeId != null">
-        creative_id,
-      </if>
-      <if test="advertisementId != null">
-        advertisement_id,
-      </if>
-      <if test="trafficType != null">
-        traffic_type,
-      </if>
-      <if test="creativeType != null">
-        creative_type,
-      </if>
-      <if test="targetUrl != null">
-        target_url,
-      </if>
-      <if test="clickUrl != null">
-        click_url,
-      </if>
-      <if test="advertId != null">
-        advert_id,
-      </if>
-      <if test="monitorUrl != null">
-        monitor_url,
-      </if>
-      <if test="height != null">
-        height,
-      </if>
-      <if test="weight != null">
-        weight,
-      </if>
-      <if test="creativeAddress != null">
-        creative_address,
-      </if>
-      <if test="creativeName != null">
-        creative_name,
-      </if>
-      <if test="creativeDownUrl != null">
-        creative_down_url,
-      </if>
-      <if test="creativeDes != null">
-        creative_des,
-      </if>
-      <if test="creativeAppSize != null">
-        creative_app_size,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="checkTime != null">
-        check_time,
-      </if>
-      <if test="checkState != null">
-        check_state,
-      </if>
-      <if test="checkConclusion != null">
-        check_conclusion,
-      </if>
-      <if test="createId != null">
-        create_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="creativeId != null">
-        #{creativeId,jdbcType=VARCHAR},
-      </if>
-      <if test="advertisementId != null">
-        #{advertisementId,jdbcType=INTEGER},
-      </if>
-      <if test="trafficType != null">
-        #{trafficType,jdbcType=INTEGER},
-      </if>
-      <if test="creativeType != null">
-        #{creativeType,jdbcType=INTEGER},
-      </if>
-      <if test="targetUrl != null">
-        #{targetUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="clickUrl != null">
-        #{clickUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="advertId != null">
-        #{advertId,jdbcType=INTEGER},
-      </if>
-      <if test="monitorUrl != null">
-        #{monitorUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="height != null">
-        #{height,jdbcType=INTEGER},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=INTEGER},
-      </if>
-      <if test="creativeAddress != null">
-        #{creativeAddress,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeName != null">
-        #{creativeName,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeDownUrl != null">
-        #{creativeDownUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeDes != null">
-        #{creativeDes,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeAppSize != null">
-        #{creativeAppSize,jdbcType=REAL},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=BIGINT},
-      </if>
-      <if test="checkTime != null">
-        #{checkTime,jdbcType=BIGINT},
-      </if>
-      <if test="checkState != null">
-        #{checkState,jdbcType=INTEGER},
-      </if>
-      <if test="checkConclusion != null">
-        #{checkConclusion,jdbcType=VARCHAR},
-      </if>
-      <if test="createId != null">
-        #{createId,jdbcType=INTEGER},
-      </if>
-    </trim>
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-  </insert>
-  <select id="countByExample" parameterType="com.hy.dao.mybatis.model.CreativeCriteria" resultType="java.lang.Integer">
-    select count(*) from yx_creative
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update yx_creative
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.creativeId != null">
-        creative_id = #{record.creativeId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.advertisementId != null">
-        advertisement_id = #{record.advertisementId,jdbcType=INTEGER},
-      </if>
-      <if test="record.trafficType != null">
-        traffic_type = #{record.trafficType,jdbcType=INTEGER},
-      </if>
-      <if test="record.creativeType != null">
-        creative_type = #{record.creativeType,jdbcType=INTEGER},
-      </if>
-      <if test="record.targetUrl != null">
-        target_url = #{record.targetUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.clickUrl != null">
-        click_url = #{record.clickUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.advertId != null">
-        advert_id = #{record.advertId,jdbcType=INTEGER},
-      </if>
-      <if test="record.monitorUrl != null">
-        monitor_url = #{record.monitorUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.height != null">
-        height = #{record.height,jdbcType=INTEGER},
-      </if>
-      <if test="record.weight != null">
-        weight = #{record.weight,jdbcType=INTEGER},
-      </if>
-      <if test="record.creativeAddress != null">
-        creative_address = #{record.creativeAddress,jdbcType=VARCHAR},
-      </if>
-      <if test="record.creativeName != null">
-        creative_name = #{record.creativeName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.creativeDownUrl != null">
-        creative_down_url = #{record.creativeDownUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.creativeDes != null">
-        creative_des = #{record.creativeDes,jdbcType=VARCHAR},
-      </if>
-      <if test="record.creativeAppSize != null">
-        creative_app_size = #{record.creativeAppSize,jdbcType=REAL},
-      </if>
-      <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=BIGINT},
-      </if>
-      <if test="record.checkTime != null">
-        check_time = #{record.checkTime,jdbcType=BIGINT},
-      </if>
-      <if test="record.checkState != null">
-        check_state = #{record.checkState,jdbcType=INTEGER},
-      </if>
-      <if test="record.checkConclusion != null">
-        check_conclusion = #{record.checkConclusion,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createId != null">
-        create_id = #{record.createId,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update yx_creative
-    set id = #{record.id,jdbcType=INTEGER},
-      creative_id = #{record.creativeId,jdbcType=VARCHAR},
-      advertisement_id = #{record.advertisementId,jdbcType=INTEGER},
-      traffic_type = #{record.trafficType,jdbcType=INTEGER},
-      creative_type = #{record.creativeType,jdbcType=INTEGER},
-      target_url = #{record.targetUrl,jdbcType=VARCHAR},
-      click_url = #{record.clickUrl,jdbcType=VARCHAR},
-      advert_id = #{record.advertId,jdbcType=INTEGER},
-      monitor_url = #{record.monitorUrl,jdbcType=VARCHAR},
-      height = #{record.height,jdbcType=INTEGER},
-      weight = #{record.weight,jdbcType=INTEGER},
-      creative_address = #{record.creativeAddress,jdbcType=VARCHAR},
-      creative_name = #{record.creativeName,jdbcType=VARCHAR},
-      creative_down_url = #{record.creativeDownUrl,jdbcType=VARCHAR},
-      creative_des = #{record.creativeDes,jdbcType=VARCHAR},
-      creative_app_size = #{record.creativeAppSize,jdbcType=REAL},
-      create_time = #{record.createTime,jdbcType=BIGINT},
-      check_time = #{record.checkTime,jdbcType=BIGINT},
-      check_state = #{record.checkState,jdbcType=INTEGER},
-      check_conclusion = #{record.checkConclusion,jdbcType=VARCHAR},
-      create_id = #{record.createId,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.Creative">
-    update yx_creative
-    <set>
-      <if test="creativeId != null">
-        creative_id = #{creativeId,jdbcType=VARCHAR},
-      </if>
-      <if test="advertisementId != null">
-        advertisement_id = #{advertisementId,jdbcType=INTEGER},
-      </if>
-      <if test="trafficType != null">
-        traffic_type = #{trafficType,jdbcType=INTEGER},
-      </if>
-      <if test="creativeType != null">
-        creative_type = #{creativeType,jdbcType=INTEGER},
-      </if>
-      <if test="targetUrl != null">
-        target_url = #{targetUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="clickUrl != null">
-        click_url = #{clickUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="advertId != null">
-        advert_id = #{advertId,jdbcType=INTEGER},
-      </if>
-      <if test="monitorUrl != null">
-        monitor_url = #{monitorUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="height != null">
-        height = #{height,jdbcType=INTEGER},
-      </if>
-      <if test="weight != null">
-        weight = #{weight,jdbcType=INTEGER},
-      </if>
-      <if test="creativeAddress != null">
-        creative_address = #{creativeAddress,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeName != null">
-        creative_name = #{creativeName,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeDownUrl != null">
-        creative_down_url = #{creativeDownUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeDes != null">
-        creative_des = #{creativeDes,jdbcType=VARCHAR},
-      </if>
-      <if test="creativeAppSize != null">
-        creative_app_size = #{creativeAppSize,jdbcType=REAL},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=BIGINT},
-      </if>
-      <if test="checkTime != null">
-        check_time = #{checkTime,jdbcType=BIGINT},
-      </if>
-      <if test="checkState != null">
-        check_state = #{checkState,jdbcType=INTEGER},
-      </if>
-      <if test="checkConclusion != null">
-        check_conclusion = #{checkConclusion,jdbcType=VARCHAR},
-      </if>
-      <if test="createId != null">
-        create_id = #{createId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.Creative">
-    update yx_creative
-    set creative_id = #{creativeId,jdbcType=VARCHAR},
-      advertisement_id = #{advertisementId,jdbcType=INTEGER},
-      traffic_type = #{trafficType,jdbcType=INTEGER},
-      creative_type = #{creativeType,jdbcType=INTEGER},
-      target_url = #{targetUrl,jdbcType=VARCHAR},
-      click_url = #{clickUrl,jdbcType=VARCHAR},
-      advert_id = #{advertId,jdbcType=INTEGER},
-      monitor_url = #{monitorUrl,jdbcType=VARCHAR},
-      height = #{height,jdbcType=INTEGER},
-      weight = #{weight,jdbcType=INTEGER},
-      creative_address = #{creativeAddress,jdbcType=VARCHAR},
-      creative_name = #{creativeName,jdbcType=VARCHAR},
-      creative_down_url = #{creativeDownUrl,jdbcType=VARCHAR},
-      creative_des = #{creativeDes,jdbcType=VARCHAR},
-      creative_app_size = #{creativeAppSize,jdbcType=REAL},
-      create_time = #{createTime,jdbcType=BIGINT},
-      check_time = #{checkTime,jdbcType=BIGINT},
-      check_state = #{checkState,jdbcType=INTEGER},
-      check_conclusion = #{checkConclusion,jdbcType=VARCHAR},
-      create_id = #{createId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByExampleForOne" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from yx_creative
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>

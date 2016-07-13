@@ -5,45 +5,37 @@ public class AdvertisementCollimation {
 
     private Integer basicId;
 
-    private Integer runTimeState;
-
-    private String runTimeValueJson;
-
     private Integer areaState;
 
     private String areaValueJson;
 
-    private String fluxState;
-
-    private String fluxValueJson;
-
-    private String sexState;
+    private Integer sexState;
 
     private String sexValueJson;
 
-    private String ageState;
+    private Integer ageState;
 
     private String ageValueJson;
 
-    private String constellationState;
-
-    private String constellationValueJson;
-
-    private String educationState;
-
-    private String educationValueJson;
-
-    private String earningState;
-
-    private String earningValueJson;
-
-    private String emotionState;
-
-    private String emotionValueJson;
-
-    private String interestState;
+    private Integer interestState;
 
     private String interestValueJson;
+
+    private Integer operatingSystemState;
+
+    private String operatingSystemValueJson;
+
+    private Integer networkEnvironmentState;
+
+    private String networkEnvironmentValueJson;
+
+    private Integer operatorState;
+
+    private String operatorValueJson;
+
+    private Integer deviceTypeState;
+
+    private String deviceTypeValueJson;
 
     public Integer getId() {
         return id;
@@ -59,22 +51,6 @@ public class AdvertisementCollimation {
 
     public void setBasicId(Integer basicId) {
         this.basicId = basicId;
-    }
-
-    public Integer getRunTimeState() {
-        return runTimeState;
-    }
-
-    public void setRunTimeState(Integer runTimeState) {
-        this.runTimeState = runTimeState;
-    }
-
-    public String getRunTimeValueJson() {
-        return runTimeValueJson;
-    }
-
-    public void setRunTimeValueJson(String runTimeValueJson) {
-        this.runTimeValueJson = runTimeValueJson == null ? null : runTimeValueJson.trim();
     }
 
     public Integer getAreaState() {
@@ -93,28 +69,12 @@ public class AdvertisementCollimation {
         this.areaValueJson = areaValueJson == null ? null : areaValueJson.trim();
     }
 
-    public String getFluxState() {
-        return fluxState;
-    }
-
-    public void setFluxState(String fluxState) {
-        this.fluxState = fluxState == null ? null : fluxState.trim();
-    }
-
-    public String getFluxValueJson() {
-        return fluxValueJson;
-    }
-
-    public void setFluxValueJson(String fluxValueJson) {
-        this.fluxValueJson = fluxValueJson == null ? null : fluxValueJson.trim();
-    }
-
-    public String getSexState() {
+    public Integer getSexState() {
         return sexState;
     }
 
-    public void setSexState(String sexState) {
-        this.sexState = sexState == null ? null : sexState.trim();
+    public void setSexState(Integer sexState) {
+        this.sexState = sexState;
     }
 
     public String getSexValueJson() {
@@ -125,12 +85,12 @@ public class AdvertisementCollimation {
         this.sexValueJson = sexValueJson == null ? null : sexValueJson.trim();
     }
 
-    public String getAgeState() {
+    public Integer getAgeState() {
         return ageState;
     }
 
-    public void setAgeState(String ageState) {
-        this.ageState = ageState == null ? null : ageState.trim();
+    public void setAgeState(Integer ageState) {
+        this.ageState = ageState;
     }
 
     public String getAgeValueJson() {
@@ -141,76 +101,12 @@ public class AdvertisementCollimation {
         this.ageValueJson = ageValueJson == null ? null : ageValueJson.trim();
     }
 
-    public String getConstellationState() {
-        return constellationState;
-    }
-
-    public void setConstellationState(String constellationState) {
-        this.constellationState = constellationState == null ? null : constellationState.trim();
-    }
-
-    public String getConstellationValueJson() {
-        return constellationValueJson;
-    }
-
-    public void setConstellationValueJson(String constellationValueJson) {
-        this.constellationValueJson = constellationValueJson == null ? null : constellationValueJson.trim();
-    }
-
-    public String getEducationState() {
-        return educationState;
-    }
-
-    public void setEducationState(String educationState) {
-        this.educationState = educationState == null ? null : educationState.trim();
-    }
-
-    public String getEducationValueJson() {
-        return educationValueJson;
-    }
-
-    public void setEducationValueJson(String educationValueJson) {
-        this.educationValueJson = educationValueJson == null ? null : educationValueJson.trim();
-    }
-
-    public String getEarningState() {
-        return earningState;
-    }
-
-    public void setEarningState(String earningState) {
-        this.earningState = earningState == null ? null : earningState.trim();
-    }
-
-    public String getEarningValueJson() {
-        return earningValueJson;
-    }
-
-    public void setEarningValueJson(String earningValueJson) {
-        this.earningValueJson = earningValueJson == null ? null : earningValueJson.trim();
-    }
-
-    public String getEmotionState() {
-        return emotionState;
-    }
-
-    public void setEmotionState(String emotionState) {
-        this.emotionState = emotionState == null ? null : emotionState.trim();
-    }
-
-    public String getEmotionValueJson() {
-        return emotionValueJson;
-    }
-
-    public void setEmotionValueJson(String emotionValueJson) {
-        this.emotionValueJson = emotionValueJson == null ? null : emotionValueJson.trim();
-    }
-
-    public String getInterestState() {
+    public Integer getInterestState() {
         return interestState;
     }
 
-    public void setInterestState(String interestState) {
-        this.interestState = interestState == null ? null : interestState.trim();
+    public void setInterestState(Integer interestState) {
+        this.interestState = interestState;
     }
 
     public String getInterestValueJson() {
@@ -219,5 +115,69 @@ public class AdvertisementCollimation {
 
     public void setInterestValueJson(String interestValueJson) {
         this.interestValueJson = interestValueJson == null ? null : interestValueJson.trim();
+    }
+
+    public Integer getOperatingSystemState() {
+        return operatingSystemState;
+    }
+
+    public void setOperatingSystemState(Integer operatingSystemState) {
+        this.operatingSystemState = operatingSystemState;
+    }
+
+    public String getOperatingSystemValueJson() {
+        return operatingSystemValueJson;
+    }
+
+    public void setOperatingSystemValueJson(String operatingSystemValueJson) {
+        this.operatingSystemValueJson = operatingSystemValueJson == null ? null : operatingSystemValueJson.trim();
+    }
+
+    public Integer getNetworkEnvironmentState() {
+        return networkEnvironmentState;
+    }
+
+    public void setNetworkEnvironmentState(Integer networkEnvironmentState) {
+        this.networkEnvironmentState = networkEnvironmentState;
+    }
+
+    public String getNetworkEnvironmentValueJson() {
+        return networkEnvironmentValueJson;
+    }
+
+    public void setNetworkEnvironmentValueJson(String networkEnvironmentValueJson) {
+        this.networkEnvironmentValueJson = networkEnvironmentValueJson == null ? null : networkEnvironmentValueJson.trim();
+    }
+
+    public Integer getOperatorState() {
+        return operatorState;
+    }
+
+    public void setOperatorState(Integer operatorState) {
+        this.operatorState = operatorState;
+    }
+
+    public String getOperatorValueJson() {
+        return operatorValueJson;
+    }
+
+    public void setOperatorValueJson(String operatorValueJson) {
+        this.operatorValueJson = operatorValueJson == null ? null : operatorValueJson.trim();
+    }
+
+    public Integer getDeviceTypeState() {
+        return deviceTypeState;
+    }
+
+    public void setDeviceTypeState(Integer deviceTypeState) {
+        this.deviceTypeState = deviceTypeState;
+    }
+
+    public String getDeviceTypeValueJson() {
+        return deviceTypeValueJson;
+    }
+
+    public void setDeviceTypeValueJson(String deviceTypeValueJson) {
+        this.deviceTypeValueJson = deviceTypeValueJson == null ? null : deviceTypeValueJson.trim();
     }
 }

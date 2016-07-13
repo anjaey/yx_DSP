@@ -27,7 +27,7 @@ import com.hy.util.page.PageUtil;
 import com.hy.util.velocity.VelocityUtils;
 
 public class BaseController {
-	protected Log log = LogFactory.getLog(BaseController.class);
+	protected static Log log = LogFactory.getLog(BaseController.class);
 	
 	/**
 	 * BaseController父类注入
@@ -37,7 +37,7 @@ public class BaseController {
 	/**
 	 * BaseController父类注入
 	 */
-	protected HttpServletResponse response = null;
+	protected static HttpServletResponse response = null;
 	
 	/**
 	 * 绑定参数前缀
@@ -57,7 +57,7 @@ public class BaseController {
 	 * @date
 	 */
 	public Integer getSessionLoginUserid() {
-		Userbasic userbasic = (Userbasic) this.request.getSession().getAttribute(ConstantUtil.COMMON_IMG_SESSIONID);
+		Userbasic userbasic = (Userbasic) this.request.getSession().getAttribute(ConstantUtil.SESSION_LOGIN_USER);
 		int userid = userbasic.getId();
 		return userid;
 	}
@@ -128,7 +128,7 @@ public class BaseController {
 		PrintWriter out = null;
 		try {
 			response.setContentType("text/html");
-			out = this.response.getWriter();
+			out = response.getWriter();
 			String jsonStr = null;
 			if (jsonObj instanceof String) {
 				jsonStr = jsonObj.toString();

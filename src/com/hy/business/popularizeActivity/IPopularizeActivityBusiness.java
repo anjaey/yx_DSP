@@ -17,6 +17,19 @@ import com.hy.util.common.QueryPage;
 public interface IPopularizeActivityBusiness {
 	
 	/**
+	 * 查询这个用户创建的所有有效的活动
+	 * @author hy
+	 * @date 2016年6月21日上午10:06:42
+	 * @param parammap
+	 * @param queryPage
+	 * @return
+	 * @update
+	 * @date
+	 */
+	public List<Map<String, Object>> selectActivityByUserid(Integer createuserid);
+	
+	
+	/**
 	 * 查询指定所有活动信息
 	 * @author hy
 	 * @date 2016年6月21日上午10:06:42
@@ -26,7 +39,7 @@ public interface IPopularizeActivityBusiness {
 	 * @update
 	 * @date
 	 */
-	public List<Map<String, Object>> selectActivityAndPage(Map<String, Object> parammap, QueryPage queryPage);
+	public List<Map<String, Object>> selectActivityAndPage(Map<String, Object> parammap, QueryPage queryPage, Integer createuserid);
 	
 
 	/**
@@ -44,6 +57,7 @@ public interface IPopularizeActivityBusiness {
 	 * @date
 	 */
 	public List<Map<String, Object>> selectActivity(Map<String, Object> parammap);	
+	
 	/**
 	 * 添加推广活动信息
 	 * @author hy

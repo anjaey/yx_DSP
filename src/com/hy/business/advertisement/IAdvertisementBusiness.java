@@ -26,7 +26,7 @@ public interface IAdvertisementBusiness {
 	 * @date
 	 */
 	public List<Map<String, Object>> selectAdvertisementByParentid(Map<String, Object> parammap, 
-			QueryPage queryPage);
+			QueryPage queryPage, Integer userid);
 	
 	/**
 	 * 添加广告信息
@@ -37,7 +37,7 @@ public interface IAdvertisementBusiness {
 	 * @update
 	 * @date
 	 */
-	public Map<String, Object> insertAdvertisement(Map<String, Object> map);
+	public Map<String, Object> insertAdvertisement(Map<String, Object> map, Integer userid);
 	
 	/**
 	 * 修改广告信息

@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.AdvertisementPricing" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="charge_way" property="chargeWay" jdbcType="INTEGER" />
-    <result column="check_ best _bid" property="checkBestBid" jdbcType="DECIMAL" />
+    <result column="check_best_bid_price" property="checkBestBidPrice" jdbcType="DECIMAL" />
     <result column="day_expenditure_quota" property="dayExpenditureQuota" jdbcType="DECIMAL" />
     <result column="exposure_frequency_unit" property="exposureFrequencyUnit" jdbcType="INTEGER" />
     <result column="exposure_frequency_no" property="exposureFrequencyNo" jdbcType="INTEGER" />
     <result column="check_freque_unit" property="checkFrequeUnit" jdbcType="INTEGER" />
-    <result column="check_freque_everyone_unit" property="checkFrequeEveryoneUnit" jdbcType="INTEGER" />
+    <result column="check_freque_everyone_no" property="checkFrequeEveryoneNo" jdbcType="INTEGER" />
     <result column="basic_id" property="basicId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, charge_way, "check_ best _bid", day_expenditure_quota, exposure_frequency_unit, 
-    exposure_frequency_no, check_freque_unit, check_freque_everyone_unit, basic_id
+    id, charge_way, check_best_bid_price, day_expenditure_quota, exposure_frequency_unit, 
+    exposure_frequency_no, check_freque_unit, check_freque_everyone_no, basic_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AdvertisementPricingCriteria" >
     select
@@ -108,13 +108,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.hy.dao.mybatis.model.AdvertisementPricing" >
-    insert into yx_advertisement_pricing (id, charge_way, "check_ best _bid", 
+    insert into yx_advertisement_pricing (id, charge_way, check_best_bid_price, 
       day_expenditure_quota, exposure_frequency_unit, 
-      exposure_frequency_no, check_freque_unit, check_freque_everyone_unit, 
+      exposure_frequency_no, check_freque_unit, check_freque_everyone_no, 
       basic_id)
-    values (#{id,jdbcType=INTEGER}, #{chargeWay,jdbcType=INTEGER}, #{checkBestBid,jdbcType=DECIMAL}, 
+    values (#{id,jdbcType=INTEGER}, #{chargeWay,jdbcType=INTEGER}, #{checkBestBidPrice,jdbcType=DECIMAL}, 
       #{dayExpenditureQuota,jdbcType=DECIMAL}, #{exposureFrequencyUnit,jdbcType=INTEGER}, 
-      #{exposureFrequencyNo,jdbcType=INTEGER}, #{checkFrequeUnit,jdbcType=INTEGER}, #{checkFrequeEveryoneUnit,jdbcType=INTEGER}, 
+      #{exposureFrequencyNo,jdbcType=INTEGER}, #{checkFrequeUnit,jdbcType=INTEGER}, #{checkFrequeEveryoneNo,jdbcType=INTEGER}, 
       #{basicId,jdbcType=INTEGER})
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
@@ -129,8 +129,8 @@
       <if test="chargeWay != null" >
         charge_way,
       </if>
-      <if test="checkBestBid != null" >
-        "check_ best _bid",
+      <if test="checkBestBidPrice != null" >
+        check_best_bid_price,
       </if>
       <if test="dayExpenditureQuota != null" >
         day_expenditure_quota,
@@ -144,8 +144,8 @@
       <if test="checkFrequeUnit != null" >
         check_freque_unit,
       </if>
-      <if test="checkFrequeEveryoneUnit != null" >
-        check_freque_everyone_unit,
+      <if test="checkFrequeEveryoneNo != null" >
+        check_freque_everyone_no,
       </if>
       <if test="basicId != null" >
         basic_id,
@@ -158,8 +158,8 @@
       <if test="chargeWay != null" >
         #{chargeWay,jdbcType=INTEGER},
       </if>
-      <if test="checkBestBid != null" >
-        #{checkBestBid,jdbcType=DECIMAL},
+      <if test="checkBestBidPrice != null" >
+        #{checkBestBidPrice,jdbcType=DECIMAL},
       </if>
       <if test="dayExpenditureQuota != null" >
         #{dayExpenditureQuota,jdbcType=DECIMAL},
@@ -173,8 +173,8 @@
       <if test="checkFrequeUnit != null" >
         #{checkFrequeUnit,jdbcType=INTEGER},
       </if>
-      <if test="checkFrequeEveryoneUnit != null" >
-        #{checkFrequeEveryoneUnit,jdbcType=INTEGER},
+      <if test="checkFrequeEveryoneNo != null" >
+        #{checkFrequeEveryoneNo,jdbcType=INTEGER},
       </if>
       <if test="basicId != null" >
         #{basicId,jdbcType=INTEGER},
@@ -199,8 +199,8 @@
       <if test="record.chargeWay != null" >
         charge_way = #{record.chargeWay,jdbcType=INTEGER},
       </if>
-      <if test="record.checkBestBid != null" >
-        "check_ best _bid" = #{record.checkBestBid,jdbcType=DECIMAL},
+      <if test="record.checkBestBidPrice != null" >
+        check_best_bid_price = #{record.checkBestBidPrice,jdbcType=DECIMAL},
       </if>
       <if test="record.dayExpenditureQuota != null" >
         day_expenditure_quota = #{record.dayExpenditureQuota,jdbcType=DECIMAL},
@@ -214,8 +214,8 @@
       <if test="record.checkFrequeUnit != null" >
         check_freque_unit = #{record.checkFrequeUnit,jdbcType=INTEGER},
       </if>
-      <if test="record.checkFrequeEveryoneUnit != null" >
-        check_freque_everyone_unit = #{record.checkFrequeEveryoneUnit,jdbcType=INTEGER},
+      <if test="record.checkFrequeEveryoneNo != null" >
+        check_freque_everyone_no = #{record.checkFrequeEveryoneNo,jdbcType=INTEGER},
       </if>
       <if test="record.basicId != null" >
         basic_id = #{record.basicId,jdbcType=INTEGER},
@@ -229,12 +229,12 @@
     update yx_advertisement_pricing
     set id = #{record.id,jdbcType=INTEGER},
       charge_way = #{record.chargeWay,jdbcType=INTEGER},
-      "check_ best _bid" = #{record.checkBestBid,jdbcType=DECIMAL},
+      check_best_bid_price = #{record.checkBestBidPrice,jdbcType=DECIMAL},
       day_expenditure_quota = #{record.dayExpenditureQuota,jdbcType=DECIMAL},
       exposure_frequency_unit = #{record.exposureFrequencyUnit,jdbcType=INTEGER},
       exposure_frequency_no = #{record.exposureFrequencyNo,jdbcType=INTEGER},
       check_freque_unit = #{record.checkFrequeUnit,jdbcType=INTEGER},
-      check_freque_everyone_unit = #{record.checkFrequeEveryoneUnit,jdbcType=INTEGER},
+      check_freque_everyone_no = #{record.checkFrequeEveryoneNo,jdbcType=INTEGER},
       basic_id = #{record.basicId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -246,8 +246,8 @@
       <if test="chargeWay != null" >
         charge_way = #{chargeWay,jdbcType=INTEGER},
       </if>
-      <if test="checkBestBid != null" >
-        "check_ best _bid" = #{checkBestBid,jdbcType=DECIMAL},
+      <if test="checkBestBidPrice != null" >
+        check_best_bid_price = #{checkBestBidPrice,jdbcType=DECIMAL},
       </if>
       <if test="dayExpenditureQuota != null" >
         day_expenditure_quota = #{dayExpenditureQuota,jdbcType=DECIMAL},
@@ -261,8 +261,8 @@
       <if test="checkFrequeUnit != null" >
         check_freque_unit = #{checkFrequeUnit,jdbcType=INTEGER},
       </if>
-      <if test="checkFrequeEveryoneUnit != null" >
-        check_freque_everyone_unit = #{checkFrequeEveryoneUnit,jdbcType=INTEGER},
+      <if test="checkFrequeEveryoneNo != null" >
+        check_freque_everyone_no = #{checkFrequeEveryoneNo,jdbcType=INTEGER},
       </if>
       <if test="basicId != null" >
         basic_id = #{basicId,jdbcType=INTEGER},
@@ -273,12 +273,12 @@
   <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.AdvertisementPricing" >
     update yx_advertisement_pricing
     set charge_way = #{chargeWay,jdbcType=INTEGER},
-      "check_ best _bid" = #{checkBestBid,jdbcType=DECIMAL},
+      check_best_bid_price = #{checkBestBidPrice,jdbcType=DECIMAL},
       day_expenditure_quota = #{dayExpenditureQuota,jdbcType=DECIMAL},
       exposure_frequency_unit = #{exposureFrequencyUnit,jdbcType=INTEGER},
       exposure_frequency_no = #{exposureFrequencyNo,jdbcType=INTEGER},
       check_freque_unit = #{checkFrequeUnit,jdbcType=INTEGER},
-      check_freque_everyone_unit = #{checkFrequeEveryoneUnit,jdbcType=INTEGER},
+      check_freque_everyone_no = #{checkFrequeEveryoneNo,jdbcType=INTEGER},
       basic_id = #{basicId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

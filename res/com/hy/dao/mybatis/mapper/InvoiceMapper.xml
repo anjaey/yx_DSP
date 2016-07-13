@@ -15,7 +15,6 @@
     <result column="proposer_time" property="proposerTime" jdbcType="BIGINT" />
     <result column="on_invoice_money" property="onInvoiceMoney" jdbcType="DECIMAL" />
     <result column="on_invoice_paper_no" property="onInvoicePaperNo" jdbcType="INTEGER" />
-    <result column="number" property="number" jdbcType="VARCHAR" />
     <result column="on_invoice_time" property="onInvoiceTime" jdbcType="BIGINT" />
     <result column="on_invoice_user" property="onInvoiceUser" jdbcType="INTEGER" />
     <result column="state" property="state" jdbcType="INTEGER" />
@@ -80,8 +79,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, invoice_encoding, type, tax_rate, category, create_time, proposer_user, invoice_title, 
-    project, proposer_money, proposer_time, on_invoice_money, on_invoice_paper_no, number, 
-    on_invoice_time, on_invoice_user, state
+    project, proposer_money, proposer_time, on_invoice_money, on_invoice_paper_no, on_invoice_time, 
+    on_invoice_user, state
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.InvoiceCriteria" >
     select
@@ -121,14 +120,14 @@
       tax_rate, category, create_time, 
       proposer_user, invoice_title, project, 
       proposer_money, proposer_time, on_invoice_money, 
-      on_invoice_paper_no, number, on_invoice_time, 
-      on_invoice_user, state)
+      on_invoice_paper_no, on_invoice_time, on_invoice_user, 
+      state)
     values (#{id,jdbcType=INTEGER}, #{invoiceEncoding,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
       #{taxRate,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, #{createTime,jdbcType=BIGINT}, 
       #{proposerUser,jdbcType=INTEGER}, #{invoiceTitle,jdbcType=VARCHAR}, #{project,jdbcType=VARCHAR}, 
       #{proposerMoney,jdbcType=DECIMAL}, #{proposerTime,jdbcType=BIGINT}, #{onInvoiceMoney,jdbcType=DECIMAL}, 
-      #{onInvoicePaperNo,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{onInvoiceTime,jdbcType=BIGINT}, 
-      #{onInvoiceUser,jdbcType=INTEGER}, #{state,jdbcType=INTEGER})
+      #{onInvoicePaperNo,jdbcType=INTEGER}, #{onInvoiceTime,jdbcType=BIGINT}, #{onInvoiceUser,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER})
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -174,9 +173,6 @@
       </if>
       <if test="onInvoicePaperNo != null" >
         on_invoice_paper_no,
-      </if>
-      <if test="number != null" >
-        number,
       </if>
       <if test="onInvoiceTime != null" >
         on_invoice_time,
@@ -227,9 +223,6 @@
       </if>
       <if test="onInvoicePaperNo != null" >
         #{onInvoicePaperNo,jdbcType=INTEGER},
-      </if>
-      <if test="number != null" >
-        #{number,jdbcType=VARCHAR},
       </if>
       <if test="onInvoiceTime != null" >
         #{onInvoiceTime,jdbcType=BIGINT},
@@ -293,9 +286,6 @@
       <if test="record.onInvoicePaperNo != null" >
         on_invoice_paper_no = #{record.onInvoicePaperNo,jdbcType=INTEGER},
       </if>
-      <if test="record.number != null" >
-        number = #{record.number,jdbcType=VARCHAR},
-      </if>
       <if test="record.onInvoiceTime != null" >
         on_invoice_time = #{record.onInvoiceTime,jdbcType=BIGINT},
       </if>
@@ -325,7 +315,6 @@
       proposer_time = #{record.proposerTime,jdbcType=BIGINT},
       on_invoice_money = #{record.onInvoiceMoney,jdbcType=DECIMAL},
       on_invoice_paper_no = #{record.onInvoicePaperNo,jdbcType=INTEGER},
-      number = #{record.number,jdbcType=VARCHAR},
       on_invoice_time = #{record.onInvoiceTime,jdbcType=BIGINT},
       on_invoice_user = #{record.onInvoiceUser,jdbcType=INTEGER},
       state = #{record.state,jdbcType=INTEGER}
@@ -372,9 +361,6 @@
       <if test="onInvoicePaperNo != null" >
         on_invoice_paper_no = #{onInvoicePaperNo,jdbcType=INTEGER},
       </if>
-      <if test="number != null" >
-        number = #{number,jdbcType=VARCHAR},
-      </if>
       <if test="onInvoiceTime != null" >
         on_invoice_time = #{onInvoiceTime,jdbcType=BIGINT},
       </if>
@@ -401,7 +387,6 @@
       proposer_time = #{proposerTime,jdbcType=BIGINT},
       on_invoice_money = #{onInvoiceMoney,jdbcType=DECIMAL},
       on_invoice_paper_no = #{onInvoicePaperNo,jdbcType=INTEGER},
-      number = #{number,jdbcType=VARCHAR},
       on_invoice_time = #{onInvoiceTime,jdbcType=BIGINT},
       on_invoice_user = #{onInvoiceUser,jdbcType=INTEGER},
       state = #{state,jdbcType=INTEGER}

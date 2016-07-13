@@ -41,7 +41,15 @@ public class Creative {
 
     private String checkConclusion;
 
-    private Integer createId;
+    private Integer createUser;
+
+    private Float deductQuantityProportionBefore;
+
+    private Integer deductQuantityProportionUpdateUserid;
+
+    private Long deductQuantityProportionUpdateTime;
+
+    private Float deductQuantityProportionLater;
 
     public Integer getId() {
         return id;
@@ -203,11 +211,43 @@ public class Creative {
         this.checkConclusion = checkConclusion == null ? null : checkConclusion.trim();
     }
 
-    public Integer getCreateId() {
-        return createId;
+    public Integer getCreateUser() {
+        return createUser;
     }
 
-    public void setCreateId(Integer createId) {
-        this.createId = createId;
+    public void setCreateUser(Integer createUser) {
+        this.createUser = createUser;
+    }
+
+    public Float getDeductQuantityProportionBefore() {
+        return deductQuantityProportionBefore;
+    }
+
+    public void setDeductQuantityProportionBefore(Float deductQuantityProportionBefore) {
+        this.deductQuantityProportionBefore = deductQuantityProportionBefore;
+    }
+
+    public Integer getDeductQuantityProportionUpdateUserid() {
+        return deductQuantityProportionUpdateUserid;
+    }
+
+    public void setDeductQuantityProportionUpdateUserid(Integer deductQuantityProportionUpdateUserid) {
+        this.deductQuantityProportionUpdateUserid = deductQuantityProportionUpdateUserid;
+    }
+
+    public Long getDeductQuantityProportionUpdateTime() {
+        return deductQuantityProportionUpdateTime;
+    }
+
+    public void setDeductQuantityProportionUpdateTime(Long deductQuantityProportionUpdateTime) {
+        this.deductQuantityProportionUpdateTime = deductQuantityProportionUpdateTime;
+    }
+
+    public Float getDeductQuantityProportionLater() {
+        return deductQuantityProportionLater;
+    }
+
+    public void setDeductQuantityProportionLater(Float deductQuantityProportionLater) {
+        this.deductQuantityProportionLater = deductQuantityProportionLater;
     }
 }

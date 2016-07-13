@@ -1414,63 +1414,303 @@ public class CreativeCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdIsNull() {
-            addCriterion("create_id is null");
+        public Criteria andCreateUserIsNull() {
+            addCriterion("create_user is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdIsNotNull() {
-            addCriterion("create_id is not null");
+        public Criteria andCreateUserIsNotNull() {
+            addCriterion("create_user is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdEqualTo(Integer value) {
-            addCriterion("create_id =", value, "createId");
+        public Criteria andCreateUserEqualTo(Integer value) {
+            addCriterion("create_user =", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdNotEqualTo(Integer value) {
-            addCriterion("create_id <>", value, "createId");
+        public Criteria andCreateUserNotEqualTo(Integer value) {
+            addCriterion("create_user <>", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdGreaterThan(Integer value) {
-            addCriterion("create_id >", value, "createId");
+        public Criteria andCreateUserGreaterThan(Integer value) {
+            addCriterion("create_user >", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("create_id >=", value, "createId");
+        public Criteria andCreateUserGreaterThanOrEqualTo(Integer value) {
+            addCriterion("create_user >=", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdLessThan(Integer value) {
-            addCriterion("create_id <", value, "createId");
+        public Criteria andCreateUserLessThan(Integer value) {
+            addCriterion("create_user <", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdLessThanOrEqualTo(Integer value) {
-            addCriterion("create_id <=", value, "createId");
+        public Criteria andCreateUserLessThanOrEqualTo(Integer value) {
+            addCriterion("create_user <=", value, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdIn(List<Integer> values) {
-            addCriterion("create_id in", values, "createId");
+        public Criteria andCreateUserIn(List<Integer> values) {
+            addCriterion("create_user in", values, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdNotIn(List<Integer> values) {
-            addCriterion("create_id not in", values, "createId");
+        public Criteria andCreateUserNotIn(List<Integer> values) {
+            addCriterion("create_user not in", values, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdBetween(Integer value1, Integer value2) {
-            addCriterion("create_id between", value1, value2, "createId");
+        public Criteria andCreateUserBetween(Integer value1, Integer value2) {
+            addCriterion("create_user between", value1, value2, "createUser");
             return (Criteria) this;
         }
 
-        public Criteria andCreateIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("create_id not between", value1, value2, "createId");
+        public Criteria andCreateUserNotBetween(Integer value1, Integer value2) {
+            addCriterion("create_user not between", value1, value2, "createUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeIsNull() {
+            addCriterion("deduct_quantity_proportion_before is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeIsNotNull() {
+            addCriterion("deduct_quantity_proportion_before is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_before =", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeNotEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_before <>", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeGreaterThan(Float value) {
+            addCriterion("deduct_quantity_proportion_before >", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeGreaterThanOrEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_before >=", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeLessThan(Float value) {
+            addCriterion("deduct_quantity_proportion_before <", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeLessThanOrEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_before <=", value, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeIn(List<Float> values) {
+            addCriterion("deduct_quantity_proportion_before in", values, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeNotIn(List<Float> values) {
+            addCriterion("deduct_quantity_proportion_before not in", values, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeBetween(Float value1, Float value2) {
+            addCriterion("deduct_quantity_proportion_before between", value1, value2, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionBeforeNotBetween(Float value1, Float value2) {
+            addCriterion("deduct_quantity_proportion_before not between", value1, value2, "deductQuantityProportionBefore");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridIsNull() {
+            addCriterion("deduct_quantity_proportion_update_userid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridIsNotNull() {
+            addCriterion("deduct_quantity_proportion_update_userid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridEqualTo(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid =", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridNotEqualTo(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid <>", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridGreaterThan(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid >", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridGreaterThanOrEqualTo(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid >=", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridLessThan(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid <", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridLessThanOrEqualTo(Integer value) {
+            addCriterion("deduct_quantity_proportion_update_userid <=", value, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridIn(List<Integer> values) {
+            addCriterion("deduct_quantity_proportion_update_userid in", values, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridNotIn(List<Integer> values) {
+            addCriterion("deduct_quantity_proportion_update_userid not in", values, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridBetween(Integer value1, Integer value2) {
+            addCriterion("deduct_quantity_proportion_update_userid between", value1, value2, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateUseridNotBetween(Integer value1, Integer value2) {
+            addCriterion("deduct_quantity_proportion_update_userid not between", value1, value2, "deductQuantityProportionUpdateUserid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeIsNull() {
+            addCriterion("deduct_quantity_proportion_update_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeIsNotNull() {
+            addCriterion("deduct_quantity_proportion_update_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeEqualTo(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time =", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeNotEqualTo(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time <>", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeGreaterThan(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time >", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time >=", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeLessThan(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time <", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeLessThanOrEqualTo(Long value) {
+            addCriterion("deduct_quantity_proportion_update_time <=", value, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeIn(List<Long> values) {
+            addCriterion("deduct_quantity_proportion_update_time in", values, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeNotIn(List<Long> values) {
+            addCriterion("deduct_quantity_proportion_update_time not in", values, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeBetween(Long value1, Long value2) {
+            addCriterion("deduct_quantity_proportion_update_time between", value1, value2, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionUpdateTimeNotBetween(Long value1, Long value2) {
+            addCriterion("deduct_quantity_proportion_update_time not between", value1, value2, "deductQuantityProportionUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterIsNull() {
+            addCriterion("deduct_quantity_proportion_later is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterIsNotNull() {
+            addCriterion("deduct_quantity_proportion_later is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_later =", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterNotEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_later <>", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterGreaterThan(Float value) {
+            addCriterion("deduct_quantity_proportion_later >", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterGreaterThanOrEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_later >=", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterLessThan(Float value) {
+            addCriterion("deduct_quantity_proportion_later <", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterLessThanOrEqualTo(Float value) {
+            addCriterion("deduct_quantity_proportion_later <=", value, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterIn(List<Float> values) {
+            addCriterion("deduct_quantity_proportion_later in", values, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterNotIn(List<Float> values) {
+            addCriterion("deduct_quantity_proportion_later not in", values, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterBetween(Float value1, Float value2) {
+            addCriterion("deduct_quantity_proportion_later between", value1, value2, "deductQuantityProportionLater");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeductQuantityProportionLaterNotBetween(Float value1, Float value2) {
+            addCriterion("deduct_quantity_proportion_later not between", value1, value2, "deductQuantityProportionLater");
             return (Criteria) this;
         }
     }

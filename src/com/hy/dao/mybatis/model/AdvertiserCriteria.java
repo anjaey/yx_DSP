@@ -1175,63 +1175,63 @@ public class AdvertiserCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andLimitIsNull() {
-            addCriterion("limit is null");
+        public Criteria andMoneyLimitationIsNull() {
+            addCriterion("money_limitation is null");
             return (Criteria) this;
         }
 
-        public Criteria andLimitIsNotNull() {
-            addCriterion("limit is not null");
+        public Criteria andMoneyLimitationIsNotNull() {
+            addCriterion("money_limitation is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLimitEqualTo(BigDecimal value) {
-            addCriterion("limit =", value, "limit");
+        public Criteria andMoneyLimitationEqualTo(BigDecimal value) {
+            addCriterion("money_limitation =", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitNotEqualTo(BigDecimal value) {
-            addCriterion("limit <>", value, "limit");
+        public Criteria andMoneyLimitationNotEqualTo(BigDecimal value) {
+            addCriterion("money_limitation <>", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitGreaterThan(BigDecimal value) {
-            addCriterion("limit >", value, "limit");
+        public Criteria andMoneyLimitationGreaterThan(BigDecimal value) {
+            addCriterion("money_limitation >", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("limit >=", value, "limit");
+        public Criteria andMoneyLimitationGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("money_limitation >=", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitLessThan(BigDecimal value) {
-            addCriterion("limit <", value, "limit");
+        public Criteria andMoneyLimitationLessThan(BigDecimal value) {
+            addCriterion("money_limitation <", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("limit <=", value, "limit");
+        public Criteria andMoneyLimitationLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("money_limitation <=", value, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitIn(List<BigDecimal> values) {
-            addCriterion("limit in", values, "limit");
+        public Criteria andMoneyLimitationIn(List<BigDecimal> values) {
+            addCriterion("money_limitation in", values, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitNotIn(List<BigDecimal> values) {
-            addCriterion("limit not in", values, "limit");
+        public Criteria andMoneyLimitationNotIn(List<BigDecimal> values) {
+            addCriterion("money_limitation not in", values, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("limit between", value1, value2, "limit");
+        public Criteria andMoneyLimitationBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("money_limitation between", value1, value2, "moneyLimitation");
             return (Criteria) this;
         }
 
-        public Criteria andLimitNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("limit not between", value1, value2, "limit");
+        public Criteria andMoneyLimitationNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("money_limitation not between", value1, value2, "moneyLimitation");
             return (Criteria) this;
         }
 
@@ -1542,6 +1542,66 @@ public class AdvertiserCriteria {
 
         public Criteria andTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("type not between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserIsNull() {
+            addCriterion("operate_user is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserIsNotNull() {
+            addCriterion("operate_user is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserEqualTo(Integer value) {
+            addCriterion("operate_user =", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserNotEqualTo(Integer value) {
+            addCriterion("operate_user <>", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserGreaterThan(Integer value) {
+            addCriterion("operate_user >", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserGreaterThanOrEqualTo(Integer value) {
+            addCriterion("operate_user >=", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserLessThan(Integer value) {
+            addCriterion("operate_user <", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserLessThanOrEqualTo(Integer value) {
+            addCriterion("operate_user <=", value, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserIn(List<Integer> values) {
+            addCriterion("operate_user in", values, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserNotIn(List<Integer> values) {
+            addCriterion("operate_user not in", values, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserBetween(Integer value1, Integer value2) {
+            addCriterion("operate_user between", value1, value2, "operateUser");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperateUserNotBetween(Integer value1, Integer value2) {
+            addCriterion("operate_user not between", value1, value2, "operateUser");
             return (Criteria) this;
         }
     }

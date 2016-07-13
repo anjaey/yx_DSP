@@ -1,5 +1,6 @@
 package com.hy.business.popularizeActivity.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hy.business.popularizeActivity.IPopularizeActivityBusiness;
+import com.hy.dao.common.JdbcBaseDao;
 import com.hy.dao.common.impl.BaseDaoImpl;
 import com.hy.dao.mybatis.mapper.PopularizeActivityMapper;
 import com.hy.dao.mybatis.model.PopularizeActivity;
@@ -42,14 +44,17 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 	 * @date
 	 */
 	@Override
-	public List<Map<String, Object>> selectActivityAndPage(Map<String, Object> parammap, QueryPage queryPage) {
+	public List<Map<String, Object>> selectActivityAndPage(Map<String, Object> parammap, QueryPage queryPage, Integer createuserid) {
 		List<Map<String, Object>> listmap = null;
-		
+
 		try {
 			PopularizeActivityCriteria pac = new PopularizeActivityCriteria();
-			pac.setOrderByClause(" createTime desc");
+			pac.setOrderByClause(" create_time desc");
 			Criteria criteria = pac.createCriteria();
-			
+
+			//这个用户创建的
+			criteria.andCreateUserEqualTo(createuserid);
+
 			//开始日期
 			Object starttimeobj = parammap.get("starttime");
 			if (!CommonUtil.isEmpty(starttimeobj)) {
@@ -73,36 +78,39 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 			if (!CommonUtil.isEmpty(nameobj)) {
 				criteria.andNameEqualTo(nameobj.toString());
 			}
-			
-			
+
+
 			int pagesize = queryPage.getPageSize();
 			int pageindex = queryPage.getTargetPage();
 			pac.setLimitStart(PageUtil.getStart(pageindex, pagesize));
 			pac.setLimitEnd(PageUtil.getEnt(pageindex, pagesize));
-			
+
 			List<PopularizeActivity>  listpop = popularizeActivityMapper.selectByExample(pac);
 			listmap = ListMapUtil.convertListEntityToListMap(listpop);
-			
+
 			for (Map<String, Object> map : listmap) {
 				//状态, 暂无。
-				
+
 				//时间
-				Object createTimeobj = map.get("createTime");
+				Object createTimeobj = map.get("createtime");
 				String createTimestr = DateUtil.getDateStrByLongObj(createTimeobj, DateUtil.YYYY_MM_DD);
-				map.put("createTime", createTimestr);
-				
+				map.put("createtime", createTimestr);
+
 				//推广日期。
 				//开始
-				Object startTimeobj = map.get("createTime");
+				Object startTimeobj = map.get("starttime");
 				String startTimestr = DateUtil.getDateStrByLongObj(startTimeobj, DateUtil.YYYY_MM_DD);
-				
+				map.put("begintime", startTimestr);
+
 				//结束	
-				Object endTimeobj = map.get("createTime");
+				Object endTimeobj = map.get("endtime");
 				String endTimestr = DateUtil.getDateStrByLongObj(endTimeobj, DateUtil.YYYY_MM_DD);
-				map.put("promotionTime", startTimestr + "~" + endTimestr);
-				
+				map.put("endtime", endTimestr);
+
+				map.put("promotiontime", startTimestr + "~" + endTimestr);
+
 			}
-			
+
 			//统计数量
 			int pagecount = popularizeActivityMapper.countByExample(pac);
 			queryPage.setRecordCount(pagecount);
@@ -120,7 +128,10 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 	public Map<String, Object> insertActivity(Map<String, Object> map) {
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
+			String id = createActivityId(jdbcBaseDao);
+
 			PopularizeActivity pa = (PopularizeActivity)ListMapUtil.setEntityValue(map, PopularizeActivity.class);
+			pa.setActivityId(id);
 			popularizeActivityMapper.insertSelective(pa);
 
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
@@ -131,12 +142,47 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 		return returnmap;
 	}
 
+	/**
+	 * 创建一个线程安全的方法生成活动id
+	 * @author hy
+	 * @date 2016年7月1日下午4:40:55
+	 * @return
+	 * @update
+	 * @date
+	 */
+	@SuppressWarnings("unchecked")
+	private static synchronized String createActivityId(JdbcBaseDao jdbcBaseDao) {
+		String keyid = "act_00000000";  //默认可以id 
+
+		//生成id, 得到最大id
+		String sql = "select (CONVERT(substring(activity_id, 5, 9), SIGNED) + 1) as nextkeyid from"
+				+ " yx_popularize_activity order by activity_id desc limit 1";
+
+		List<Map<String, Object>> list = jdbcBaseDao.findList(sql, null);
+
+		if (!CommonUtil.isEmpty(list) && list.size() > 0) {
+			Map<String, Object> keyidobj = list.get(0);
+			if (!CommonUtil.isEmpty(keyidobj)) {
+				String keyidstr = keyidobj.get("nextkeyid").toString();
+
+				String zero = "act_";
+				for (int i = 0; i < 8 - keyidstr.length(); i++) {
+					zero = zero + "0";
+				}
+
+				keyid = zero + keyidstr;
+			}
+		}
+
+		return keyid;
+	}
+
 	@Override
 	public Map<String, Object> updateActivity(Map<String, Object> map) {
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			PopularizeActivity pa = (PopularizeActivity)ListMapUtil.setEntityValue(map, PopularizeActivity.class);
-			popularizeActivityMapper.updateByPrimaryKey(pa);
+			popularizeActivityMapper.updateByPrimaryKeySelective(pa);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -148,17 +194,24 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 		Map<String, Object> returnmap = null;
 		try {
 			PopularizeActivity pa = popularizeActivityMapper.selectByPrimaryKey(id);
-			
+
 			returnmap = ListMapUtil.convertEntityToMap(pa);
-			
+
 			//推广日期。
 			//开始
-			Object startTimeobj = returnmap.get("createTime");
+			Object startTimeobj = returnmap.get("starttime");
 			String startTimestr = DateUtil.getDateStrByLongObj(startTimeobj, DateUtil.YYYY_MM_DD);
-			
+
 			//结束	
-			Object endTimeobj = returnmap.get("createTime");
+			Object endTimeobj = returnmap.get("endtime");
 			String endTimestr = DateUtil.getDateStrByLongObj(endTimeobj, DateUtil.YYYY_MM_DD);
+
+			returnmap.put("endtimeformat", endTimestr);
+			returnmap.put("starttimeformat", startTimestr);
+
+			if (endTimestr == null) {
+				endTimestr = "无限期";
+			}
 			returnmap.put("promotionTime", startTimestr + "~" + endTimestr);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -169,15 +222,34 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 	@Override
 	public List<Map<String, Object>> selectActivity(Map<String, Object> parammap) {
 		PopularizeActivityCriteria pac = new PopularizeActivityCriteria();
-		
+
 		List<Map<String, Object>> listmap = null;
 		try {
 			List<PopularizeActivity>  listpop = popularizeActivityMapper.selectByExample(pac);
-			
+
 			listmap = ListMapUtil.convertListEntityToListMap(listpop);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return listmap;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectActivityByUserid(Integer createuserid) {
+		List<Map<String, Object>> listpopmap = new ArrayList<Map<String, Object>>();
+		PopularizeActivityCriteria pac = new PopularizeActivityCriteria();
+
+		try {
+			pac.setOrderByClause(" create_time desc");
+			Criteria criteria = pac.createCriteria();
+			criteria.andCreateUserEqualTo(createuserid);
+
+			List<PopularizeActivity>  listpop = popularizeActivityMapper.selectByExample(pac);
+			listpopmap = ListMapUtil.convertListEntityToListMap(listpop);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listpopmap;
 	}
 }

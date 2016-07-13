@@ -29,8 +29,6 @@ public class Invoice {
 
     private Integer onInvoicePaperNo;
 
-    private String number;
-
     private Long onInvoiceTime;
 
     private Integer onInvoiceUser;
@@ -139,14 +137,6 @@ public class Invoice {
 
     public void setOnInvoicePaperNo(Integer onInvoicePaperNo) {
         this.onInvoicePaperNo = onInvoicePaperNo;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number == null ? null : number.trim();
     }
 
     public Long getOnInvoiceTime() {

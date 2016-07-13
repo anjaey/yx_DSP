@@ -35,7 +35,7 @@ public class Advertiser {
 
     private String number;
 
-    private BigDecimal limit;
+    private BigDecimal moneyLimitation;
 
     private Integer checkState;
 
@@ -46,6 +46,8 @@ public class Advertiser {
     private Integer accountState;
 
     private Integer type;
+
+    private Integer operateUser;
 
     public Integer getId() {
         return id;
@@ -175,12 +177,12 @@ public class Advertiser {
         this.number = number == null ? null : number.trim();
     }
 
-    public BigDecimal getLimit() {
-        return limit;
+    public BigDecimal getMoneyLimitation() {
+        return moneyLimitation;
     }
 
-    public void setLimit(BigDecimal limit) {
-        this.limit = limit;
+    public void setMoneyLimitation(BigDecimal moneyLimitation) {
+        this.moneyLimitation = moneyLimitation;
     }
 
     public Integer getCheckState() {
@@ -221,5 +223,13 @@ public class Advertiser {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getOperateUser() {
+        return operateUser;
+    }
+
+    public void setOperateUser(Integer operateUser) {
+        this.operateUser = operateUser;
     }
 }

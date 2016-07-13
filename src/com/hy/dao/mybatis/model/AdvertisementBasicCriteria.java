@@ -325,72 +325,72 @@ public class AdvertisementBasicCriteria {
         }
 
         public Criteria andPvMonitoringAddressIsNull() {
-            addCriterion("\"PV_monitoring _address\" is null");
+            addCriterion("PV_monitoring_address is null");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressIsNotNull() {
-            addCriterion("\"PV_monitoring _address\" is not null");
+            addCriterion("PV_monitoring_address is not null");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressEqualTo(String value) {
-            addCriterion("\"PV_monitoring _address\" =", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address =", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressNotEqualTo(String value) {
-            addCriterion("\"PV_monitoring _address\" <>", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address <>", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressGreaterThan(String value) {
-            addCriterion("\"PV_monitoring _address\" >", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address >", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressGreaterThanOrEqualTo(String value) {
-            addCriterion("\"PV_monitoring _address\" >=", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address >=", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressLessThan(String value) {
-            addCriterion("\"PV_monitoring _address\" <", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address <", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressLessThanOrEqualTo(String value) {
-            addCriterion("\"PV_monitoring _address\" <=", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address <=", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressLike(String value) {
-            addCriterion("\"PV_monitoring _address\" like", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address like", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressNotLike(String value) {
-            addCriterion("\"PV_monitoring _address\" not like", value, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address not like", value, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressIn(List<String> values) {
-            addCriterion("\"PV_monitoring _address\" in", values, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address in", values, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressNotIn(List<String> values) {
-            addCriterion("\"PV_monitoring _address\" not in", values, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address not in", values, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressBetween(String value1, String value2) {
-            addCriterion("\"PV_monitoring _address\" between", value1, value2, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address between", value1, value2, "pvMonitoringAddress");
             return (Criteria) this;
         }
 
         public Criteria andPvMonitoringAddressNotBetween(String value1, String value2) {
-            addCriterion("\"PV_monitoring _address\" not between", value1, value2, "pvMonitoringAddress");
+            addCriterion("PV_monitoring_address not between", value1, value2, "pvMonitoringAddress");
             return (Criteria) this;
         }
 

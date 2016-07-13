@@ -244,136 +244,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andRunTimeStateIsNull() {
-            addCriterion("run_time_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateIsNotNull() {
-            addCriterion("run_time_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateEqualTo(Integer value) {
-            addCriterion("run_time_state =", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateNotEqualTo(Integer value) {
-            addCriterion("run_time_state <>", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateGreaterThan(Integer value) {
-            addCriterion("run_time_state >", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("run_time_state >=", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateLessThan(Integer value) {
-            addCriterion("run_time_state <", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateLessThanOrEqualTo(Integer value) {
-            addCriterion("run_time_state <=", value, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateIn(List<Integer> values) {
-            addCriterion("run_time_state in", values, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateNotIn(List<Integer> values) {
-            addCriterion("run_time_state not in", values, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateBetween(Integer value1, Integer value2) {
-            addCriterion("run_time_state between", value1, value2, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("run_time_state not between", value1, value2, "runTimeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonIsNull() {
-            addCriterion("run_time_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonIsNotNull() {
-            addCriterion("run_time_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonEqualTo(String value) {
-            addCriterion("run_time_value_json =", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonNotEqualTo(String value) {
-            addCriterion("run_time_value_json <>", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonGreaterThan(String value) {
-            addCriterion("run_time_value_json >", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("run_time_value_json >=", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonLessThan(String value) {
-            addCriterion("run_time_value_json <", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("run_time_value_json <=", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonLike(String value) {
-            addCriterion("run_time_value_json like", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonNotLike(String value) {
-            addCriterion("run_time_value_json not like", value, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonIn(List<String> values) {
-            addCriterion("run_time_value_json in", values, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonNotIn(List<String> values) {
-            addCriterion("run_time_value_json not in", values, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonBetween(String value1, String value2) {
-            addCriterion("run_time_value_json between", value1, value2, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andRunTimeValueJsonNotBetween(String value1, String value2) {
-            addCriterion("run_time_value_json not between", value1, value2, "runTimeValueJson");
-            return (Criteria) this;
-        }
-
         public Criteria andAreaStateIsNull() {
             addCriterion("area_state is null");
             return (Criteria) this;
@@ -504,146 +374,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andFluxStateIsNull() {
-            addCriterion("flux_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateIsNotNull() {
-            addCriterion("flux_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateEqualTo(String value) {
-            addCriterion("flux_state =", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateNotEqualTo(String value) {
-            addCriterion("flux_state <>", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateGreaterThan(String value) {
-            addCriterion("flux_state >", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateGreaterThanOrEqualTo(String value) {
-            addCriterion("flux_state >=", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateLessThan(String value) {
-            addCriterion("flux_state <", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateLessThanOrEqualTo(String value) {
-            addCriterion("flux_state <=", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateLike(String value) {
-            addCriterion("flux_state like", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateNotLike(String value) {
-            addCriterion("flux_state not like", value, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateIn(List<String> values) {
-            addCriterion("flux_state in", values, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateNotIn(List<String> values) {
-            addCriterion("flux_state not in", values, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateBetween(String value1, String value2) {
-            addCriterion("flux_state between", value1, value2, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxStateNotBetween(String value1, String value2) {
-            addCriterion("flux_state not between", value1, value2, "fluxState");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonIsNull() {
-            addCriterion("flux_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonIsNotNull() {
-            addCriterion("flux_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonEqualTo(String value) {
-            addCriterion("flux_value_json =", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonNotEqualTo(String value) {
-            addCriterion("flux_value_json <>", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonGreaterThan(String value) {
-            addCriterion("flux_value_json >", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("flux_value_json >=", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonLessThan(String value) {
-            addCriterion("flux_value_json <", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("flux_value_json <=", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonLike(String value) {
-            addCriterion("flux_value_json like", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonNotLike(String value) {
-            addCriterion("flux_value_json not like", value, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonIn(List<String> values) {
-            addCriterion("flux_value_json in", values, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonNotIn(List<String> values) {
-            addCriterion("flux_value_json not in", values, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonBetween(String value1, String value2) {
-            addCriterion("flux_value_json between", value1, value2, "fluxValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andFluxValueJsonNotBetween(String value1, String value2) {
-            addCriterion("flux_value_json not between", value1, value2, "fluxValueJson");
-            return (Criteria) this;
-        }
-
         public Criteria andSexStateIsNull() {
             addCriterion("sex_state is null");
             return (Criteria) this;
@@ -654,62 +384,52 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andSexStateEqualTo(String value) {
+        public Criteria andSexStateEqualTo(Integer value) {
             addCriterion("sex_state =", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateNotEqualTo(String value) {
+        public Criteria andSexStateNotEqualTo(Integer value) {
             addCriterion("sex_state <>", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateGreaterThan(String value) {
+        public Criteria andSexStateGreaterThan(Integer value) {
             addCriterion("sex_state >", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateGreaterThanOrEqualTo(String value) {
+        public Criteria andSexStateGreaterThanOrEqualTo(Integer value) {
             addCriterion("sex_state >=", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateLessThan(String value) {
+        public Criteria andSexStateLessThan(Integer value) {
             addCriterion("sex_state <", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateLessThanOrEqualTo(String value) {
+        public Criteria andSexStateLessThanOrEqualTo(Integer value) {
             addCriterion("sex_state <=", value, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateLike(String value) {
-            addCriterion("sex_state like", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateNotLike(String value) {
-            addCriterion("sex_state not like", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateIn(List<String> values) {
+        public Criteria andSexStateIn(List<Integer> values) {
             addCriterion("sex_state in", values, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateNotIn(List<String> values) {
+        public Criteria andSexStateNotIn(List<Integer> values) {
             addCriterion("sex_state not in", values, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateBetween(String value1, String value2) {
+        public Criteria andSexStateBetween(Integer value1, Integer value2) {
             addCriterion("sex_state between", value1, value2, "sexState");
             return (Criteria) this;
         }
 
-        public Criteria andSexStateNotBetween(String value1, String value2) {
+        public Criteria andSexStateNotBetween(Integer value1, Integer value2) {
             addCriterion("sex_state not between", value1, value2, "sexState");
             return (Criteria) this;
         }
@@ -794,62 +514,52 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateEqualTo(String value) {
+        public Criteria andAgeStateEqualTo(Integer value) {
             addCriterion("age_state =", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateNotEqualTo(String value) {
+        public Criteria andAgeStateNotEqualTo(Integer value) {
             addCriterion("age_state <>", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateGreaterThan(String value) {
+        public Criteria andAgeStateGreaterThan(Integer value) {
             addCriterion("age_state >", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateGreaterThanOrEqualTo(String value) {
+        public Criteria andAgeStateGreaterThanOrEqualTo(Integer value) {
             addCriterion("age_state >=", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateLessThan(String value) {
+        public Criteria andAgeStateLessThan(Integer value) {
             addCriterion("age_state <", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateLessThanOrEqualTo(String value) {
+        public Criteria andAgeStateLessThanOrEqualTo(Integer value) {
             addCriterion("age_state <=", value, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateLike(String value) {
-            addCriterion("age_state like", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateNotLike(String value) {
-            addCriterion("age_state not like", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateIn(List<String> values) {
+        public Criteria andAgeStateIn(List<Integer> values) {
             addCriterion("age_state in", values, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateNotIn(List<String> values) {
+        public Criteria andAgeStateNotIn(List<Integer> values) {
             addCriterion("age_state not in", values, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateBetween(String value1, String value2) {
+        public Criteria andAgeStateBetween(Integer value1, Integer value2) {
             addCriterion("age_state between", value1, value2, "ageState");
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateNotBetween(String value1, String value2) {
+        public Criteria andAgeStateNotBetween(Integer value1, Integer value2) {
             addCriterion("age_state not between", value1, value2, "ageState");
             return (Criteria) this;
         }
@@ -924,566 +634,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andConstellationStateIsNull() {
-            addCriterion("constellation_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateIsNotNull() {
-            addCriterion("constellation_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateEqualTo(String value) {
-            addCriterion("constellation_state =", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateNotEqualTo(String value) {
-            addCriterion("constellation_state <>", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateGreaterThan(String value) {
-            addCriterion("constellation_state >", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateGreaterThanOrEqualTo(String value) {
-            addCriterion("constellation_state >=", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateLessThan(String value) {
-            addCriterion("constellation_state <", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateLessThanOrEqualTo(String value) {
-            addCriterion("constellation_state <=", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateLike(String value) {
-            addCriterion("constellation_state like", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateNotLike(String value) {
-            addCriterion("constellation_state not like", value, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateIn(List<String> values) {
-            addCriterion("constellation_state in", values, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateNotIn(List<String> values) {
-            addCriterion("constellation_state not in", values, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateBetween(String value1, String value2) {
-            addCriterion("constellation_state between", value1, value2, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationStateNotBetween(String value1, String value2) {
-            addCriterion("constellation_state not between", value1, value2, "constellationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonIsNull() {
-            addCriterion("constellation_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonIsNotNull() {
-            addCriterion("constellation_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonEqualTo(String value) {
-            addCriterion("constellation_value_json =", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonNotEqualTo(String value) {
-            addCriterion("constellation_value_json <>", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonGreaterThan(String value) {
-            addCriterion("constellation_value_json >", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("constellation_value_json >=", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonLessThan(String value) {
-            addCriterion("constellation_value_json <", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("constellation_value_json <=", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonLike(String value) {
-            addCriterion("constellation_value_json like", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonNotLike(String value) {
-            addCriterion("constellation_value_json not like", value, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonIn(List<String> values) {
-            addCriterion("constellation_value_json in", values, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonNotIn(List<String> values) {
-            addCriterion("constellation_value_json not in", values, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonBetween(String value1, String value2) {
-            addCriterion("constellation_value_json between", value1, value2, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andConstellationValueJsonNotBetween(String value1, String value2) {
-            addCriterion("constellation_value_json not between", value1, value2, "constellationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateIsNull() {
-            addCriterion("education_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateIsNotNull() {
-            addCriterion("education_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateEqualTo(String value) {
-            addCriterion("education_state =", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateNotEqualTo(String value) {
-            addCriterion("education_state <>", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateGreaterThan(String value) {
-            addCriterion("education_state >", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateGreaterThanOrEqualTo(String value) {
-            addCriterion("education_state >=", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateLessThan(String value) {
-            addCriterion("education_state <", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateLessThanOrEqualTo(String value) {
-            addCriterion("education_state <=", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateLike(String value) {
-            addCriterion("education_state like", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateNotLike(String value) {
-            addCriterion("education_state not like", value, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateIn(List<String> values) {
-            addCriterion("education_state in", values, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateNotIn(List<String> values) {
-            addCriterion("education_state not in", values, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateBetween(String value1, String value2) {
-            addCriterion("education_state between", value1, value2, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationStateNotBetween(String value1, String value2) {
-            addCriterion("education_state not between", value1, value2, "educationState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonIsNull() {
-            addCriterion("education_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonIsNotNull() {
-            addCriterion("education_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonEqualTo(String value) {
-            addCriterion("education_value_json =", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonNotEqualTo(String value) {
-            addCriterion("education_value_json <>", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonGreaterThan(String value) {
-            addCriterion("education_value_json >", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("education_value_json >=", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonLessThan(String value) {
-            addCriterion("education_value_json <", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("education_value_json <=", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonLike(String value) {
-            addCriterion("education_value_json like", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonNotLike(String value) {
-            addCriterion("education_value_json not like", value, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonIn(List<String> values) {
-            addCriterion("education_value_json in", values, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonNotIn(List<String> values) {
-            addCriterion("education_value_json not in", values, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonBetween(String value1, String value2) {
-            addCriterion("education_value_json between", value1, value2, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEducationValueJsonNotBetween(String value1, String value2) {
-            addCriterion("education_value_json not between", value1, value2, "educationValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateIsNull() {
-            addCriterion("earning_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateIsNotNull() {
-            addCriterion("earning_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateEqualTo(String value) {
-            addCriterion("earning_state =", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateNotEqualTo(String value) {
-            addCriterion("earning_state <>", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateGreaterThan(String value) {
-            addCriterion("earning_state >", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateGreaterThanOrEqualTo(String value) {
-            addCriterion("earning_state >=", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateLessThan(String value) {
-            addCriterion("earning_state <", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateLessThanOrEqualTo(String value) {
-            addCriterion("earning_state <=", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateLike(String value) {
-            addCriterion("earning_state like", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateNotLike(String value) {
-            addCriterion("earning_state not like", value, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateIn(List<String> values) {
-            addCriterion("earning_state in", values, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateNotIn(List<String> values) {
-            addCriterion("earning_state not in", values, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateBetween(String value1, String value2) {
-            addCriterion("earning_state between", value1, value2, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningStateNotBetween(String value1, String value2) {
-            addCriterion("earning_state not between", value1, value2, "earningState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonIsNull() {
-            addCriterion("earning_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonIsNotNull() {
-            addCriterion("earning_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonEqualTo(String value) {
-            addCriterion("earning_value_json =", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonNotEqualTo(String value) {
-            addCriterion("earning_value_json <>", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonGreaterThan(String value) {
-            addCriterion("earning_value_json >", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("earning_value_json >=", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonLessThan(String value) {
-            addCriterion("earning_value_json <", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("earning_value_json <=", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonLike(String value) {
-            addCriterion("earning_value_json like", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonNotLike(String value) {
-            addCriterion("earning_value_json not like", value, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonIn(List<String> values) {
-            addCriterion("earning_value_json in", values, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonNotIn(List<String> values) {
-            addCriterion("earning_value_json not in", values, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonBetween(String value1, String value2) {
-            addCriterion("earning_value_json between", value1, value2, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEarningValueJsonNotBetween(String value1, String value2) {
-            addCriterion("earning_value_json not between", value1, value2, "earningValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateIsNull() {
-            addCriterion("emotion_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateIsNotNull() {
-            addCriterion("emotion_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateEqualTo(String value) {
-            addCriterion("emotion_state =", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateNotEqualTo(String value) {
-            addCriterion("emotion_state <>", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateGreaterThan(String value) {
-            addCriterion("emotion_state >", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateGreaterThanOrEqualTo(String value) {
-            addCriterion("emotion_state >=", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateLessThan(String value) {
-            addCriterion("emotion_state <", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateLessThanOrEqualTo(String value) {
-            addCriterion("emotion_state <=", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateLike(String value) {
-            addCriterion("emotion_state like", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateNotLike(String value) {
-            addCriterion("emotion_state not like", value, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateIn(List<String> values) {
-            addCriterion("emotion_state in", values, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateNotIn(List<String> values) {
-            addCriterion("emotion_state not in", values, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateBetween(String value1, String value2) {
-            addCriterion("emotion_state between", value1, value2, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionStateNotBetween(String value1, String value2) {
-            addCriterion("emotion_state not between", value1, value2, "emotionState");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonIsNull() {
-            addCriterion("emotion_value_json is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonIsNotNull() {
-            addCriterion("emotion_value_json is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonEqualTo(String value) {
-            addCriterion("emotion_value_json =", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonNotEqualTo(String value) {
-            addCriterion("emotion_value_json <>", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonGreaterThan(String value) {
-            addCriterion("emotion_value_json >", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonGreaterThanOrEqualTo(String value) {
-            addCriterion("emotion_value_json >=", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonLessThan(String value) {
-            addCriterion("emotion_value_json <", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonLessThanOrEqualTo(String value) {
-            addCriterion("emotion_value_json <=", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonLike(String value) {
-            addCriterion("emotion_value_json like", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonNotLike(String value) {
-            addCriterion("emotion_value_json not like", value, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonIn(List<String> values) {
-            addCriterion("emotion_value_json in", values, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonNotIn(List<String> values) {
-            addCriterion("emotion_value_json not in", values, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonBetween(String value1, String value2) {
-            addCriterion("emotion_value_json between", value1, value2, "emotionValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andEmotionValueJsonNotBetween(String value1, String value2) {
-            addCriterion("emotion_value_json not between", value1, value2, "emotionValueJson");
-            return (Criteria) this;
-        }
-
         public Criteria andInterestStateIsNull() {
             addCriterion("interest_state is null");
             return (Criteria) this;
@@ -1494,62 +644,52 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateEqualTo(String value) {
+        public Criteria andInterestStateEqualTo(Integer value) {
             addCriterion("interest_state =", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateNotEqualTo(String value) {
+        public Criteria andInterestStateNotEqualTo(Integer value) {
             addCriterion("interest_state <>", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateGreaterThan(String value) {
+        public Criteria andInterestStateGreaterThan(Integer value) {
             addCriterion("interest_state >", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateGreaterThanOrEqualTo(String value) {
+        public Criteria andInterestStateGreaterThanOrEqualTo(Integer value) {
             addCriterion("interest_state >=", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateLessThan(String value) {
+        public Criteria andInterestStateLessThan(Integer value) {
             addCriterion("interest_state <", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateLessThanOrEqualTo(String value) {
+        public Criteria andInterestStateLessThanOrEqualTo(Integer value) {
             addCriterion("interest_state <=", value, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateLike(String value) {
-            addCriterion("interest_state like", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateNotLike(String value) {
-            addCriterion("interest_state not like", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateIn(List<String> values) {
+        public Criteria andInterestStateIn(List<Integer> values) {
             addCriterion("interest_state in", values, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateNotIn(List<String> values) {
+        public Criteria andInterestStateNotIn(List<Integer> values) {
             addCriterion("interest_state not in", values, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateBetween(String value1, String value2) {
+        public Criteria andInterestStateBetween(Integer value1, Integer value2) {
             addCriterion("interest_state between", value1, value2, "interestState");
             return (Criteria) this;
         }
 
-        public Criteria andInterestStateNotBetween(String value1, String value2) {
+        public Criteria andInterestStateNotBetween(Integer value1, Integer value2) {
             addCriterion("interest_state not between", value1, value2, "interestState");
             return (Criteria) this;
         }
@@ -1621,6 +761,526 @@ public class AdvertisementCollimationCriteria {
 
         public Criteria andInterestValueJsonNotBetween(String value1, String value2) {
             addCriterion("interest_value_json not between", value1, value2, "interestValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateIsNull() {
+            addCriterion("operating_system_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateIsNotNull() {
+            addCriterion("operating_system_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateEqualTo(Integer value) {
+            addCriterion("operating_system_state =", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateNotEqualTo(Integer value) {
+            addCriterion("operating_system_state <>", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateGreaterThan(Integer value) {
+            addCriterion("operating_system_state >", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("operating_system_state >=", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateLessThan(Integer value) {
+            addCriterion("operating_system_state <", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateLessThanOrEqualTo(Integer value) {
+            addCriterion("operating_system_state <=", value, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateIn(List<Integer> values) {
+            addCriterion("operating_system_state in", values, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateNotIn(List<Integer> values) {
+            addCriterion("operating_system_state not in", values, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateBetween(Integer value1, Integer value2) {
+            addCriterion("operating_system_state between", value1, value2, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("operating_system_state not between", value1, value2, "operatingSystemState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonIsNull() {
+            addCriterion("operating_system_value_json is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonIsNotNull() {
+            addCriterion("operating_system_value_json is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonEqualTo(String value) {
+            addCriterion("operating_system_value_json =", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonNotEqualTo(String value) {
+            addCriterion("operating_system_value_json <>", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonGreaterThan(String value) {
+            addCriterion("operating_system_value_json >", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonGreaterThanOrEqualTo(String value) {
+            addCriterion("operating_system_value_json >=", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonLessThan(String value) {
+            addCriterion("operating_system_value_json <", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonLessThanOrEqualTo(String value) {
+            addCriterion("operating_system_value_json <=", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonLike(String value) {
+            addCriterion("operating_system_value_json like", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonNotLike(String value) {
+            addCriterion("operating_system_value_json not like", value, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonIn(List<String> values) {
+            addCriterion("operating_system_value_json in", values, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonNotIn(List<String> values) {
+            addCriterion("operating_system_value_json not in", values, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonBetween(String value1, String value2) {
+            addCriterion("operating_system_value_json between", value1, value2, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatingSystemValueJsonNotBetween(String value1, String value2) {
+            addCriterion("operating_system_value_json not between", value1, value2, "operatingSystemValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateIsNull() {
+            addCriterion("network_environment_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateIsNotNull() {
+            addCriterion("network_environment_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateEqualTo(Integer value) {
+            addCriterion("network_environment_state =", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateNotEqualTo(Integer value) {
+            addCriterion("network_environment_state <>", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateGreaterThan(Integer value) {
+            addCriterion("network_environment_state >", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("network_environment_state >=", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateLessThan(Integer value) {
+            addCriterion("network_environment_state <", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateLessThanOrEqualTo(Integer value) {
+            addCriterion("network_environment_state <=", value, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateIn(List<Integer> values) {
+            addCriterion("network_environment_state in", values, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateNotIn(List<Integer> values) {
+            addCriterion("network_environment_state not in", values, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateBetween(Integer value1, Integer value2) {
+            addCriterion("network_environment_state between", value1, value2, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("network_environment_state not between", value1, value2, "networkEnvironmentState");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonIsNull() {
+            addCriterion("network_environment_value_json is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonIsNotNull() {
+            addCriterion("network_environment_value_json is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonEqualTo(String value) {
+            addCriterion("network_environment_value_json =", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonNotEqualTo(String value) {
+            addCriterion("network_environment_value_json <>", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonGreaterThan(String value) {
+            addCriterion("network_environment_value_json >", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonGreaterThanOrEqualTo(String value) {
+            addCriterion("network_environment_value_json >=", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonLessThan(String value) {
+            addCriterion("network_environment_value_json <", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonLessThanOrEqualTo(String value) {
+            addCriterion("network_environment_value_json <=", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonLike(String value) {
+            addCriterion("network_environment_value_json like", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonNotLike(String value) {
+            addCriterion("network_environment_value_json not like", value, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonIn(List<String> values) {
+            addCriterion("network_environment_value_json in", values, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonNotIn(List<String> values) {
+            addCriterion("network_environment_value_json not in", values, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonBetween(String value1, String value2) {
+            addCriterion("network_environment_value_json between", value1, value2, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andNetworkEnvironmentValueJsonNotBetween(String value1, String value2) {
+            addCriterion("network_environment_value_json not between", value1, value2, "networkEnvironmentValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateIsNull() {
+            addCriterion("operator_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateIsNotNull() {
+            addCriterion("operator_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateEqualTo(Integer value) {
+            addCriterion("operator_state =", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateNotEqualTo(Integer value) {
+            addCriterion("operator_state <>", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateGreaterThan(Integer value) {
+            addCriterion("operator_state >", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("operator_state >=", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateLessThan(Integer value) {
+            addCriterion("operator_state <", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateLessThanOrEqualTo(Integer value) {
+            addCriterion("operator_state <=", value, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateIn(List<Integer> values) {
+            addCriterion("operator_state in", values, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateNotIn(List<Integer> values) {
+            addCriterion("operator_state not in", values, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateBetween(Integer value1, Integer value2) {
+            addCriterion("operator_state between", value1, value2, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("operator_state not between", value1, value2, "operatorState");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonIsNull() {
+            addCriterion("operator_value_json is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonIsNotNull() {
+            addCriterion("operator_value_json is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonEqualTo(String value) {
+            addCriterion("operator_value_json =", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonNotEqualTo(String value) {
+            addCriterion("operator_value_json <>", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonGreaterThan(String value) {
+            addCriterion("operator_value_json >", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonGreaterThanOrEqualTo(String value) {
+            addCriterion("operator_value_json >=", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonLessThan(String value) {
+            addCriterion("operator_value_json <", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonLessThanOrEqualTo(String value) {
+            addCriterion("operator_value_json <=", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonLike(String value) {
+            addCriterion("operator_value_json like", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonNotLike(String value) {
+            addCriterion("operator_value_json not like", value, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonIn(List<String> values) {
+            addCriterion("operator_value_json in", values, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonNotIn(List<String> values) {
+            addCriterion("operator_value_json not in", values, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonBetween(String value1, String value2) {
+            addCriterion("operator_value_json between", value1, value2, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorValueJsonNotBetween(String value1, String value2) {
+            addCriterion("operator_value_json not between", value1, value2, "operatorValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateIsNull() {
+            addCriterion("device_type_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateIsNotNull() {
+            addCriterion("device_type_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateEqualTo(Integer value) {
+            addCriterion("device_type_state =", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateNotEqualTo(Integer value) {
+            addCriterion("device_type_state <>", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateGreaterThan(Integer value) {
+            addCriterion("device_type_state >", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("device_type_state >=", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateLessThan(Integer value) {
+            addCriterion("device_type_state <", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateLessThanOrEqualTo(Integer value) {
+            addCriterion("device_type_state <=", value, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateIn(List<Integer> values) {
+            addCriterion("device_type_state in", values, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateNotIn(List<Integer> values) {
+            addCriterion("device_type_state not in", values, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateBetween(Integer value1, Integer value2) {
+            addCriterion("device_type_state between", value1, value2, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("device_type_state not between", value1, value2, "deviceTypeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonIsNull() {
+            addCriterion("device_type_value_json is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonIsNotNull() {
+            addCriterion("device_type_value_json is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonEqualTo(String value) {
+            addCriterion("device_type_value_json =", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonNotEqualTo(String value) {
+            addCriterion("device_type_value_json <>", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonGreaterThan(String value) {
+            addCriterion("device_type_value_json >", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonGreaterThanOrEqualTo(String value) {
+            addCriterion("device_type_value_json >=", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonLessThan(String value) {
+            addCriterion("device_type_value_json <", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonLessThanOrEqualTo(String value) {
+            addCriterion("device_type_value_json <=", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonLike(String value) {
+            addCriterion("device_type_value_json like", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonNotLike(String value) {
+            addCriterion("device_type_value_json not like", value, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonIn(List<String> values) {
+            addCriterion("device_type_value_json in", values, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonNotIn(List<String> values) {
+            addCriterion("device_type_value_json not in", values, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonBetween(String value1, String value2) {
+            addCriterion("device_type_value_json between", value1, value2, "deviceTypeValueJson");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceTypeValueJsonNotBetween(String value1, String value2) {
+            addCriterion("device_type_value_json not between", value1, value2, "deviceTypeValueJson");
             return (Criteria) this;
         }
     }

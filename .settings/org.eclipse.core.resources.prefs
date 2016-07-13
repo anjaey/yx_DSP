@@ -1,6 +1,10 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/res/css/admin/common.css=UTF-8
 encoding//WebContent/WEB-INF/res/css/official/index.css=UTF-8
-encoding//WebContent/WEB-INF/views/admin/privilege/addPrivilege.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/admin/advertiserMent/advertiserMent.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/admin/advertiserMent/advertiserMentAdd.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/admin/common/contactWay.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/admin/common/welcome.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/official/footer.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/official/header.jsp=UTF-8
 encoding//res/base.properties=UTF-8

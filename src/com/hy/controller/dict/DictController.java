@@ -17,7 +17,7 @@ import com.hy.controller.common.BaseController;
  *
  */
 @Controller
-public class DictControllser extends BaseController{
+public class DictController extends BaseController{
 
 	@Autowired
 	IDictBusiness dictBusiness;

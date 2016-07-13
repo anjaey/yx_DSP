@@ -177,6 +177,15 @@ public class JsonUtil implements ConstantUtil{
 		return  null;
 	}
 
+	/**
+	 * json 字符串转换为map
+	 * @author hy
+	 * @date 2016年7月13日下午6:09:52
+	 * @param json
+	 * @return
+	 * @update
+	 * @date
+	 */
 	@SuppressWarnings("unchecked")
 	public static  Map<String, Object> readJson2Map(String json) {
 		try {
@@ -187,6 +196,38 @@ public class JsonUtil implements ConstantUtil{
 		}
 		return  null;
 	}
+	
+	/**
+	 * json 字符串转换为map
+	 * 原理： 转换成功后 在吧不需要转换的重新转换为json 字符串
+	 * @author hy
+	 * @date 2016年7月13日下午6:10:28
+	 * @param json
+	 * @param notToMapKey  不用转换的key
+	 * @return
+	 * @update
+	 * @date
+	 */
+	@SuppressWarnings("unchecked")
+	public static  Map<String, Object> readJson2Map(String json, String[] notToMapKey) {
+		try {
+			objectMapper = new ObjectMapper();
+			Map<String, Object> map = objectMapper.readValue(json, Map.class);
+			for (String string : notToMapKey) {
+				if (map.containsKey(string)) {
+					Object obj = map.get(string);
+					String jsonstr = ObjectToJson(obj);
+					map.put(string, jsonstr);  //还原成json字符串
+				}
+			}
+			
+			return map;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return  null;
+	}
+
 
 
 

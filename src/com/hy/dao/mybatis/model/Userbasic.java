@@ -9,7 +9,7 @@ public class Userbasic {
 
     private Long createtime;
 
-    private Integer createuser;
+    private Integer createUser;
 
     private Integer isdelete;
 
@@ -22,6 +22,8 @@ public class Userbasic {
     private String getPwdCode;
 
     private Long getPwdOuttime;
+
+    private Integer state;
 
     public Integer getId() {
         return id;
@@ -55,12 +57,12 @@ public class Userbasic {
         this.createtime = createtime;
     }
 
-    public Integer getCreateuser() {
-        return createuser;
+    public Integer getCreateUser() {
+        return createUser;
     }
 
-    public void setCreateuser(Integer createuser) {
-        this.createuser = createuser;
+    public void setCreateUser(Integer createUser) {
+        this.createUser = createUser;
     }
 
     public Integer getIsdelete() {
@@ -109,5 +111,13 @@ public class Userbasic {
 
     public void setGetPwdOuttime(Long getPwdOuttime) {
         this.getPwdOuttime = getPwdOuttime;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

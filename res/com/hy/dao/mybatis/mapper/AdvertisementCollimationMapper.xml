@@ -4,26 +4,22 @@
   <resultMap id="BaseResultMap" type="com.hy.dao.mybatis.model.AdvertisementCollimation" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="basic_id" property="basicId" jdbcType="INTEGER" />
-    <result column="run_time_state" property="runTimeState" jdbcType="INTEGER" />
-    <result column="run_time_value_json" property="runTimeValueJson" jdbcType="VARCHAR" />
     <result column="area_state" property="areaState" jdbcType="INTEGER" />
     <result column="area_value_json" property="areaValueJson" jdbcType="VARCHAR" />
-    <result column="flux_state" property="fluxState" jdbcType="VARCHAR" />
-    <result column="flux_value_json" property="fluxValueJson" jdbcType="VARCHAR" />
-    <result column="sex_state" property="sexState" jdbcType="VARCHAR" />
+    <result column="sex_state" property="sexState" jdbcType="INTEGER" />
     <result column="sex_value_json" property="sexValueJson" jdbcType="VARCHAR" />
-    <result column="age_state" property="ageState" jdbcType="VARCHAR" />
+    <result column="age_state" property="ageState" jdbcType="INTEGER" />
     <result column="age_value_json" property="ageValueJson" jdbcType="VARCHAR" />
-    <result column="constellation_state" property="constellationState" jdbcType="VARCHAR" />
-    <result column="constellation_value_json" property="constellationValueJson" jdbcType="VARCHAR" />
-    <result column="education_state" property="educationState" jdbcType="VARCHAR" />
-    <result column="education_value_json" property="educationValueJson" jdbcType="VARCHAR" />
-    <result column="earning_state" property="earningState" jdbcType="VARCHAR" />
-    <result column="earning_value_json" property="earningValueJson" jdbcType="VARCHAR" />
-    <result column="emotion_state" property="emotionState" jdbcType="VARCHAR" />
-    <result column="emotion_value_json" property="emotionValueJson" jdbcType="VARCHAR" />
-    <result column="interest_state" property="interestState" jdbcType="VARCHAR" />
+    <result column="interest_state" property="interestState" jdbcType="INTEGER" />
     <result column="interest_value_json" property="interestValueJson" jdbcType="VARCHAR" />
+    <result column="operating_system_state" property="operatingSystemState" jdbcType="INTEGER" />
+    <result column="operating_system_value_json" property="operatingSystemValueJson" jdbcType="VARCHAR" />
+    <result column="network_environment_state" property="networkEnvironmentState" jdbcType="INTEGER" />
+    <result column="network_environment_value_json" property="networkEnvironmentValueJson" jdbcType="VARCHAR" />
+    <result column="operator_state" property="operatorState" jdbcType="INTEGER" />
+    <result column="operator_value_json" property="operatorValueJson" jdbcType="VARCHAR" />
+    <result column="device_type_state" property="deviceTypeState" jdbcType="INTEGER" />
+    <result column="device_type_value_json" property="deviceTypeValueJson" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -84,10 +80,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, basic_id, run_time_state, run_time_value_json, area_state, area_value_json, flux_state, 
-    flux_value_json, sex_state, sex_value_json, age_state, age_value_json, constellation_state, 
-    constellation_value_json, education_state, education_value_json, earning_state, earning_value_json, 
-    emotion_state, emotion_value_json, interest_state, interest_value_json
+    id, basic_id, area_state, area_value_json, sex_state, sex_value_json, age_state, 
+    age_value_json, interest_state, interest_value_json, operating_system_state, operating_system_value_json, 
+    network_environment_state, network_environment_value_json, operator_state, operator_value_json, 
+    device_type_state, device_type_value_json
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AdvertisementCollimationCriteria" >
     select
@@ -123,22 +119,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.hy.dao.mybatis.model.AdvertisementCollimation" >
-    insert into yx_advertisement_collimation (id, basic_id, run_time_state, 
-      run_time_value_json, area_state, area_value_json, 
-      flux_state, flux_value_json, sex_state, 
-      sex_value_json, age_state, age_value_json, 
-      constellation_state, constellation_value_json, 
-      education_state, education_value_json, earning_state, 
-      earning_value_json, emotion_state, emotion_value_json, 
-      interest_state, interest_value_json)
-    values (#{id,jdbcType=INTEGER}, #{basicId,jdbcType=INTEGER}, #{runTimeState,jdbcType=INTEGER}, 
-      #{runTimeValueJson,jdbcType=VARCHAR}, #{areaState,jdbcType=INTEGER}, #{areaValueJson,jdbcType=VARCHAR}, 
-      #{fluxState,jdbcType=VARCHAR}, #{fluxValueJson,jdbcType=VARCHAR}, #{sexState,jdbcType=VARCHAR}, 
-      #{sexValueJson,jdbcType=VARCHAR}, #{ageState,jdbcType=VARCHAR}, #{ageValueJson,jdbcType=VARCHAR}, 
-      #{constellationState,jdbcType=VARCHAR}, #{constellationValueJson,jdbcType=VARCHAR}, 
-      #{educationState,jdbcType=VARCHAR}, #{educationValueJson,jdbcType=VARCHAR}, #{earningState,jdbcType=VARCHAR}, 
-      #{earningValueJson,jdbcType=VARCHAR}, #{emotionState,jdbcType=VARCHAR}, #{emotionValueJson,jdbcType=VARCHAR}, 
-      #{interestState,jdbcType=VARCHAR}, #{interestValueJson,jdbcType=VARCHAR})
+    insert into yx_advertisement_collimation (id, basic_id, area_state, 
+      area_value_json, sex_state, sex_value_json, 
+      age_state, age_value_json, interest_state, 
+      interest_value_json, operating_system_state, 
+      operating_system_value_json, network_environment_state, 
+      network_environment_value_json, operator_state, 
+      operator_value_json, device_type_state, device_type_value_json
+      )
+    values (#{id,jdbcType=INTEGER}, #{basicId,jdbcType=INTEGER}, #{areaState,jdbcType=INTEGER}, 
+      #{areaValueJson,jdbcType=VARCHAR}, #{sexState,jdbcType=INTEGER}, #{sexValueJson,jdbcType=VARCHAR}, 
+      #{ageState,jdbcType=INTEGER}, #{ageValueJson,jdbcType=VARCHAR}, #{interestState,jdbcType=INTEGER}, 
+      #{interestValueJson,jdbcType=VARCHAR}, #{operatingSystemState,jdbcType=INTEGER}, 
+      #{operatingSystemValueJson,jdbcType=VARCHAR}, #{networkEnvironmentState,jdbcType=INTEGER}, 
+      #{networkEnvironmentValueJson,jdbcType=VARCHAR}, #{operatorState,jdbcType=INTEGER}, 
+      #{operatorValueJson,jdbcType=VARCHAR}, #{deviceTypeState,jdbcType=INTEGER}, #{deviceTypeValueJson,jdbcType=VARCHAR}
+      )
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -152,23 +148,11 @@
       <if test="basicId != null" >
         basic_id,
       </if>
-      <if test="runTimeState != null" >
-        run_time_state,
-      </if>
-      <if test="runTimeValueJson != null" >
-        run_time_value_json,
-      </if>
       <if test="areaState != null" >
         area_state,
       </if>
       <if test="areaValueJson != null" >
         area_value_json,
-      </if>
-      <if test="fluxState != null" >
-        flux_state,
-      </if>
-      <if test="fluxValueJson != null" >
-        flux_value_json,
       </if>
       <if test="sexState != null" >
         sex_state,
@@ -182,35 +166,35 @@
       <if test="ageValueJson != null" >
         age_value_json,
       </if>
-      <if test="constellationState != null" >
-        constellation_state,
-      </if>
-      <if test="constellationValueJson != null" >
-        constellation_value_json,
-      </if>
-      <if test="educationState != null" >
-        education_state,
-      </if>
-      <if test="educationValueJson != null" >
-        education_value_json,
-      </if>
-      <if test="earningState != null" >
-        earning_state,
-      </if>
-      <if test="earningValueJson != null" >
-        earning_value_json,
-      </if>
-      <if test="emotionState != null" >
-        emotion_state,
-      </if>
-      <if test="emotionValueJson != null" >
-        emotion_value_json,
-      </if>
       <if test="interestState != null" >
         interest_state,
       </if>
       <if test="interestValueJson != null" >
         interest_value_json,
+      </if>
+      <if test="operatingSystemState != null" >
+        operating_system_state,
+      </if>
+      <if test="operatingSystemValueJson != null" >
+        operating_system_value_json,
+      </if>
+      <if test="networkEnvironmentState != null" >
+        network_environment_state,
+      </if>
+      <if test="networkEnvironmentValueJson != null" >
+        network_environment_value_json,
+      </if>
+      <if test="operatorState != null" >
+        operator_state,
+      </if>
+      <if test="operatorValueJson != null" >
+        operator_value_json,
+      </if>
+      <if test="deviceTypeState != null" >
+        device_type_state,
+      </if>
+      <if test="deviceTypeValueJson != null" >
+        device_type_value_json,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -220,65 +204,53 @@
       <if test="basicId != null" >
         #{basicId,jdbcType=INTEGER},
       </if>
-      <if test="runTimeState != null" >
-        #{runTimeState,jdbcType=INTEGER},
-      </if>
-      <if test="runTimeValueJson != null" >
-        #{runTimeValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="areaState != null" >
         #{areaState,jdbcType=INTEGER},
       </if>
       <if test="areaValueJson != null" >
         #{areaValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="fluxState != null" >
-        #{fluxState,jdbcType=VARCHAR},
-      </if>
-      <if test="fluxValueJson != null" >
-        #{fluxValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="sexState != null" >
-        #{sexState,jdbcType=VARCHAR},
+        #{sexState,jdbcType=INTEGER},
       </if>
       <if test="sexValueJson != null" >
         #{sexValueJson,jdbcType=VARCHAR},
       </if>
       <if test="ageState != null" >
-        #{ageState,jdbcType=VARCHAR},
+        #{ageState,jdbcType=INTEGER},
       </if>
       <if test="ageValueJson != null" >
         #{ageValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="constellationState != null" >
-        #{constellationState,jdbcType=VARCHAR},
-      </if>
-      <if test="constellationValueJson != null" >
-        #{constellationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="educationState != null" >
-        #{educationState,jdbcType=VARCHAR},
-      </if>
-      <if test="educationValueJson != null" >
-        #{educationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="earningState != null" >
-        #{earningState,jdbcType=VARCHAR},
-      </if>
-      <if test="earningValueJson != null" >
-        #{earningValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="emotionState != null" >
-        #{emotionState,jdbcType=VARCHAR},
-      </if>
-      <if test="emotionValueJson != null" >
-        #{emotionValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="interestState != null" >
-        #{interestState,jdbcType=VARCHAR},
+        #{interestState,jdbcType=INTEGER},
       </if>
       <if test="interestValueJson != null" >
         #{interestValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatingSystemState != null" >
+        #{operatingSystemState,jdbcType=INTEGER},
+      </if>
+      <if test="operatingSystemValueJson != null" >
+        #{operatingSystemValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="networkEnvironmentState != null" >
+        #{networkEnvironmentState,jdbcType=INTEGER},
+      </if>
+      <if test="networkEnvironmentValueJson != null" >
+        #{networkEnvironmentValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorState != null" >
+        #{operatorState,jdbcType=INTEGER},
+      </if>
+      <if test="operatorValueJson != null" >
+        #{operatorValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceTypeState != null" >
+        #{deviceTypeState,jdbcType=INTEGER},
+      </if>
+      <if test="deviceTypeValueJson != null" >
+        #{deviceTypeValueJson,jdbcType=VARCHAR},
       </if>
     </trim>
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
@@ -300,65 +272,53 @@
       <if test="record.basicId != null" >
         basic_id = #{record.basicId,jdbcType=INTEGER},
       </if>
-      <if test="record.runTimeState != null" >
-        run_time_state = #{record.runTimeState,jdbcType=INTEGER},
-      </if>
-      <if test="record.runTimeValueJson != null" >
-        run_time_value_json = #{record.runTimeValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="record.areaState != null" >
         area_state = #{record.areaState,jdbcType=INTEGER},
       </if>
       <if test="record.areaValueJson != null" >
         area_value_json = #{record.areaValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="record.fluxState != null" >
-        flux_state = #{record.fluxState,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fluxValueJson != null" >
-        flux_value_json = #{record.fluxValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="record.sexState != null" >
-        sex_state = #{record.sexState,jdbcType=VARCHAR},
+        sex_state = #{record.sexState,jdbcType=INTEGER},
       </if>
       <if test="record.sexValueJson != null" >
         sex_value_json = #{record.sexValueJson,jdbcType=VARCHAR},
       </if>
       <if test="record.ageState != null" >
-        age_state = #{record.ageState,jdbcType=VARCHAR},
+        age_state = #{record.ageState,jdbcType=INTEGER},
       </if>
       <if test="record.ageValueJson != null" >
         age_value_json = #{record.ageValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="record.constellationState != null" >
-        constellation_state = #{record.constellationState,jdbcType=VARCHAR},
-      </if>
-      <if test="record.constellationValueJson != null" >
-        constellation_value_json = #{record.constellationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="record.educationState != null" >
-        education_state = #{record.educationState,jdbcType=VARCHAR},
-      </if>
-      <if test="record.educationValueJson != null" >
-        education_value_json = #{record.educationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="record.earningState != null" >
-        earning_state = #{record.earningState,jdbcType=VARCHAR},
-      </if>
-      <if test="record.earningValueJson != null" >
-        earning_value_json = #{record.earningValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="record.emotionState != null" >
-        emotion_state = #{record.emotionState,jdbcType=VARCHAR},
-      </if>
-      <if test="record.emotionValueJson != null" >
-        emotion_value_json = #{record.emotionValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="record.interestState != null" >
-        interest_state = #{record.interestState,jdbcType=VARCHAR},
+        interest_state = #{record.interestState,jdbcType=INTEGER},
       </if>
       <if test="record.interestValueJson != null" >
         interest_value_json = #{record.interestValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatingSystemState != null" >
+        operating_system_state = #{record.operatingSystemState,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatingSystemValueJson != null" >
+        operating_system_value_json = #{record.operatingSystemValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.networkEnvironmentState != null" >
+        network_environment_state = #{record.networkEnvironmentState,jdbcType=INTEGER},
+      </if>
+      <if test="record.networkEnvironmentValueJson != null" >
+        network_environment_value_json = #{record.networkEnvironmentValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorState != null" >
+        operator_state = #{record.operatorState,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatorValueJson != null" >
+        operator_value_json = #{record.operatorValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceTypeState != null" >
+        device_type_state = #{record.deviceTypeState,jdbcType=INTEGER},
+      </if>
+      <if test="record.deviceTypeValueJson != null" >
+        device_type_value_json = #{record.deviceTypeValueJson,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -369,26 +329,22 @@
     update yx_advertisement_collimation
     set id = #{record.id,jdbcType=INTEGER},
       basic_id = #{record.basicId,jdbcType=INTEGER},
-      run_time_state = #{record.runTimeState,jdbcType=INTEGER},
-      run_time_value_json = #{record.runTimeValueJson,jdbcType=VARCHAR},
       area_state = #{record.areaState,jdbcType=INTEGER},
       area_value_json = #{record.areaValueJson,jdbcType=VARCHAR},
-      flux_state = #{record.fluxState,jdbcType=VARCHAR},
-      flux_value_json = #{record.fluxValueJson,jdbcType=VARCHAR},
-      sex_state = #{record.sexState,jdbcType=VARCHAR},
+      sex_state = #{record.sexState,jdbcType=INTEGER},
       sex_value_json = #{record.sexValueJson,jdbcType=VARCHAR},
-      age_state = #{record.ageState,jdbcType=VARCHAR},
+      age_state = #{record.ageState,jdbcType=INTEGER},
       age_value_json = #{record.ageValueJson,jdbcType=VARCHAR},
-      constellation_state = #{record.constellationState,jdbcType=VARCHAR},
-      constellation_value_json = #{record.constellationValueJson,jdbcType=VARCHAR},
-      education_state = #{record.educationState,jdbcType=VARCHAR},
-      education_value_json = #{record.educationValueJson,jdbcType=VARCHAR},
-      earning_state = #{record.earningState,jdbcType=VARCHAR},
-      earning_value_json = #{record.earningValueJson,jdbcType=VARCHAR},
-      emotion_state = #{record.emotionState,jdbcType=VARCHAR},
-      emotion_value_json = #{record.emotionValueJson,jdbcType=VARCHAR},
-      interest_state = #{record.interestState,jdbcType=VARCHAR},
-      interest_value_json = #{record.interestValueJson,jdbcType=VARCHAR}
+      interest_state = #{record.interestState,jdbcType=INTEGER},
+      interest_value_json = #{record.interestValueJson,jdbcType=VARCHAR},
+      operating_system_state = #{record.operatingSystemState,jdbcType=INTEGER},
+      operating_system_value_json = #{record.operatingSystemValueJson,jdbcType=VARCHAR},
+      network_environment_state = #{record.networkEnvironmentState,jdbcType=INTEGER},
+      network_environment_value_json = #{record.networkEnvironmentValueJson,jdbcType=VARCHAR},
+      operator_state = #{record.operatorState,jdbcType=INTEGER},
+      operator_value_json = #{record.operatorValueJson,jdbcType=VARCHAR},
+      device_type_state = #{record.deviceTypeState,jdbcType=INTEGER},
+      device_type_value_json = #{record.deviceTypeValueJson,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -399,65 +355,53 @@
       <if test="basicId != null" >
         basic_id = #{basicId,jdbcType=INTEGER},
       </if>
-      <if test="runTimeState != null" >
-        run_time_state = #{runTimeState,jdbcType=INTEGER},
-      </if>
-      <if test="runTimeValueJson != null" >
-        run_time_value_json = #{runTimeValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="areaState != null" >
         area_state = #{areaState,jdbcType=INTEGER},
       </if>
       <if test="areaValueJson != null" >
         area_value_json = #{areaValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="fluxState != null" >
-        flux_state = #{fluxState,jdbcType=VARCHAR},
-      </if>
-      <if test="fluxValueJson != null" >
-        flux_value_json = #{fluxValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="sexState != null" >
-        sex_state = #{sexState,jdbcType=VARCHAR},
+        sex_state = #{sexState,jdbcType=INTEGER},
       </if>
       <if test="sexValueJson != null" >
         sex_value_json = #{sexValueJson,jdbcType=VARCHAR},
       </if>
       <if test="ageState != null" >
-        age_state = #{ageState,jdbcType=VARCHAR},
+        age_state = #{ageState,jdbcType=INTEGER},
       </if>
       <if test="ageValueJson != null" >
         age_value_json = #{ageValueJson,jdbcType=VARCHAR},
       </if>
-      <if test="constellationState != null" >
-        constellation_state = #{constellationState,jdbcType=VARCHAR},
-      </if>
-      <if test="constellationValueJson != null" >
-        constellation_value_json = #{constellationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="educationState != null" >
-        education_state = #{educationState,jdbcType=VARCHAR},
-      </if>
-      <if test="educationValueJson != null" >
-        education_value_json = #{educationValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="earningState != null" >
-        earning_state = #{earningState,jdbcType=VARCHAR},
-      </if>
-      <if test="earningValueJson != null" >
-        earning_value_json = #{earningValueJson,jdbcType=VARCHAR},
-      </if>
-      <if test="emotionState != null" >
-        emotion_state = #{emotionState,jdbcType=VARCHAR},
-      </if>
-      <if test="emotionValueJson != null" >
-        emotion_value_json = #{emotionValueJson,jdbcType=VARCHAR},
-      </if>
       <if test="interestState != null" >
-        interest_state = #{interestState,jdbcType=VARCHAR},
+        interest_state = #{interestState,jdbcType=INTEGER},
       </if>
       <if test="interestValueJson != null" >
         interest_value_json = #{interestValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatingSystemState != null" >
+        operating_system_state = #{operatingSystemState,jdbcType=INTEGER},
+      </if>
+      <if test="operatingSystemValueJson != null" >
+        operating_system_value_json = #{operatingSystemValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="networkEnvironmentState != null" >
+        network_environment_state = #{networkEnvironmentState,jdbcType=INTEGER},
+      </if>
+      <if test="networkEnvironmentValueJson != null" >
+        network_environment_value_json = #{networkEnvironmentValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorState != null" >
+        operator_state = #{operatorState,jdbcType=INTEGER},
+      </if>
+      <if test="operatorValueJson != null" >
+        operator_value_json = #{operatorValueJson,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceTypeState != null" >
+        device_type_state = #{deviceTypeState,jdbcType=INTEGER},
+      </if>
+      <if test="deviceTypeValueJson != null" >
+        device_type_value_json = #{deviceTypeValueJson,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -465,26 +409,22 @@
   <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.AdvertisementCollimation" >
     update yx_advertisement_collimation
     set basic_id = #{basicId,jdbcType=INTEGER},
-      run_time_state = #{runTimeState,jdbcType=INTEGER},
-      run_time_value_json = #{runTimeValueJson,jdbcType=VARCHAR},
       area_state = #{areaState,jdbcType=INTEGER},
       area_value_json = #{areaValueJson,jdbcType=VARCHAR},
-      flux_state = #{fluxState,jdbcType=VARCHAR},
-      flux_value_json = #{fluxValueJson,jdbcType=VARCHAR},
-      sex_state = #{sexState,jdbcType=VARCHAR},
+      sex_state = #{sexState,jdbcType=INTEGER},
       sex_value_json = #{sexValueJson,jdbcType=VARCHAR},
-      age_state = #{ageState,jdbcType=VARCHAR},
+      age_state = #{ageState,jdbcType=INTEGER},
       age_value_json = #{ageValueJson,jdbcType=VARCHAR},
-      constellation_state = #{constellationState,jdbcType=VARCHAR},
-      constellation_value_json = #{constellationValueJson,jdbcType=VARCHAR},
-      education_state = #{educationState,jdbcType=VARCHAR},
-      education_value_json = #{educationValueJson,jdbcType=VARCHAR},
-      earning_state = #{earningState,jdbcType=VARCHAR},
-      earning_value_json = #{earningValueJson,jdbcType=VARCHAR},
-      emotion_state = #{emotionState,jdbcType=VARCHAR},
-      emotion_value_json = #{emotionValueJson,jdbcType=VARCHAR},
-      interest_state = #{interestState,jdbcType=VARCHAR},
-      interest_value_json = #{interestValueJson,jdbcType=VARCHAR}
+      interest_state = #{interestState,jdbcType=INTEGER},
+      interest_value_json = #{interestValueJson,jdbcType=VARCHAR},
+      operating_system_state = #{operatingSystemState,jdbcType=INTEGER},
+      operating_system_value_json = #{operatingSystemValueJson,jdbcType=VARCHAR},
+      network_environment_state = #{networkEnvironmentState,jdbcType=INTEGER},
+      network_environment_value_json = #{networkEnvironmentValueJson,jdbcType=VARCHAR},
+      operator_state = #{operatorState,jdbcType=INTEGER},
+      operator_value_json = #{operatorValueJson,jdbcType=VARCHAR},
+      device_type_state = #{deviceTypeState,jdbcType=INTEGER},
+      device_type_value_json = #{deviceTypeValueJson,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

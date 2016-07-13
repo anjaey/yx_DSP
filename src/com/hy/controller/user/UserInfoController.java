@@ -14,17 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hy.business.user.IPrivilegeBusiness;
 import com.hy.business.user.IRoleBusiness;
 import com.hy.business.user.IUserBusiness;
-import com.hy.controller.common.BaseController;
+import com.hy.controller.common.FileController;
 import com.hy.dao.mybatis.model.Userbasic;
 import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantStaticUtil;
 import com.hy.util.common.ConstantUtil;
-import com.hy.util.common.DirUtil;
 import com.hy.util.common.JsonUtil;
 import com.hy.util.common.ListMapUtil;
-import com.hy.util.upload.UploadBean;
-import com.hy.util.upload.UploadException;
-import com.hy.util.upload.UploadUtils;
 
 /**
  * 用户相关控制器
@@ -32,7 +28,7 @@ import com.hy.util.upload.UploadUtils;
  *
  */
 @Controller("adminUser")
-public class UserInfoController extends BaseController{
+public class UserInfoController extends FileController {
 
 	@Autowired
 	IUserBusiness userBusiness;
@@ -327,57 +323,11 @@ public class UserInfoController extends BaseController{
 	 * 
 	 * @date 2016年5月9日上午11:25:59
 	 */
-	@RequestMapping("/admin/user/user/usericoUpload")
+	@RequestMapping(value = "/admin/user/user/usericoUpload")
 	@ResponseBody
 	public void submitUserIcoUpload() {
-		Map<String, Object> map = new HashMap<>();
-		Map<String, Object> msgMap = new HashMap<String, Object>();
-		
-		response.setContentType("text/html; charset=utf-8");
-		
-		map.put("msgMap", msgMap);
-		map.put("state", "1");
-		try {
-			
-			UploadUtils uploadUtils = new UploadUtils();
-			// 最大限制
-			Long maxSize = Long.valueOf(50 * 1024 * 1024);
-			uploadUtils.setMaxSize(maxSize);
-			// 后缀名限制
-			String suffixType = "BMP,JPG,JPEG,PNG,GIF";
-			uploadUtils.setSuffixStr(suffixType);
-			
-			// 上传路径
-			String uploadCredentialsUrlPath = ConstantStaticUtil.UPLOAD_USER_URL_IMG_PATH;
-			
-			String rootDir = DirUtil.getDirUpload();
-			
-			try {
-				List<UploadBean> credentialsUrlFileList = uploadUtils.getUploadFiles(request, "credentialsUrlFile");
-				UploadBean credentialsUrlFile = null;
-				if (credentialsUrlFileList != null && !credentialsUrlFileList.isEmpty()) {
-					credentialsUrlFile = credentialsUrlFileList.get(0);
-				}
-				if (credentialsUrlFile != null) {
-					uploadUtils.saveUploadFiles(credentialsUrlFile, rootDir, uploadCredentialsUrlPath);
-					String path = credentialsUrlFile.getPath();
-					
-					map.put("data", path);
-					map.put("state", "1");
-				} else {
-					map.put("state", "0");
-				}
-			} catch (UploadException e) {
-				map.put("state", "0");
-			} catch (Exception e) {
-				map.put("state", "0");
-			}
-			
-		} catch (Exception e) {
-			if (msgMap.isEmpty()) {
-				map.put("state", "0");
-			}
-		}
+		String suffixType = "BMP,JPG,JPEG,PNG,GIF";
+		Map<String, Object> map = uploadProFile(ConstantStaticUtil.UPLOAD_USER_URL_IMG_PATH, suffixType);
 		this.writeJson(map);
 	}
 

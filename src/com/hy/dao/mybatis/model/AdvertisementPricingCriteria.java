@@ -245,63 +245,63 @@ public class AdvertisementPricingCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidIsNull() {
-            addCriterion("\"check_ best _bid\" is null");
+        public Criteria andCheckBestBidPriceIsNull() {
+            addCriterion("check_best_bid_price is null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidIsNotNull() {
-            addCriterion("\"check_ best _bid\" is not null");
+        public Criteria andCheckBestBidPriceIsNotNull() {
+            addCriterion("check_best_bid_price is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidEqualTo(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" =", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceEqualTo(BigDecimal value) {
+            addCriterion("check_best_bid_price =", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidNotEqualTo(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" <>", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceNotEqualTo(BigDecimal value) {
+            addCriterion("check_best_bid_price <>", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidGreaterThan(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" >", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceGreaterThan(BigDecimal value) {
+            addCriterion("check_best_bid_price >", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" >=", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("check_best_bid_price >=", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidLessThan(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" <", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceLessThan(BigDecimal value) {
+            addCriterion("check_best_bid_price <", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("\"check_ best _bid\" <=", value, "checkBestBid");
+        public Criteria andCheckBestBidPriceLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("check_best_bid_price <=", value, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidIn(List<BigDecimal> values) {
-            addCriterion("\"check_ best _bid\" in", values, "checkBestBid");
+        public Criteria andCheckBestBidPriceIn(List<BigDecimal> values) {
+            addCriterion("check_best_bid_price in", values, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidNotIn(List<BigDecimal> values) {
-            addCriterion("\"check_ best _bid\" not in", values, "checkBestBid");
+        public Criteria andCheckBestBidPriceNotIn(List<BigDecimal> values) {
+            addCriterion("check_best_bid_price not in", values, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("\"check_ best _bid\" between", value1, value2, "checkBestBid");
+        public Criteria andCheckBestBidPriceBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("check_best_bid_price between", value1, value2, "checkBestBidPrice");
             return (Criteria) this;
         }
 
-        public Criteria andCheckBestBidNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("\"check_ best _bid\" not between", value1, value2, "checkBestBid");
+        public Criteria andCheckBestBidPriceNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("check_best_bid_price not between", value1, value2, "checkBestBidPrice");
             return (Criteria) this;
         }
 
@@ -545,63 +545,63 @@ public class AdvertisementPricingCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitIsNull() {
-            addCriterion("check_freque_everyone_unit is null");
+        public Criteria andCheckFrequeEveryoneNoIsNull() {
+            addCriterion("check_freque_everyone_no is null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitIsNotNull() {
-            addCriterion("check_freque_everyone_unit is not null");
+        public Criteria andCheckFrequeEveryoneNoIsNotNull() {
+            addCriterion("check_freque_everyone_no is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitEqualTo(Integer value) {
-            addCriterion("check_freque_everyone_unit =", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoEqualTo(Integer value) {
+            addCriterion("check_freque_everyone_no =", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitNotEqualTo(Integer value) {
-            addCriterion("check_freque_everyone_unit <>", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoNotEqualTo(Integer value) {
+            addCriterion("check_freque_everyone_no <>", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitGreaterThan(Integer value) {
-            addCriterion("check_freque_everyone_unit >", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoGreaterThan(Integer value) {
+            addCriterion("check_freque_everyone_no >", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitGreaterThanOrEqualTo(Integer value) {
-            addCriterion("check_freque_everyone_unit >=", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoGreaterThanOrEqualTo(Integer value) {
+            addCriterion("check_freque_everyone_no >=", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitLessThan(Integer value) {
-            addCriterion("check_freque_everyone_unit <", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoLessThan(Integer value) {
+            addCriterion("check_freque_everyone_no <", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitLessThanOrEqualTo(Integer value) {
-            addCriterion("check_freque_everyone_unit <=", value, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoLessThanOrEqualTo(Integer value) {
+            addCriterion("check_freque_everyone_no <=", value, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitIn(List<Integer> values) {
-            addCriterion("check_freque_everyone_unit in", values, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoIn(List<Integer> values) {
+            addCriterion("check_freque_everyone_no in", values, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitNotIn(List<Integer> values) {
-            addCriterion("check_freque_everyone_unit not in", values, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoNotIn(List<Integer> values) {
+            addCriterion("check_freque_everyone_no not in", values, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitBetween(Integer value1, Integer value2) {
-            addCriterion("check_freque_everyone_unit between", value1, value2, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoBetween(Integer value1, Integer value2) {
+            addCriterion("check_freque_everyone_no between", value1, value2, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 
-        public Criteria andCheckFrequeEveryoneUnitNotBetween(Integer value1, Integer value2) {
-            addCriterion("check_freque_everyone_unit not between", value1, value2, "checkFrequeEveryoneUnit");
+        public Criteria andCheckFrequeEveryoneNoNotBetween(Integer value1, Integer value2) {
+            addCriterion("check_freque_everyone_no not between", value1, value2, "checkFrequeEveryoneNo");
             return (Criteria) this;
         }
 

@@ -12,6 +12,8 @@ public class Types {
 	
 	public final static int BYTE = 1;
 	
+	public final static int BIGDECIMAL = 2004;
+	
 	public final static int SHORT = 2;
 	
 	public final static int INTEGER = 3;

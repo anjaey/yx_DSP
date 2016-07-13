@@ -18,8 +18,8 @@
         	<div class="BackCon">
             	<h2>帐号登录</h2>
                 <div>
-                    <p class="BackTxt BackBorder"><span class="BackTitCon">用户名<i>*</i></span><input id = "js-username" name="text" type="text" placeholder="请输入注册邮箱" /><span class="BackTi"></span></p>
-                    <p class="BackTxt"><span class="BackTitCon">密码<i>*</i></span><input id="js-pwd" name="text" type="password" placeholder="请输入6-20位密码" /><span class="BackTi"></span></p>
+                    <p class="BackTxt BackBorder"><span class="BackTitCon">用户名<i>*</i></span><input value="aaa111@qq.com" id = "js-username" name="text" type="text" placeholder="请输入注册邮箱" /><span class="BackTi"></span></p>
+                    <p class="BackTxt"><span class="BackTitCon">密码<i>*</i></span><input id="js-pwd" value="123iii" name="text" type="password" placeholder="请输入6-20位密码" /><span class="BackTi"></span></p>
 	                <p class="BackTxt" style="text-align:center; width:570px;"><input id="js-login" name="" type="button" value="立即登录" /></p>
 					<%-- <img id="js-image" onclick="createimg()" src="${base}/function/common/img/createimg" width="116" height="39" /> --%>
 	            </div><!--BackCon-->

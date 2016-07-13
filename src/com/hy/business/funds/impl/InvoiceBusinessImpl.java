@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.hy.business.advertiser.IAdvertiserBusiness;
 import com.hy.business.funds.IInvoiceBusiness;
 import com.hy.business.user.IUserBusiness;
+import com.hy.dao.common.JdbcBaseDao;
 import com.hy.dao.common.impl.BaseDaoImpl;
 import com.hy.dao.mybatis.mapper.AdvertiserMapper;
 import com.hy.dao.mybatis.mapper.InvoiceMapper;
@@ -163,6 +164,9 @@ public class InvoiceBusinessImpl extends BaseDaoImpl implements IInvoiceBusiness
 			if (!CommonUtil.isEmpty(map)) {
 				Invoice invoice = (Invoice)ListMapUtil.setEntityValue(map, Invoice.class);
 				
+				//生成单据号
+				createInvoiceEncodingId(this.jdbcBaseDao);
+				
 				invoiceMapper.insertSelective(invoice);
 				returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
 			} else {
@@ -173,6 +177,42 @@ public class InvoiceBusinessImpl extends BaseDaoImpl implements IInvoiceBusiness
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_FAIL);
 		}
 		return returnmap;
+	}
+	
+	/**
+	 * 创建一个线程安全的方法生成发票单据号
+	 * recp_8位流水号
+	 * @author hy
+	 * @date 2016年7月1日下午4:40:55
+	 * @return
+	 * @update
+	 * @date
+	 */
+	@SuppressWarnings("unchecked")
+	private static synchronized String createInvoiceEncodingId(JdbcBaseDao jdbcBaseDao) {
+		String keyid = "recp_00000000";  //默认可以id 
+		
+		//生成id, 得到最大id
+		String sql = "select (CONVERT(substring(invoice_encoding, 4, 3), SIGNED) + 1) as nextkeyid from"
+				+ " yx_invoice order by invoice_encoding desc limit 1";
+		
+		List<Map<String, Object>> list = jdbcBaseDao.findList(sql, null);
+		
+		if (!CommonUtil.isEmpty(list) && list.size() > 0) {
+			Object keyidobj = list.get(0);
+			if (!CommonUtil.isEmpty(keyidobj)) {
+				String keyidstr = keyidobj.toString();
+				
+				String zero = "recp_";
+				for (int i = 0; i < 8 - keyidstr.length(); i++) {
+					zero = zero + "0";
+				}
+
+				keyid = zero + keyidstr;
+			}
+		}
+		
+		return keyid;
 	}
 
 	@SuppressWarnings("unchecked")

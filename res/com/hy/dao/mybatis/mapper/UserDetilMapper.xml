@@ -79,7 +79,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from yx_userdetil
+    from yx_user_detil
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -93,23 +93,23 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.UserDetilKey" >
     select 
     <include refid="Base_Column_List" />
-    from yx_userdetil
+    from yx_user_detil
     where id = #{id,jdbcType=INTEGER}
       and user_base_id = #{userBaseId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.hy.dao.mybatis.model.UserDetilKey" >
-    delete from yx_userdetil
+    delete from yx_user_detil
     where id = #{id,jdbcType=INTEGER}
       and user_base_id = #{userBaseId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.hy.dao.mybatis.model.UserDetilCriteria" >
-    delete from yx_userdetil
+    delete from yx_user_detil
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.hy.dao.mybatis.model.UserDetil" >
-    insert into yx_userdetil (id, user_base_id, compellation, 
+    insert into yx_user_detil (id, user_base_id, compellation, 
       qq, weChat, mobilePhone, 
       epithet, ico, connection_emial
       )
@@ -122,7 +122,7 @@
     </selectKey>
   </insert>
   <insert id="insertSelective" parameterType="com.hy.dao.mybatis.model.UserDetil" >
-    insert into yx_userdetil
+    insert into yx_user_detil
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -186,13 +186,13 @@
     </selectKey>
   </insert>
   <select id="countByExample" parameterType="com.hy.dao.mybatis.model.UserDetilCriteria" resultType="java.lang.Integer" >
-    select count(*) from yx_userdetil
+    select count(*) from yx_user_detil
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update yx_userdetil
+    update yx_user_detil
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
@@ -227,7 +227,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update yx_userdetil
+    update yx_user_detil
     set id = #{record.id,jdbcType=INTEGER},
       user_base_id = #{record.userBaseId,jdbcType=INTEGER},
       compellation = #{record.compellation,jdbcType=VARCHAR},
@@ -242,7 +242,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.hy.dao.mybatis.model.UserDetil" >
-    update yx_userdetil
+    update yx_user_detil
     <set >
       <if test="compellation != null" >
         compellation = #{compellation,jdbcType=VARCHAR},
@@ -270,7 +270,7 @@
       and user_base_id = #{userBaseId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hy.dao.mybatis.model.UserDetil" >
-    update yx_userdetil
+    update yx_user_detil
     set compellation = #{compellation,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
       weChat = #{wechat,jdbcType=VARCHAR},
@@ -287,7 +287,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from yx_userdetil
+    from yx_user_detil
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>

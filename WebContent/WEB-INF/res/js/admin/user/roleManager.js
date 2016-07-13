@@ -41,31 +41,6 @@ $(function(){
 });
 
 
-//查看日志
-function base_find_logs_page(id, targetPage) {
-	var html = "";
-	try {
-		var form_data = "objId=" + id;
-		form_data += "&queryPage.targetPage=" + targetPage;
-		
-		$.ajax({
-			type : "POST",
-			async : false,
-			url : basepath + "/admin/adx/role/findLogsList",
-			data : form_data,
-			dataType : "JSON",
-			success : function(map) {
-				if (map.state == 0) {
-					html = map.data;
-				}
-			},
-			error : function(e) {}
-		});
-	} catch (e) {
-	} finally {}
-	return html;
-}
-
 //删除角色	
 function deleteData(idinfo) {
 	var id = idinfo;
@@ -294,7 +269,6 @@ function findRoleInfoPage() {
 		var form_data = $("#di_find_form").serialize();
 		$.ajax({
 			type : "GET",
-			async : false,
 			url : basepath + "/admin/adx/findAllRoleAndPage",
 			data : form_data,
 			dataType : "JSON",
@@ -326,7 +300,6 @@ function addRole() {
 		type: "POST",
 		url: basepath + "/admin/adx/addRoleInfo",
 		data: param,
-		async : false,
 		dataType: "json",
 		success: function(data){
 			pg_targetPage_js(1);//刷新当前页面.

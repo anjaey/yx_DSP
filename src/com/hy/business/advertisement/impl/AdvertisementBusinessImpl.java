@@ -1,5 +1,6 @@
 package com.hy.business.advertisement.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,9 @@ import com.hy.dao.mybatis.model.AdvertisementCollimation;
 import com.hy.dao.mybatis.model.AdvertisementCollimationCriteria;
 import com.hy.dao.mybatis.model.AdvertisementPricing;
 import com.hy.dao.mybatis.model.AdvertisementPricingCriteria;
+import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantUtil;
+import com.hy.util.common.JsonUtil;
 import com.hy.util.common.ListMapUtil;
 import com.hy.util.common.PageUtil;
 import com.hy.util.common.QueryPage;
@@ -51,11 +54,12 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	 * @date
 	 */
 	public List<Map<String, Object>> selectAdvertisementByParentid(Map<String, Object> parammap, 
-			QueryPage queryPage) {
+			QueryPage queryPage, Integer userid) {
 		List<Map<String, Object>> listmap = null;
 		//查询所有非内置角色
 		try {
 			AdvertisementBasicCriteria dc = new AdvertisementBasicCriteria();
+			dc.setOrderByClause(" create_time desc");
 			Criteria criteria = dc.createCriteria();
 
 			int pagesize = queryPage.getPageSize();
@@ -65,8 +69,13 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 			dc.setLimitEnd(PageUtil.getEnt(pageindex, pagesize));
 
 			//活动id
-			String activityid = parammap.get("activity").toString();
-			criteria.andActivityIdEqualTo(Integer.parseInt(activityid));
+			Object activityidobj = parammap.get("activity");
+			if (!CommonUtil.isEmpty(activityidobj)) {
+				criteria.andActivityIdEqualTo(Integer.parseInt(activityidobj.toString()));
+			}
+			
+			//创建人
+			criteria.andCreateUserEqualTo(userid);
 
 			List<AdvertisementBasic> rolelist = advertisementBasicMapper.selectByExample(dc);
 			listmap = ListMapUtil.convertListEntityToListMap(rolelist);
@@ -94,27 +103,35 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	 * @update
 	 * @date
 	 */
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> insertAdvertisement(Map<String, Object> map) {
+	public Map<String, Object> insertAdvertisement(Map<String, Object> map, Integer userid) {
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			//保存基本信息
-			Map<String, Object> basicmap = (Map<String, Object>)map.get("basic");
+			String basic = map.get("basic").toString();
+			Map<String, Object> basicmap = JsonUtil.readJson2Map(basic);
 			AdvertisementBasic advertisementBasic = (AdvertisementBasic)ListMapUtil.setEntityValue(basicmap, AdvertisementBasic.class);
+			advertisementBasic.setCreateTime(new Date().getTime());
+			advertisementBasic.setCreateUser(userid);
 			advertisementBasicMapper.insert(advertisementBasic);
-
+			
 			//保存瞄准信息
-			Map<String, Object> pricingmap = (Map<String, Object>)map.get("pricing");
+			String collimation = map.get("collimation").toString();
+			String[] tojson = {"operatingsystemvaluejson", "networkenvironmentvaluejson", "operatorvaluejson", 
+					"devicetypevaluejson", "sexvaluejson", "agevaluejson", "interestvaluejson", "areavaluejson"};
+			Map<String, Object> collimationmap = JsonUtil.readJson2Map(collimation, tojson);
+			AdvertisementCollimation advertisementCollimation = (AdvertisementCollimation)ListMapUtil.setEntityValue(collimationmap, AdvertisementCollimation.class);
+			advertisementCollimation.setBasicId(advertisementBasic.getId());
+			advertisementCollimationMapper.insert(advertisementCollimation);
+			
+			//保存定价信息
+			String pricing = map.get("pricing").toString();
+			Map<String, Object> pricingmap = JsonUtil.readJson2Map(pricing);
 			AdvertisementPricing advertisementPricing = (AdvertisementPricing)ListMapUtil.setEntityValue(pricingmap, AdvertisementPricing.class);
 			advertisementPricing.setBasicId(advertisementBasic.getId());
 			advertisementPricingMapper.insert(advertisementPricing);
 
-			//保存定价信息
-			Map<String, Object> collimationmap = (Map<String, Object>)map.get("collimation");
-			AdvertisementCollimation advertisementCollimation = (AdvertisementCollimation)ListMapUtil.setEntityValue(collimationmap, AdvertisementCollimation.class);
-			advertisementCollimation.setBasicId(advertisementBasic.getId());
-			advertisementCollimationMapper.insert(advertisementCollimation);
-
+			//返回id
+			returnmap.put("id", advertisementBasic.getId());
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -204,7 +221,7 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 			Map<String, Object> apmap = ListMapUtil.convertEntityToMap(ap);
 			Map<String, Object> acmap = ListMapUtil.convertEntityToMap(ac);
 			
-			returnmap.put("basic", abmap);
+			returnmap.putAll(abmap);
 			returnmap.put("pricing", apmap);
 			returnmap.put("collimation", acmap);
 

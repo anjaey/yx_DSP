@@ -2,6 +2,7 @@ package com.hy.util.common;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -323,6 +324,9 @@ public class ListMapUtil {
 			} else {
 				switch (fieldType) {
 				case Types.BYTE:
+				case Types.BIGDECIMAL:
+					field.set(instance, BigDecimal.valueOf(Double.parseDouble(dstObj.toString())));
+					break;
 				case Types.SHORT:
 				case Types.INTEGER:
 					field.set(instance, Integer.parseInt(dstObj.toString()));

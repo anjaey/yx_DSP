@@ -503,6 +503,256 @@ public class RoleCriteria {
             addCriterion("nameen not between", value1, value2, "nameen");
             return (Criteria) this;
         }
+
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeIsNull() {
+            addCriterion("data_scope is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeIsNotNull() {
+            addCriterion("data_scope is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeEqualTo(Integer value) {
+            addCriterion("data_scope =", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeNotEqualTo(Integer value) {
+            addCriterion("data_scope <>", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeGreaterThan(Integer value) {
+            addCriterion("data_scope >", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("data_scope >=", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeLessThan(Integer value) {
+            addCriterion("data_scope <", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeLessThanOrEqualTo(Integer value) {
+            addCriterion("data_scope <=", value, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeIn(List<Integer> values) {
+            addCriterion("data_scope in", values, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeNotIn(List<Integer> values) {
+            addCriterion("data_scope not in", values, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeBetween(Integer value1, Integer value2) {
+            addCriterion("data_scope between", value1, value2, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataScopeNotBetween(Integer value1, Integer value2) {
+            addCriterion("data_scope not between", value1, value2, "dataScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeIsNull() {
+            addCriterion("role_scope is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeIsNotNull() {
+            addCriterion("role_scope is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeEqualTo(Integer value) {
+            addCriterion("role_scope =", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeNotEqualTo(Integer value) {
+            addCriterion("role_scope <>", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeGreaterThan(Integer value) {
+            addCriterion("role_scope >", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_scope >=", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeLessThan(Integer value) {
+            addCriterion("role_scope <", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeLessThanOrEqualTo(Integer value) {
+            addCriterion("role_scope <=", value, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeIn(List<Integer> values) {
+            addCriterion("role_scope in", values, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeNotIn(List<Integer> values) {
+            addCriterion("role_scope not in", values, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeBetween(Integer value1, Integer value2) {
+            addCriterion("role_scope between", value1, value2, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleScopeNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_scope not between", value1, value2, "roleScope");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Integer value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Integer value) {
+            addCriterion("state <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Integer value) {
+            addCriterion("state >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("state >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Integer value) {
+            addCriterion("state <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Integer value) {
+            addCriterion("state <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Integer> values) {
+            addCriterion("state in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Integer> values) {
+            addCriterion("state not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Integer value1, Integer value2) {
+            addCriterion("state between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("state not between", value1, value2, "state");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

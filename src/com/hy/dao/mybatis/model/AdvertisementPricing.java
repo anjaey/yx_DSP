@@ -7,7 +7,7 @@ public class AdvertisementPricing {
 
     private Integer chargeWay;
 
-    private BigDecimal checkBestBid;
+    private BigDecimal checkBestBidPrice;
 
     private BigDecimal dayExpenditureQuota;
 
@@ -17,7 +17,7 @@ public class AdvertisementPricing {
 
     private Integer checkFrequeUnit;
 
-    private Integer checkFrequeEveryoneUnit;
+    private Integer checkFrequeEveryoneNo;
 
     private Integer basicId;
 
@@ -37,12 +37,12 @@ public class AdvertisementPricing {
         this.chargeWay = chargeWay;
     }
 
-    public BigDecimal getCheckBestBid() {
-        return checkBestBid;
+    public BigDecimal getCheckBestBidPrice() {
+        return checkBestBidPrice;
     }
 
-    public void setCheckBestBid(BigDecimal checkBestBid) {
-        this.checkBestBid = checkBestBid;
+    public void setCheckBestBidPrice(BigDecimal checkBestBidPrice) {
+        this.checkBestBidPrice = checkBestBidPrice;
     }
 
     public BigDecimal getDayExpenditureQuota() {
@@ -77,12 +77,12 @@ public class AdvertisementPricing {
         this.checkFrequeUnit = checkFrequeUnit;
     }
 
-    public Integer getCheckFrequeEveryoneUnit() {
-        return checkFrequeEveryoneUnit;
+    public Integer getCheckFrequeEveryoneNo() {
+        return checkFrequeEveryoneNo;
     }
 
-    public void setCheckFrequeEveryoneUnit(Integer checkFrequeEveryoneUnit) {
-        this.checkFrequeEveryoneUnit = checkFrequeEveryoneUnit;
+    public void setCheckFrequeEveryoneNo(Integer checkFrequeEveryoneNo) {
+        this.checkFrequeEveryoneNo = checkFrequeEveryoneNo;
     }
 
     public Integer getBasicId() {

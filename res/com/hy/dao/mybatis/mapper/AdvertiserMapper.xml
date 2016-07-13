@@ -18,12 +18,13 @@
     <result column="company_email" property="companyEmail" jdbcType="VARCHAR" />
     <result column="account_type" property="accountType" jdbcType="INTEGER" />
     <result column="number" property="number" jdbcType="VARCHAR" />
-    <result column="limit" property="limit" jdbcType="DECIMAL" />
+    <result column="money_limitation" property="moneyLimitation" jdbcType="DECIMAL" />
     <result column="check_state" property="checkState" jdbcType="INTEGER" />
     <result column="mapping_type" property="mappingType" jdbcType="INTEGER" />
     <result column="mapping_id" property="mappingId" jdbcType="VARCHAR" />
     <result column="account_state" property="accountState" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="operate_user" property="operateUser" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -85,8 +86,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, price, create_date, update_time, status, market_busniess_user, user_id, contact, 
-    telphone, mobile, company, address, fax, company_email, account_type, number, limit, 
-    check_state, mapping_type, mapping_id, account_state, type
+    telphone, mobile, company, address, fax, company_email, account_type, number, money_limitation, 
+    check_state, mapping_type, mapping_id, account_state, type, operate_user
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AdvertiserCriteria" >
     select
@@ -127,17 +128,17 @@
       user_id, contact, telphone, 
       mobile, company, address, 
       fax, company_email, account_type, 
-      number, limit, check_state, 
+      number, money_limitation, check_state, 
       mapping_type, mapping_id, account_state, 
-      type)
+      type, operate_user)
     values (#{id,jdbcType=INTEGER}, #{price,jdbcType=VARCHAR}, #{createDate,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{marketBusniessUser,jdbcType=INTEGER}, 
       #{userId,jdbcType=INTEGER}, #{contact,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, 
       #{mobile,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{fax,jdbcType=VARCHAR}, #{companyEmail,jdbcType=VARCHAR}, #{accountType,jdbcType=INTEGER}, 
-      #{number,jdbcType=VARCHAR}, #{limit,jdbcType=DECIMAL}, #{checkState,jdbcType=INTEGER}, 
+      #{number,jdbcType=VARCHAR}, #{moneyLimitation,jdbcType=DECIMAL}, #{checkState,jdbcType=INTEGER}, 
       #{mappingType,jdbcType=INTEGER}, #{mappingId,jdbcType=VARCHAR}, #{accountState,jdbcType=INTEGER}, 
-      #{type,jdbcType=INTEGER})
+      #{type,jdbcType=INTEGER}, #{operateUser,jdbcType=INTEGER})
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -193,8 +194,8 @@
       <if test="number != null" >
         number,
       </if>
-      <if test="limit != null" >
-        limit,
+      <if test="moneyLimitation != null" >
+        money_limitation,
       </if>
       <if test="checkState != null" >
         check_state,
@@ -210,6 +211,9 @@
       </if>
       <if test="type != null" >
         type,
+      </if>
+      <if test="operateUser != null" >
+        operate_user,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -261,8 +265,8 @@
       <if test="number != null" >
         #{number,jdbcType=VARCHAR},
       </if>
-      <if test="limit != null" >
-        #{limit,jdbcType=DECIMAL},
+      <if test="moneyLimitation != null" >
+        #{moneyLimitation,jdbcType=DECIMAL},
       </if>
       <if test="checkState != null" >
         #{checkState,jdbcType=INTEGER},
@@ -278,6 +282,9 @@
       </if>
       <if test="type != null" >
         #{type,jdbcType=INTEGER},
+      </if>
+      <if test="operateUser != null" >
+        #{operateUser,jdbcType=INTEGER},
       </if>
     </trim>
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id" >
@@ -341,8 +348,8 @@
       <if test="record.number != null" >
         number = #{record.number,jdbcType=VARCHAR},
       </if>
-      <if test="record.limit != null" >
-        limit = #{record.limit,jdbcType=DECIMAL},
+      <if test="record.moneyLimitation != null" >
+        money_limitation = #{record.moneyLimitation,jdbcType=DECIMAL},
       </if>
       <if test="record.checkState != null" >
         check_state = #{record.checkState,jdbcType=INTEGER},
@@ -358,6 +365,9 @@
       </if>
       <if test="record.type != null" >
         type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.operateUser != null" >
+        operate_user = #{record.operateUser,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -382,12 +392,13 @@
       company_email = #{record.companyEmail,jdbcType=VARCHAR},
       account_type = #{record.accountType,jdbcType=INTEGER},
       number = #{record.number,jdbcType=VARCHAR},
-      limit = #{record.limit,jdbcType=DECIMAL},
+      money_limitation = #{record.moneyLimitation,jdbcType=DECIMAL},
       check_state = #{record.checkState,jdbcType=INTEGER},
       mapping_type = #{record.mappingType,jdbcType=INTEGER},
       mapping_id = #{record.mappingId,jdbcType=VARCHAR},
       account_state = #{record.accountState,jdbcType=INTEGER},
-      type = #{record.type,jdbcType=INTEGER}
+      type = #{record.type,jdbcType=INTEGER},
+      operate_user = #{record.operateUser,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -440,8 +451,8 @@
       <if test="number != null" >
         number = #{number,jdbcType=VARCHAR},
       </if>
-      <if test="limit != null" >
-        limit = #{limit,jdbcType=DECIMAL},
+      <if test="moneyLimitation != null" >
+        money_limitation = #{moneyLimitation,jdbcType=DECIMAL},
       </if>
       <if test="checkState != null" >
         check_state = #{checkState,jdbcType=INTEGER},
@@ -457,6 +468,9 @@
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="operateUser != null" >
+        operate_user = #{operateUser,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -478,12 +492,13 @@
       company_email = #{companyEmail,jdbcType=VARCHAR},
       account_type = #{accountType,jdbcType=INTEGER},
       number = #{number,jdbcType=VARCHAR},
-      limit = #{limit,jdbcType=DECIMAL},
+      money_limitation = #{moneyLimitation,jdbcType=DECIMAL},
       check_state = #{checkState,jdbcType=INTEGER},
       mapping_type = #{mappingType,jdbcType=INTEGER},
       mapping_id = #{mappingId,jdbcType=VARCHAR},
       account_state = #{accountState,jdbcType=INTEGER},
-      type = #{type,jdbcType=INTEGER}
+      type = #{type,jdbcType=INTEGER},
+      operate_user = #{operateUser,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByExampleForOne" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

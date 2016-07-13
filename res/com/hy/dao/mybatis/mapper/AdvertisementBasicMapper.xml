@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="path" property="path" jdbcType="VARCHAR" />
-    <result column="PV_monitoring _address" property="pvMonitoringAddress" jdbcType="VARCHAR" />
+    <result column="PV_monitoring_address" property="pvMonitoringAddress" jdbcType="VARCHAR" />
     <result column="trade_tag" property="tradeTag" jdbcType="VARCHAR" />
     <result column="create_user" property="createUser" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="BIGINT" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, path, "PV_monitoring _address", trade_tag, create_user, create_time, activity_id, 
+    id, name, path, PV_monitoring_address, trade_tag, create_user, create_time, activity_id, 
     check_state, check_conclusion, popularize_type
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hy.dao.mybatis.model.AdvertisementBasicCriteria" >
@@ -111,7 +111,7 @@
   </delete>
   <insert id="insert" parameterType="com.hy.dao.mybatis.model.AdvertisementBasic" >
     insert into yx_advertisement_basic (id, name, path, 
-      "PV_monitoring _address", trade_tag, create_user, 
+      PV_monitoring_address, trade_tag, create_user, 
       create_time, activity_id, check_state, 
       check_conclusion, popularize_type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
@@ -135,7 +135,7 @@
         path,
       </if>
       <if test="pvMonitoringAddress != null" >
-        "PV_monitoring _address",
+        PV_monitoring_address,
       </if>
       <if test="tradeTag != null" >
         trade_tag,
@@ -217,7 +217,7 @@
         path = #{record.path,jdbcType=VARCHAR},
       </if>
       <if test="record.pvMonitoringAddress != null" >
-        "PV_monitoring _address" = #{record.pvMonitoringAddress,jdbcType=VARCHAR},
+        PV_monitoring_address = #{record.pvMonitoringAddress,jdbcType=VARCHAR},
       </if>
       <if test="record.tradeTag != null" >
         trade_tag = #{record.tradeTag,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       path = #{record.path,jdbcType=VARCHAR},
-      "PV_monitoring _address" = #{record.pvMonitoringAddress,jdbcType=VARCHAR},
+      PV_monitoring_address = #{record.pvMonitoringAddress,jdbcType=VARCHAR},
       trade_tag = #{record.tradeTag,jdbcType=VARCHAR},
       create_user = #{record.createUser,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=BIGINT},
@@ -272,7 +272,7 @@
         path = #{path,jdbcType=VARCHAR},
       </if>
       <if test="pvMonitoringAddress != null" >
-        "PV_monitoring _address" = #{pvMonitoringAddress,jdbcType=VARCHAR},
+        PV_monitoring_address = #{pvMonitoringAddress,jdbcType=VARCHAR},
       </if>
       <if test="tradeTag != null" >
         trade_tag = #{tradeTag,jdbcType=VARCHAR},
@@ -302,7 +302,7 @@
     update yx_advertisement_basic
     set name = #{name,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
-      "PV_monitoring _address" = #{pvMonitoringAddress,jdbcType=VARCHAR},
+      PV_monitoring_address = #{pvMonitoringAddress,jdbcType=VARCHAR},
       trade_tag = #{tradeTag,jdbcType=VARCHAR},
       create_user = #{createUser,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=BIGINT},

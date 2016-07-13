@@ -1,9 +1,8 @@
 package com.hy.util.common;
 
 /**
- * 常量池,所有相关常量都写在这
+ * 系统常量池,所有相关常量都写在这
  *
- * @author 张强 2014年9月22日 下午5:26:31
  * @version 0.0.1
  */
 public interface ConstantUtil {
