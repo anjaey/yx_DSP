@@ -73,30 +73,8 @@
 			<table tableName="yx_user_detil" domainObjectName="UserDetil" />
 		-->	
 			
-			<table tableName="yx_role" domainObjectName="Role" />
-			<table tableName="yx_user_role" domainObjectName="UserRole" />
-			<table tableName="yx_navigation" domainObjectName="Navigation" />
-			<table tableName="yx_nav_privilege" domainObjectName="NavPrivilege" />
-			<table tableName="yx_function" domainObjectName="Function" />
-			<table tableName="yx_function_role" domainObjectName="FunctionRole" />
-			<table tableName="yx_advertisement" domainObjectName="Advertisement" />
-			<table tableName="yx_advertisement_basic" domainObjectName="AdvertisementBasic" />
-			<table tableName="yx_advertisement_pricing" domainObjectName="AdvertisementPricing" />
-			<table tableName="yx_alignment_platform" domainObjectName="AlignmentPlatform" />
-			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
-			<table tableName="yx_popularize_activity" domainObjectName="PopularizeActivity" />
-			<table tableName="yx_refund_record" domainObjectName="RefundRecord" />
-			<table tableName="yx_creative" domainObjectName="Creative" />
+			
 			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
-			<table tableName="yx_pay_record" domainObjectName="PayRecord" />
-			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
-			<table tableName="yx_invoice" domainObjectName="Invoice" />
-			<table tableName="yx_profit_command" domainObjectName="ProfitCommand" />
-			<table tableName="creative_deduct_quantity_setting_record" domainObjectName="CreativeDeductQuantitySettingRecord" />
-			<table tableName="yx_address_cities" domainObjectName="AddressCities" />
-			<table tableName="yx_address_provinces" domainObjectName="AddressProvinces" />
-			<table tableName="yx_user_basic" domainObjectName="Userbasic" />
-			<table tableName="yx_user_detil" domainObjectName="UserDetil" />
 	</context>
 
 </generatorConfiguration>

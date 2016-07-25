@@ -62,8 +62,8 @@ public class AdvertiserMentController extends BaseController{
 	 * @date
 	 */
 	@RequestMapping(value = "/findAdvertiserMentByid", method = RequestMethod.POST)
-	public void findAdvertiserMentByid(@RequestParam Integer advertiserid) {
-		Map<String, Object> map = advertisementBusiness.selectAdvertisementByid(advertiserid);
+	public void findAdvertiserMentByid(@RequestParam Integer advertisermentid) {
+		Map<String, Object> map = advertisementBusiness.selectAdvertisementByid(advertisermentid);
 		
 		if (!CommonUtil.isEmpty(map)) {
 			Object activityIdobj = map.get("activityid");
@@ -99,6 +99,32 @@ public class AdvertiserMentController extends BaseController{
 	}
 	
 	/**
+	 * 
+	 * 修改广告信息
+	 * @author hy
+	 * @date 2016年7月25日下午5:39:21
+	 * @param map
+	 * @update
+	 * @date
+	 */
+	@RequestMapping(value = "/updateAdvertiser", method = RequestMethod.POST)
+	public void updateAdvertiser(@RequestParam Map<String, Object> map) {
+		//同时添加活动信息
+		Object activityInfoobj = map.get("activityInfo");
+		if (!CommonUtil.isEmpty(activityInfoobj)) {  //创建新的活动
+		 	String activityInfoJson = map.get("activityInfo").toString();
+		 	Map<String, Object> activityInfoMap = JsonUtil.readJson2Map(activityInfoJson);
+		 	if (activityInfoMap.keySet().size() > 0) {
+		 		activityInfoMap.put("createuser", this.getSessionLoginUserid());
+		 		popularizeActivityBusiness.insertActivity(activityInfoMap);
+		 	}
+		}
+		
+		Map<String, Object> returnmap = advertisementBusiness.updateAdvertisement(map);
+	 	this.writeJson(returnmap);
+	}
+	
+	/**
 	 * 添加广告信息
 	 * 
 	 * @author hy
@@ -113,8 +139,10 @@ public class AdvertiserMentController extends BaseController{
 		if (!CommonUtil.isEmpty(activityInfoobj)) {  //创建新的活动
 		 	String activityInfoJson = map.get("activityInfo").toString();
 		 	Map<String, Object> activityInfoMap = JsonUtil.readJson2Map(activityInfoJson);
-		 	activityInfoMap.put("createuser", this.getSessionLoginUserid());
-			popularizeActivityBusiness.insertActivity(activityInfoMap);
+		 	if (activityInfoMap.keySet().size() > 0) {
+		 		activityInfoMap.put("createuser", this.getSessionLoginUserid());
+		 		popularizeActivityBusiness.insertActivity(activityInfoMap);
+		 	}
 		}
 		
 		//添加广告信息
@@ -123,10 +151,49 @@ public class AdvertiserMentController extends BaseController{
 	 	//添加创意信息
 	 	String creativeJson = map.get("creative").toString();
 	 	Map<String, Object> creativeMap = JsonUtil.readJson2Map(creativeJson);
+	 	
 	 	//放入广告信息
 	 	creativeMap.put("advertisementid", returnmap.get("id"));
 	 	returnmap = creativeBusiness.insertCreative(creativeMap);
 	 	
+	 	this.writeJson(returnmap);
+	}
+	
+	/**
+	 * 
+	 * 修改广告信息
+	 * 
+	 * @author hy
+	 * @date 2016年7月15日下午2:33:56
+	 * @update
+	 * @date
+	 */
+	@RequestMapping(value = "/updateAdvertiserMent", method = RequestMethod.POST)
+	public void updateAdvertiserMent(@RequestParam Map<String, Object> parammap) {
+		Object basicobj = parammap.get("basic");
+		if (!CommonUtil.isEmpty(basicobj)) {
+			String basic = basicobj.toString();
+			Map<String, Object> basicmap = JsonUtil.readJson2Map(basic);
+			parammap.put("basic", basicmap);
+		}
+		
+		Object pricingobj = parammap.get("pricing");
+		if (!CommonUtil.isEmpty(pricingobj)) {
+			String pricing = pricingobj.toString();
+			Map<String, Object> pricingmap = JsonUtil.readJson2Map(pricing);
+			parammap.put("pricing", pricingmap);
+			
+		}
+		
+		Object collimationobj = parammap.get("collimation");
+		if (!CommonUtil.isEmpty(collimationobj)) {
+			String collimation = pricingobj.toString();
+			Map<String, Object> collimationmap = JsonUtil.readJson2Map(collimation);
+			parammap.put("collimation", collimationmap);
+		}
+		
+		
+		Map<String, Object> returnmap = advertisementBusiness.updateAdvertisement(parammap);
 	 	this.writeJson(returnmap);
 	}
 	
@@ -143,7 +210,7 @@ public class AdvertiserMentController extends BaseController{
 	public void findNewestAdvertiserMent(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
 		List<Map<String, Object>> listmap = null;
 		try {
-			listmap = advertisementBusiness.selectAdvertisementByParentid(parammap, queryPage, this.getSessionLoginUserid());
+			listmap = advertisementBusiness.selectAdvertisement(parammap, queryPage, this.getSessionLoginUserid());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -159,15 +226,39 @@ public class AdvertiserMentController extends BaseController{
 	 * @update
 	 * @date
 	 */
-	@RequestMapping(value = "/findAdvertiserListAndPage", method = RequestMethod.POST)
-	public void findAdvertiserListAndPage(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
+	@RequestMapping(value = "/findAdvertiserMentListAndPage", method = RequestMethod.POST)
+	public void findAdvertiserMentListAndPage(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
 		Map<String, Object> map1 = new HashMap<String, Object>();
 		try {
-			List<Map<String, Object>> listmap = advertisementBusiness.selectAdvertisementByParentid(parammap, queryPage, this.getSessionLoginUserid());
+			List<Map<String, Object>> listmap = advertisementBusiness.selectAdvertisement(parammap, queryPage, this.getSessionLoginUserid());
 
-			String vmPath = File.separator + "vm" + File.separator + "popularizeActivity";
+			String vmPath = File.separator + "vm" + File.separator + "advertiser";
 
-			map1 = initpage("advertiserPage.vm", vmPath, listmap, queryPage);
+			map1 = initpage("advertiserMentPage.vm", vmPath, listmap, queryPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		this.writeJson(map1);
+	}
+	
+	/**
+	 * 必须根据活动iD 或者  以及其他的查询广告信息
+	 * @author hy
+	 * @date 2016年6月24日下午4:10:28
+	 * @param parammap
+	 * @param queryPage
+	 * @update
+	 * @date
+	 */
+	@RequestMapping(value = "/findAdvertiserMentListAndPageByActivity", method = RequestMethod.POST)
+	public void findAdvertiserMentListAndPageByActivity(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		try {
+			List<Map<String, Object>> listmap = advertisementBusiness.selectAdvertisement(parammap, queryPage, this.getSessionLoginUserid());
+
+			String vmPath = File.separator + "vm" + File.separator + "advertiser";
+
+			map1 = initpage("advertiserMentPage.vm", vmPath, listmap, queryPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -244,66 +244,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andAreaStateIsNull() {
-            addCriterion("area_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateIsNotNull() {
-            addCriterion("area_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateEqualTo(Integer value) {
-            addCriterion("area_state =", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateNotEqualTo(Integer value) {
-            addCriterion("area_state <>", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateGreaterThan(Integer value) {
-            addCriterion("area_state >", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("area_state >=", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateLessThan(Integer value) {
-            addCriterion("area_state <", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateLessThanOrEqualTo(Integer value) {
-            addCriterion("area_state <=", value, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateIn(List<Integer> values) {
-            addCriterion("area_state in", values, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateNotIn(List<Integer> values) {
-            addCriterion("area_state not in", values, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateBetween(Integer value1, Integer value2) {
-            addCriterion("area_state between", value1, value2, "areaState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("area_state not between", value1, value2, "areaState");
-            return (Criteria) this;
-        }
-
         public Criteria andAreaValueJsonIsNull() {
             addCriterion("area_value_json is null");
             return (Criteria) this;
@@ -371,66 +311,6 @@ public class AdvertisementCollimationCriteria {
 
         public Criteria andAreaValueJsonNotBetween(String value1, String value2) {
             addCriterion("area_value_json not between", value1, value2, "areaValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateIsNull() {
-            addCriterion("sex_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateIsNotNull() {
-            addCriterion("sex_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateEqualTo(Integer value) {
-            addCriterion("sex_state =", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateNotEqualTo(Integer value) {
-            addCriterion("sex_state <>", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateGreaterThan(Integer value) {
-            addCriterion("sex_state >", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sex_state >=", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateLessThan(Integer value) {
-            addCriterion("sex_state <", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateLessThanOrEqualTo(Integer value) {
-            addCriterion("sex_state <=", value, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateIn(List<Integer> values) {
-            addCriterion("sex_state in", values, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateNotIn(List<Integer> values) {
-            addCriterion("sex_state not in", values, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateBetween(Integer value1, Integer value2) {
-            addCriterion("sex_state between", value1, value2, "sexState");
-            return (Criteria) this;
-        }
-
-        public Criteria andSexStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("sex_state not between", value1, value2, "sexState");
             return (Criteria) this;
         }
 
@@ -504,66 +384,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andAgeStateIsNull() {
-            addCriterion("age_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateIsNotNull() {
-            addCriterion("age_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateEqualTo(Integer value) {
-            addCriterion("age_state =", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateNotEqualTo(Integer value) {
-            addCriterion("age_state <>", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateGreaterThan(Integer value) {
-            addCriterion("age_state >", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("age_state >=", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateLessThan(Integer value) {
-            addCriterion("age_state <", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateLessThanOrEqualTo(Integer value) {
-            addCriterion("age_state <=", value, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateIn(List<Integer> values) {
-            addCriterion("age_state in", values, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateNotIn(List<Integer> values) {
-            addCriterion("age_state not in", values, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateBetween(Integer value1, Integer value2) {
-            addCriterion("age_state between", value1, value2, "ageState");
-            return (Criteria) this;
-        }
-
-        public Criteria andAgeStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("age_state not between", value1, value2, "ageState");
-            return (Criteria) this;
-        }
-
         public Criteria andAgeValueJsonIsNull() {
             addCriterion("age_value_json is null");
             return (Criteria) this;
@@ -631,66 +451,6 @@ public class AdvertisementCollimationCriteria {
 
         public Criteria andAgeValueJsonNotBetween(String value1, String value2) {
             addCriterion("age_value_json not between", value1, value2, "ageValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateIsNull() {
-            addCriterion("interest_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateIsNotNull() {
-            addCriterion("interest_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateEqualTo(Integer value) {
-            addCriterion("interest_state =", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateNotEqualTo(Integer value) {
-            addCriterion("interest_state <>", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateGreaterThan(Integer value) {
-            addCriterion("interest_state >", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("interest_state >=", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateLessThan(Integer value) {
-            addCriterion("interest_state <", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateLessThanOrEqualTo(Integer value) {
-            addCriterion("interest_state <=", value, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateIn(List<Integer> values) {
-            addCriterion("interest_state in", values, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateNotIn(List<Integer> values) {
-            addCriterion("interest_state not in", values, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateBetween(Integer value1, Integer value2) {
-            addCriterion("interest_state between", value1, value2, "interestState");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterestStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("interest_state not between", value1, value2, "interestState");
             return (Criteria) this;
         }
 
@@ -764,66 +524,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andOperatingSystemStateIsNull() {
-            addCriterion("operating_system_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateIsNotNull() {
-            addCriterion("operating_system_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateEqualTo(Integer value) {
-            addCriterion("operating_system_state =", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateNotEqualTo(Integer value) {
-            addCriterion("operating_system_state <>", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateGreaterThan(Integer value) {
-            addCriterion("operating_system_state >", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("operating_system_state >=", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateLessThan(Integer value) {
-            addCriterion("operating_system_state <", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateLessThanOrEqualTo(Integer value) {
-            addCriterion("operating_system_state <=", value, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateIn(List<Integer> values) {
-            addCriterion("operating_system_state in", values, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateNotIn(List<Integer> values) {
-            addCriterion("operating_system_state not in", values, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateBetween(Integer value1, Integer value2) {
-            addCriterion("operating_system_state between", value1, value2, "operatingSystemState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatingSystemStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("operating_system_state not between", value1, value2, "operatingSystemState");
-            return (Criteria) this;
-        }
-
         public Criteria andOperatingSystemValueJsonIsNull() {
             addCriterion("operating_system_value_json is null");
             return (Criteria) this;
@@ -891,66 +591,6 @@ public class AdvertisementCollimationCriteria {
 
         public Criteria andOperatingSystemValueJsonNotBetween(String value1, String value2) {
             addCriterion("operating_system_value_json not between", value1, value2, "operatingSystemValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateIsNull() {
-            addCriterion("network_environment_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateIsNotNull() {
-            addCriterion("network_environment_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateEqualTo(Integer value) {
-            addCriterion("network_environment_state =", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateNotEqualTo(Integer value) {
-            addCriterion("network_environment_state <>", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateGreaterThan(Integer value) {
-            addCriterion("network_environment_state >", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("network_environment_state >=", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateLessThan(Integer value) {
-            addCriterion("network_environment_state <", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateLessThanOrEqualTo(Integer value) {
-            addCriterion("network_environment_state <=", value, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateIn(List<Integer> values) {
-            addCriterion("network_environment_state in", values, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateNotIn(List<Integer> values) {
-            addCriterion("network_environment_state not in", values, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateBetween(Integer value1, Integer value2) {
-            addCriterion("network_environment_state between", value1, value2, "networkEnvironmentState");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetworkEnvironmentStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("network_environment_state not between", value1, value2, "networkEnvironmentState");
             return (Criteria) this;
         }
 
@@ -1024,66 +664,6 @@ public class AdvertisementCollimationCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andOperatorStateIsNull() {
-            addCriterion("operator_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateIsNotNull() {
-            addCriterion("operator_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateEqualTo(Integer value) {
-            addCriterion("operator_state =", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateNotEqualTo(Integer value) {
-            addCriterion("operator_state <>", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateGreaterThan(Integer value) {
-            addCriterion("operator_state >", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("operator_state >=", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateLessThan(Integer value) {
-            addCriterion("operator_state <", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateLessThanOrEqualTo(Integer value) {
-            addCriterion("operator_state <=", value, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateIn(List<Integer> values) {
-            addCriterion("operator_state in", values, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateNotIn(List<Integer> values) {
-            addCriterion("operator_state not in", values, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateBetween(Integer value1, Integer value2) {
-            addCriterion("operator_state between", value1, value2, "operatorState");
-            return (Criteria) this;
-        }
-
-        public Criteria andOperatorStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("operator_state not between", value1, value2, "operatorState");
-            return (Criteria) this;
-        }
-
         public Criteria andOperatorValueJsonIsNull() {
             addCriterion("operator_value_json is null");
             return (Criteria) this;
@@ -1151,66 +731,6 @@ public class AdvertisementCollimationCriteria {
 
         public Criteria andOperatorValueJsonNotBetween(String value1, String value2) {
             addCriterion("operator_value_json not between", value1, value2, "operatorValueJson");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateIsNull() {
-            addCriterion("device_type_state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateIsNotNull() {
-            addCriterion("device_type_state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateEqualTo(Integer value) {
-            addCriterion("device_type_state =", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateNotEqualTo(Integer value) {
-            addCriterion("device_type_state <>", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateGreaterThan(Integer value) {
-            addCriterion("device_type_state >", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("device_type_state >=", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateLessThan(Integer value) {
-            addCriterion("device_type_state <", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateLessThanOrEqualTo(Integer value) {
-            addCriterion("device_type_state <=", value, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateIn(List<Integer> values) {
-            addCriterion("device_type_state in", values, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateNotIn(List<Integer> values) {
-            addCriterion("device_type_state not in", values, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateBetween(Integer value1, Integer value2) {
-            addCriterion("device_type_state between", value1, value2, "deviceTypeState");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceTypeStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("device_type_state not between", value1, value2, "deviceTypeState");
             return (Criteria) this;
         }
 

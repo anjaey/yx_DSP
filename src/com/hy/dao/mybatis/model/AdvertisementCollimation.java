@@ -5,35 +5,19 @@ public class AdvertisementCollimation {
 
     private Integer basicId;
 
-    private Integer areaState;
-
     private String areaValueJson;
-
-    private Integer sexState;
 
     private String sexValueJson;
 
-    private Integer ageState;
-
     private String ageValueJson;
-
-    private Integer interestState;
 
     private String interestValueJson;
 
-    private Integer operatingSystemState;
-
     private String operatingSystemValueJson;
-
-    private Integer networkEnvironmentState;
 
     private String networkEnvironmentValueJson;
 
-    private Integer operatorState;
-
     private String operatorValueJson;
-
-    private Integer deviceTypeState;
 
     private String deviceTypeValueJson;
 
@@ -53,28 +37,12 @@ public class AdvertisementCollimation {
         this.basicId = basicId;
     }
 
-    public Integer getAreaState() {
-        return areaState;
-    }
-
-    public void setAreaState(Integer areaState) {
-        this.areaState = areaState;
-    }
-
     public String getAreaValueJson() {
         return areaValueJson;
     }
 
     public void setAreaValueJson(String areaValueJson) {
         this.areaValueJson = areaValueJson == null ? null : areaValueJson.trim();
-    }
-
-    public Integer getSexState() {
-        return sexState;
-    }
-
-    public void setSexState(Integer sexState) {
-        this.sexState = sexState;
     }
 
     public String getSexValueJson() {
@@ -85,28 +53,12 @@ public class AdvertisementCollimation {
         this.sexValueJson = sexValueJson == null ? null : sexValueJson.trim();
     }
 
-    public Integer getAgeState() {
-        return ageState;
-    }
-
-    public void setAgeState(Integer ageState) {
-        this.ageState = ageState;
-    }
-
     public String getAgeValueJson() {
         return ageValueJson;
     }
 
     public void setAgeValueJson(String ageValueJson) {
         this.ageValueJson = ageValueJson == null ? null : ageValueJson.trim();
-    }
-
-    public Integer getInterestState() {
-        return interestState;
-    }
-
-    public void setInterestState(Integer interestState) {
-        this.interestState = interestState;
     }
 
     public String getInterestValueJson() {
@@ -117,28 +69,12 @@ public class AdvertisementCollimation {
         this.interestValueJson = interestValueJson == null ? null : interestValueJson.trim();
     }
 
-    public Integer getOperatingSystemState() {
-        return operatingSystemState;
-    }
-
-    public void setOperatingSystemState(Integer operatingSystemState) {
-        this.operatingSystemState = operatingSystemState;
-    }
-
     public String getOperatingSystemValueJson() {
         return operatingSystemValueJson;
     }
 
     public void setOperatingSystemValueJson(String operatingSystemValueJson) {
         this.operatingSystemValueJson = operatingSystemValueJson == null ? null : operatingSystemValueJson.trim();
-    }
-
-    public Integer getNetworkEnvironmentState() {
-        return networkEnvironmentState;
-    }
-
-    public void setNetworkEnvironmentState(Integer networkEnvironmentState) {
-        this.networkEnvironmentState = networkEnvironmentState;
     }
 
     public String getNetworkEnvironmentValueJson() {
@@ -149,28 +85,12 @@ public class AdvertisementCollimation {
         this.networkEnvironmentValueJson = networkEnvironmentValueJson == null ? null : networkEnvironmentValueJson.trim();
     }
 
-    public Integer getOperatorState() {
-        return operatorState;
-    }
-
-    public void setOperatorState(Integer operatorState) {
-        this.operatorState = operatorState;
-    }
-
     public String getOperatorValueJson() {
         return operatorValueJson;
     }
 
     public void setOperatorValueJson(String operatorValueJson) {
         this.operatorValueJson = operatorValueJson == null ? null : operatorValueJson.trim();
-    }
-
-    public Integer getDeviceTypeState() {
-        return deviceTypeState;
-    }
-
-    public void setDeviceTypeState(Integer deviceTypeState) {
-        this.deviceTypeState = deviceTypeState;
     }
 
     public String getDeviceTypeValueJson() {

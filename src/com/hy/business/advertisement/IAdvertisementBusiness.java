@@ -25,7 +25,7 @@ public interface IAdvertisementBusiness {
 	 * @update
 	 * @date
 	 */
-	public List<Map<String, Object>> selectAdvertisementByParentid(Map<String, Object> parammap, 
+	public List<Map<String, Object>> selectAdvertisement(Map<String, Object> parammap, 
 			QueryPage queryPage, Integer userid);
 	
 	/**

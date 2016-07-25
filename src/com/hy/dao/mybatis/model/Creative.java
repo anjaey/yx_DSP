@@ -51,6 +51,8 @@ public class Creative {
 
     private Float deductQuantityProportionLater;
 
+    private Integer state;
+
     public Integer getId() {
         return id;
     }
@@ -249,5 +251,13 @@ public class Creative {
 
     public void setDeductQuantityProportionLater(Float deductQuantityProportionLater) {
         this.deductQuantityProportionLater = deductQuantityProportionLater;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

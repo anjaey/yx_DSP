@@ -1,0 +1,23 @@
+#foreach ($data in $datalist)
+	<tr>
+		<td><input class="js-advertiserMent-id" value="$!{data.id}" type="checkbox" /></td>
+		<td><a href="javascript:findAdvertisertPage($!{data.id})">$!{data.name}</a></td>
+		<td>$!{data.activity.name}</td>
+		<td>
+			#if($!data.state == 1)
+				启用
+			#else
+				停用
+			#end
+		</td>
+		<td class="red">$!{data.createtimestr}</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>$!{data.advertisementPricing.checkbestbidprice}</td>
+		<td><a href="javascript:updateAdvertiserMentPriceBid($!{data.id})" class="J_updateBid">修改出价</a> <a
+			href="javascript:updateAdvertiserMentInfo($!{data.id})">修改广告</a></td>
+	</tr>
+#end

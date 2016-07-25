@@ -132,6 +132,7 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 
 			PopularizeActivity pa = (PopularizeActivity)ListMapUtil.setEntityValue(map, PopularizeActivity.class);
 			pa.setActivityId(id);
+			pa.setCreateTime(new Date().getTime());
 			popularizeActivityMapper.insertSelective(pa);
 
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);

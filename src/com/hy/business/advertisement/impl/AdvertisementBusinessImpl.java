@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hy.business.advertisement.IAdvertisementBusiness;
+import com.hy.business.popularizeActivity.IPopularizeActivityBusiness;
 import com.hy.dao.mybatis.mapper.AdvertisementBasicMapper;
 import com.hy.dao.mybatis.mapper.AdvertisementCollimationMapper;
 import com.hy.dao.mybatis.mapper.AdvertisementPricingMapper;
@@ -19,6 +20,7 @@ import com.hy.dao.mybatis.model.AdvertisementPricing;
 import com.hy.dao.mybatis.model.AdvertisementPricingCriteria;
 import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantUtil;
+import com.hy.util.common.DateUtil;
 import com.hy.util.common.JsonUtil;
 import com.hy.util.common.ListMapUtil;
 import com.hy.util.common.PageUtil;
@@ -39,6 +41,8 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	AdvertisementPricingMapper advertisementPricingMapper;
 	@Autowired
 	AdvertisementCollimationMapper advertisementCollimationMapper;
+	@Autowired
+	IPopularizeActivityBusiness popularizeActivityBusiness;
 
 	/**
 	 * 分页查询广告
@@ -53,7 +57,7 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	 * @update
 	 * @date
 	 */
-	public List<Map<String, Object>> selectAdvertisementByParentid(Map<String, Object> parammap, 
+	public List<Map<String, Object>> selectAdvertisement(Map<String, Object> parammap, 
 			QueryPage queryPage, Integer userid) {
 		List<Map<String, Object>> listmap = null;
 		//查询所有非内置角色
@@ -79,6 +83,40 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 
 			List<AdvertisementBasic> rolelist = advertisementBasicMapper.selectByExample(dc);
 			listmap = ListMapUtil.convertListEntityToListMap(rolelist);
+			
+			for (Map<String, Object> map : listmap) {
+				//查询推广活动
+				Object activityObj = map.get("activityid");
+				
+				if (!CommonUtil.isEmpty(activityObj)) {
+					Integer activityid = Integer.parseInt(map.get("activityid").toString());
+					Map<String, Object> activitymap = popularizeActivityBusiness.selectActivityByid(activityid);
+					map.put("activity", activitymap);
+				}
+				
+				//处理时间
+				String createtimestr = DateUtil.getDateStrByLongObj(map.get("createtime"), DateUtil.YYYY_MM_DD);
+				map.put("createtimestr", createtimestr);
+				
+				int id = Integer.parseInt(map.get("id").toString());
+				
+				//查询瞄准信息
+				AdvertisementCollimationCriteria acc = new AdvertisementCollimationCriteria();
+				acc.createCriteria().andBasicIdEqualTo(id);
+				AdvertisementCollimation ac = advertisementCollimationMapper.selectByExampleForOne(acc);
+				Map<String, Object> acmap = ListMapUtil.convertEntityToMap(ac);
+				
+				map.put("advertisementCollimation", acmap);
+				
+				//查询定价信息
+				AdvertisementPricingCriteria apc = new AdvertisementPricingCriteria();
+				apc.createCriteria().andBasicIdEqualTo(id);
+				
+				AdvertisementPricing ap = advertisementPricingMapper.selectByExampleForOne(apc);
+				Map<String, Object> apmap = ListMapUtil.convertEntityToMap(ap);
+				
+				map.put("advertisementPricing", apmap);
+			}
 
 			//统计数量
 			int pagecount = advertisementBasicMapper.countByExample(dc);
@@ -153,36 +191,55 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> updateAdvertisement(Map<String, Object> map) {
 		Map<String, Object> returnmap = new HashMap<String, Object>();
+				
 		try {
 			//保存基本信息
 			Map<String, Object> basicmap = (Map<String, Object>)map.get("basic");
-			AdvertisementBasic advertisementBasic = (AdvertisementBasic)ListMapUtil.setEntityValue(basicmap, AdvertisementBasic.class);
-			
-			//主键id
-			int basicid = advertisementBasic.getId();
-			
-			AdvertisementBasicCriteria abc = new AdvertisementBasicCriteria();
-			abc.createCriteria().andIdEqualTo(basicid);
-			advertisementBasicMapper.updateByExampleSelective(advertisementBasic, abc);
-
-			//保存瞄准信息
-			Map<String, Object> pricingmap = (Map<String, Object>)map.get("pricing");
-			AdvertisementPricing advertisementPricing = (AdvertisementPricing)ListMapUtil.setEntityValue(pricingmap, AdvertisementPricing.class);
-			
-			AdvertisementPricingCriteria apc = new AdvertisementPricingCriteria();
-			apc.createCriteria().andBasicIdEqualTo(basicid);
-			
-			advertisementPricingMapper.updateByExampleSelective(advertisementPricing, apc);
+			if (!CommonUtil.isEmpty(basicmap)) {
+				AdvertisementBasic advertisementBasic = (AdvertisementBasic)ListMapUtil.setEntityValue(basicmap, AdvertisementBasic.class);
+				
+				//主键id
+				int basicid = advertisementBasic.getId();
+				
+				AdvertisementBasicCriteria abc = new AdvertisementBasicCriteria();
+				abc.createCriteria().andIdEqualTo(basicid);
+				advertisementBasicMapper.updateByExampleSelective(advertisementBasic, abc);
+			}
 
 			//保存定价信息
-			Map<String, Object> collimationmap = (Map<String, Object>)map.get("collimation");
-			AdvertisementCollimation advertisementCollimation = (AdvertisementCollimation)ListMapUtil.setEntityValue(collimationmap, AdvertisementCollimation.class);
-			
-			AdvertisementCollimationCriteria acc = new AdvertisementCollimationCriteria();
-			acc.createCriteria().andBasicIdEqualTo(basicid);
-			
-			advertisementCollimationMapper.updateByExampleSelective(advertisementCollimation, acc);
+			Map<String, Object> pricingmap = (Map<String, Object>)map.get("pricing");
+			if (!CommonUtil.isEmpty(pricingmap)) {
+				AdvertisementPricing advertisementPricing = (AdvertisementPricing)ListMapUtil.setEntityValue(pricingmap, AdvertisementPricing.class);
+				AdvertisementPricingCriteria apc = new AdvertisementPricingCriteria();
+				
+				//使用basic这个主键修改
+				apc.createCriteria().andBasicIdEqualTo(advertisementPricing.getBasicId());
+				
+				//判断是否在修改最高出价，如果是在修改最高出价，当前的这个广告要重新审核， 此处改为未审核。
+				if (advertisementPricing.getCheckBestBidPrice() != null) {
+					AdvertisementBasic advertisementBasic = new AdvertisementBasic();
+					advertisementBasic.setCheckState(0);
+					
+					AdvertisementBasicCriteria abc = new AdvertisementBasicCriteria();
+					abc.createCriteria().andIdEqualTo(advertisementPricing.getBasicId());
+					advertisementBasicMapper.updateByExampleSelective(advertisementBasic, abc);
+				}
+				
+				advertisementPricingMapper.updateByExampleSelective(advertisementPricing, apc);
+			}
 
+			//保存瞄准信息
+			Map<String, Object> collimationmap = (Map<String, Object>)map.get("collimation");
+
+			if (!CommonUtil.isEmpty(collimationmap)) {
+				AdvertisementCollimation advertisementCollimation = (AdvertisementCollimation)ListMapUtil.setEntityValue(collimationmap, AdvertisementCollimation.class);
+				AdvertisementCollimationCriteria acc = new AdvertisementCollimationCriteria();
+			
+				acc.createCriteria().andBasicIdEqualTo(advertisementCollimation.getBasicId());
+				
+				advertisementCollimationMapper.updateByExampleSelective(advertisementCollimation, acc);
+			}
+			
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -23,6 +23,8 @@ public class AdvertisementBasic {
 
     private Integer popularizeType;
 
+    private Integer state;
+
     public Integer getId() {
         return id;
     }
@@ -109,5 +111,13 @@ public class AdvertisementBasic {
 
     public void setPopularizeType(Integer popularizeType) {
         this.popularizeType = popularizeType;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

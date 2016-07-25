@@ -22,6 +22,7 @@ import com.hy.util.common.QueryPage;
  *
  */
 @Controller
+@RequestMapping("/admin/generalizeManager")
 public class CreativeController extends BaseController{
 
 	@Autowired
@@ -34,7 +35,7 @@ public class CreativeController extends BaseController{
 	 * @update
 	 * @date
 	 */
-	@RequestMapping(value = "/admin/creative/addCreative", method = RequestMethod.POST)
+	@RequestMapping(value = "/addCreative", method = RequestMethod.POST)
 	public void addCreative(@RequestParam Map<String,Object> map) {
 		Map<String,Object> returnmap = creativeBusiness.insertCreative(map);
 		this.writeJson(returnmap);
@@ -48,7 +49,8 @@ public class CreativeController extends BaseController{
 	 * @update
 	 * @date
 	 */
-	public void delCreative(String Arrayjsonid) {
+	@RequestMapping(value = "/deleteCreativeByid", method = RequestMethod.POST)
+	public void deleteCreativeByid(String Arrayjsonid) {
 		List<Map<String, Object>> listmap = JsonUtil.readJson2ListMap(Arrayjsonid);
 		List<Integer> idlist = new ArrayList<Integer>();
 		for (Map<String, Object> map : listmap) {
@@ -67,8 +69,10 @@ public class CreativeController extends BaseController{
 	 * @update
 	 * @date
 	 */
-	public void updateCreative() {
-		
+	@RequestMapping(value = "/updateCreative", method = RequestMethod.POST)
+	public void updateCreative(@RequestParam Map<String, Object> parammap) {
+		Map<String, Object> returnmap = creativeBusiness.updateCreative(parammap);
+		this.writeJson(returnmap);
 	}
 	
 	/**
@@ -80,12 +84,13 @@ public class CreativeController extends BaseController{
 	 * @update
 	 * @date
 	 */
+	@RequestMapping(value = "/findAdvertiserListAndPage", method = RequestMethod.POST)
 	public void findAdvertiserListAndPage(@RequestParam Map<String, Object> parammap, QueryPage queryPage) {
 		Map<String, Object> map1 = new HashMap<String, Object>();
 		try {
 			List<Map<String, Object>> listmap = creativeBusiness.selectCreativeAndPageByAdvertisementid(parammap, queryPage);
 
-			String vmPath = File.separator + "vm" + File.separator + "popularizeActivity";
+			String vmPath = File.separator + "vm" + File.separator + "advertiser";
 
 			map1 = initpage("creative.vm", vmPath, listmap, queryPage);
 		} catch (Exception e) {

@@ -1,9 +1,15 @@
 #foreach ($data in $datalist)
 	<tr>
-		<td><input type="checkbox" /></td>
-		<td><a href="#">$!{data.name}</a></td>
+		<td><input value="$!{data.id}" class="js-activity-list-checkbox" type="checkbox" /></td>
+		<td><a href="javascript:findAdvertiserMentPageAndActivity($!{data.id})">$!{data.name}</a></td>
 		<td>$!{data.promotiontime}</td>
-		<td>$!{data.state}</td>
+		<td>
+			#if($!data.state == 1)
+				启用
+			#else
+				停用
+			#end
+		</td>
 		<td>$!{data.createtime}</td>
 		<td>0</td>
 		<td>0</td>

@@ -14,6 +14,7 @@ import com.hy.dao.mybatis.model.CreativeCriteria;
 import com.hy.dao.mybatis.model.CreativeCriteria.Criteria;
 import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantUtil;
+import com.hy.util.common.DateUtil;
 import com.hy.util.common.ListMapUtil;
 import com.hy.util.common.PageUtil;
 import com.hy.util.common.QueryPage;
@@ -30,9 +31,9 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 		//查询所有非内置角色
 		try {
 			
-			//广告组id
+			//广告id
 			Object advertisementGroupidobj = parammap.get("advertisementid");
-			if (!CommonUtil.isEmpty(advertisementGroupidobj)) {
+			if (CommonUtil.isEmpty(advertisementGroupidobj)) {
 				return listmap;
 			}
 			
@@ -58,6 +59,11 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 			
 			List<Creative> rolelist = creativeMapper.selectByExample(cc);
 			listmap = ListMapUtil.convertListEntityToListMap(rolelist);
+			for (Map<String, Object> map : listmap) {
+				//处理时间
+				String createtimestr = DateUtil.getDateStrByLongObj(map.get("createtime"), DateUtil.YYYY_MM_DD_HH);
+				map.put("createtimestr", createtimestr);
+			}
 
 			//统计数量
 			int pagecount = creativeMapper.countByExample(cc);
@@ -131,7 +137,7 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			Creative creative = (Creative)ListMapUtil.setEntityValue(map, Creative.class);
-			creativeMapper.updateByPrimaryKey(creative);
+			creativeMapper.updateByPrimaryKeySelective(creative);
 
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
 		} catch (Exception e) {
