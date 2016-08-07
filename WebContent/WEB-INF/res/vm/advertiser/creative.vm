@@ -1,7 +1,7 @@
 #foreach ($data in $datalist)
 	<tr>
 		<td><input class="js-creative-id" value="$!{data.id}" type="checkbox" /></td>
-		<td><a class="J_lookOriginality">$!{data.creativeid}</a></td>
+		<td><a href="javascript:viewCreativeImg($!{data.path})" class="J_lookOriginality">$!{data.creativeid}</a></td>
 		<td>
 			#if($!data.state == 1)
 				启用
@@ -18,7 +18,7 @@
 				审核失败
 			#end
 		</td>
-		<td>$!{data.createtime}</td>
+		<td>$!{data.createtimestr}</td>
 		<td>0</td>
 		<td>0</td>
 		<td>0</td>

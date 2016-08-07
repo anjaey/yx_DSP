@@ -1,0 +1,143 @@
+.mainCa{top: 0px; bottom: 0px; left: 0px; right: 0px;}
+.topCa{height: 60px; line-height: 60px; left: 0px; top: 0px; right: 0px; background-color: #1770d6;}
+.leftCa{width: 60px; left: 0px; top: 60px; bottom: 0px; background-color: #2f3744; overflow: hidden; }
+.rightCa{left: 60px; right: 0px; top: 60px; bottom: 0px; background-color: #f6f6f6; overflow: hidden; overflow-y: auto;}
+/*----------logo----------*/
+.logo{margin-left: 12px; overflow: hidden;}
+.logo img{margin-top: 12px;}
+/*----------用户中心----------*/
+.userCenter{}
+.userCenter .userName,
+.userCenter .userMessage,
+.userCenter .userHelp{color: #FFFFFF; text-indent: 30px; padding: 0px 15px; background: 15px center no-repeat; cursor: pointer;}
+.userCenter .userName{background-image: url(../../images/admin/userName_icon.png);}
+.userCenter .userName p{background: url(../../images/admin/userName_icon2.png) center right no-repeat; padding-right: 20px;}
+.userCenter .userMessage{background-image: url(../../images/admin/userMessage_icon.png);}
+.userCenter .userHelp{background-image: url(../../images/admin/userHelp_icon.png);}
+.userCenter .line{width: 1px; height: 12px; margin-top: 25px; background-color: #3e85d7;}
+
+.userCenter .selectList{display: none; z-index: 2; background-color: #FFFFFF; border: solid 1px #e0e0e0; overflow: hidden;}
+.userCenter .selectSingle{color: #666666!important; height: 30px; line-height: 30px; text-indent: 0px; cursor: pointer; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.userCenter .selectSingle:hover{background-color: #f5f5f5;} 
+.userCenter .selectSingle img{vertical-align: middle; margin: 0px 10px;}
+
+.userCenter .userName .selectList{width: 150px; margin-left: -16px;}
+.userCenter .userMessage .selectList{width: 270px; max-height: 370px; margin-left: -202px;}
+.userCenter .userMessage .selectList .selectSingle{text-indent: 10px;}
+.userCenter .userMessage .selectList .messageList{max-height: 340px; overflow: hidden; overflow-y: auto;}
+.userCenter .userMessage .selectList .messageAll{background-color: #e0e0e0;}
+.userCenter .userHelp .selectList{width: 140px; margin-left: -73px;}
+
+/*----------联系客服----------*/
+.relationServiceCa{position: fixed; top: 50%; margin-top: -240px; height: 480px; right: 0px;}
+.relationService_switch{color: #FFFFFF; float: left; width: 38px; height: 133px; line-height: 21px; text-align: center; font-size: 14px; background: url(../../images/admin/relationService_switchIcon.png) center 16px no-repeat #499eff; border-top-left-radius: 3px; border-bottom-left-radius: 3px; overflow: hidden; cursor: pointer;}
+.relationService_way{float: right; width: 0px; height: 480px; text-align: center; background-color: #FFFFFF;border: solid 0px #dadada;}
+.servicePhoto{width: 141px; height: 139px; margin: auto; margin-top: 28px; overflow: hidden;}
+.servicePhoto img{width: 100%; height: 100%;}
+.serviceQQ{display: block; width: 109px; height: 32px; margin: auto; margin-top: 24px; background: url(../../images/admin/serviceQQ.png) center no-repeat; overflow: hidden;}
+.servicePhone{display: inline-block; color: #4c4c4c; width: auto; height: 24px; line-height: 24px;  margin-top: 16px; text-indent: 22px; font-size: 16px; background: url(../../images/admin/servicePhone.png) center left no-repeat; overflow: hidden;}
+.serviceMail{display: inline-block; color: #4c4c4c; width: auto; height: 24px; line-height: 24px; margin-top: 12px; text-indent: 22px; font-size: 16px; background: url(../../images/admin/serviceMail.png) center left no-repeat; overflow: hidden;}
+.serviceQrCode{width: 133px; height: 131px; margin: auto; margin-top: 24px; background: url(../../images/admin/serviceQrCode.png) center no-repeat; overflow: hidden;}
+
+/*----------菜单----------*/
+.menuCn{}
+.menu_single{float: left; width: 100%; height: 80px; cursor: pointer; background: center no-repeat;}
+.menuFocus{background-image: url(../../images/admin/menu_focus.png);}
+
+/*----------选项卡----------*/
+.tabCa{top: 20px; bottom: 20px; left: 20px; right: 50px;}
+.tab_menuWrapper{height: 60px; line-height: 60px; top: 0px; left: 0px; right: 0px; background: url(../../images/admin/tab_menuWrapperBorder.jpg) left bottom repeat-x;}
+.tab_menuWrapper .tab_menuList{height: 60px; padding: 0px; margin: 0px;}
+.tab_menuWrapper .tab_menu{height: 60px; color: #313131; font-size: 24px; padding: 0px 15px; cursor: pointer;}
+.tab_menuWrapper .tab_menuList .focus{color: #1770d6; background: url(../../images/admin/tabMenu_focus.png) bottom center no-repeat;}
+.tab_buttons{}
+.tab_buttons input[type=button],
+.tab_buttons a{float: left; color: #FFFFFF; width: 135px; height: 39px; line-height: 39px; text-align: center; font-size: 14px; font-family: "微软雅黑"; margin: 0px; padding: 0px; margin-top: 10px; margin-left: 10px; border: none; border-radius: 5px; background: none; background-color: #1770d6; cursor: pointer;}
+.tab_contentWrapper{top: 90px; bottom: 0px; left: 0px; right: 0px;}
+.tab_contentWrapper .tab_content{display: none; left: 0px; right: 0px; top: 0px; bottom: 0px;}
+
+/*----------面包屑导航----------*/
+.crumbsNavCn{height: 40px; line-height: 40px; font-size: 18px; margin-bottom: 20px; border-bottom: solid 1px #dcdcdc; white-space: nowrap; overflow: hidden;}
+.crumbsNavCn .crumbsNav{color: #1770d6; padding-right: 20px; text-indent: 20px; background: url(../../images/admin/crumbsNav_icon.png) right center no-repeat;}
+.crumbsNavCn .crumbsNav:first-child{text-indent: 0px;}
+/*----------数据表----------*/
+.dataTableCn{margin-top: 20px; background-color: #FFFFFF;}
+/*-----列表-----*/
+.dataTable{width: 100%; table-layout: fixed;}
+.dataTable tr{}
+.dataTable tr th,
+.dataTable tr td{color: #8c8c8c; height: 40px; line-height: 40px; text-align: center; border: solid 1px #ebebeb; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+.dataTable tr th{color: #4c4c4c; background-color: #FFFFFF; border: none;}
+
+.dataTable tr td a{color: #1770d6!important; display: inline-block; max-width: 100%;  height: 20px; line-height: 20px; vertical-align: middle; cursor: pointer; padding: 0px 5px; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+.dataTable tr td input[type="text"]{width: 90%!important; height: 24px; line-height: 24px; border: solid 1px #c5c5c5;}
+.dataTbodyTr_even{background-color: #fafafa;}
+.dataTbodyTr_focus{background-color: #f5faf0;}
+
+/*-----表单-----*/
+.dataForm{table-layout: fixed; font-size: 14px;}
+.dataForm caption{color: #333333; height: 40px; line-height: 40px; font-size: 18px; white-space: nowrap; overflow: hidden;}
+.dataForm tr{}
+.dataForm tr th,
+.dataForm tr td{color: #333333; height: 50px; line-height: 50px;}
+.dataForm tr th{color: #000000; text-align: right; font-size: 14px; text-indent: 30px;}
+.dataForm tr td{padding-left: 4px;}
+.dataForm input[type="text"],
+.dataForm input[type="password"],
+.dataForm select{width: 350px; height: 34px; line-height: 34px; border: solid 1px #c5c5c5;}
+
+.dataForm select{width: 352px; height: 34px; line-height: 34px; padding: 2px 0px;}
+.dataForm input[type=checkbox],
+.dataForm input[type=radio]{ vertical-align: middle;}
+.dataForm label{vertical-align: middle; margin-right: 10px;}
+.dataForm textarea{width: 370px; height: 70px; line-height: 1.3em; padding: 10px; border: solid 1px #C5C5C5;}
+.dataForm input[type="submit"],
+.dataForm input[type="button"]{color: #FFFFFF; padding: 10px 40px; margin-right: 10px; cursor: pointer; border: none; border-radius: 3px; background: none; background-color: #429aff;}
+.dataForm input.cancelBtn{background-color: #bababa;}
+.dataForm .must{color: red;}
+.dataForm .prompt{padding-left: 4px; color: #999999;}
+/*----------分页----------*/
+.dataPage_cn{height: 30px; margin-top: 20px; font-size: 12px; overflow: hidden;}
+.dataPage_cn a{color: #808080!important; display: inline-block; width: auto; height: 28px; line-height: 28px; padding: 0px 9px; margin: 0px 3px; cursor: pointer; background-color: #FFFFFF; border-radius: 3px; white-space: nowrap; overflow: hidden; }
+.dataPage_cn .dataPage_numberFocus{color: #ffffff!important;background-color: #42a4ff;}
+.dataPage_cn a:hover{color: #ffffff!important;background-color: #42a4ff;}
+.dataPage_cn .dataPage_first,
+.dataPage_cn .dataPage_last{color: #7f7f7f!important;display: inline-block;width: 50px;height: 28px;line-height: 28px;margin: 0px 3px;font-size: 12px;cursor: pointer;white-space: nowrap;overflow: hidden; background-color: #FFFFFF; border-radius: 3px;}
+
+.dataPage_sum{color: #808080!important; display: inline-block; width: auto; height: 28px; line-height: 28px; padding: 0px 9px; margin: 0px 3px; white-space: nowrap; overflow: hidden; }
+.dataPage_sum span{margin: 0px 5px;}
+.dataPage_sum select{color: #808080!important; width: 50px; height: 24px; line-height: 24px; margin: 0px 5px; border: solid 1px #e1e1e1; vertical-align: middle;}
+/*----------对话框----------*/
+/*数据表*/
+.dialogTable_list{table-layout: fixed; margin-top: 10px;}
+.dialogTable_list caption{color: #656c82; height: 50px; line-height: 50px; white-space: nowrap; overflow: hidden;}
+.dialogTable_list tr{}
+.dialogTable_list tr th,
+.dialogTable_list tr td{color: #656c82; height: 34px; line-height: 34px; text-align: center; border: solid 1px #CCCCCC;}
+.dialogTable_list tr th{background-color: #EFEFEF;}
+.dialogTable_list input[type="text"],
+.dialogTable_list select{width: 160px; height: 28px; line-height: 28px; border: solid 1px #c5c5c5;}
+.dialogTable_list input[type="submit"],
+.dialogTable_list input[type="button"]{color: #FFFFFF; padding: 4px 10px; margin-right: 10px; cursor: pointer; border: none; border-radius: 3px; background: none; background-color: #1770d6;}
+/*表单*/
+.dialogTable_form{table-layout: fixed; margin-top: 20px;}
+.dialogTable_form tr{}
+.dialogTable_form tr th,
+.dialogTable_form tr td{color: #656c82; height: 40px; line-height: 40px;}
+.dialogTable_form tr th{width: 120px; text-align: right;}
+.dialogTable_form tr td{padding-left: 4px;}
+.dialogTable_form input[type="text"],
+.dialogTable_form input[type="password"],
+.dialogTable_form select{width: 220px; height: 30px; line-height: 30px; border: solid 1px #c5c5c5;}
+.dialogTable_form select{width: 222px; height: 32px; line-height: 32px; padding: 2px 0px;}
+.dialogTable_form input[type=checkbox],
+.dialogTable_form input[type=radio]{ vertical-align: middle;}
+.dialogTable_form label{vertical-align: middle; margin-right: 10px;}
+.dialogTable_form input[type="submit"],
+.dialogTable_form input[type="button"]{color: #FFFFFF; padding: 4px 10px; margin-right: 10px; cursor: pointer; border: none; border-radius: 3px; background: none; background-color: #42a0d6;}
+.dialogTable_form textarea{width: 370px; height: 70px; line-height: 1.3em; padding: 10px; border: solid 1px #C5C5C5;}
+.dialogTable_form .must{color: red;}
+.dialogTable_form .prompt{padding-left: 4px; color: #999999;}
+/*----------特殊颜色----------*/
+.red{color: #ed1c00!important;}
+.yellow{color: #ed9700!important;}

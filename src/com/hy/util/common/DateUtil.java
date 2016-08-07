@@ -272,6 +272,27 @@ public class DateUtil {
 	}
 	
 	/**
+	 * 
+	 * 把时间字符串的object 转换为 时间的long
+	 * 
+	 * 如果传入的为null  则返回null
+	 * @author hy
+	 * @date 2016年7月26日上午10:25:58
+	 * @param obj
+	 * @update
+	 * @date
+	 */
+	public static Long getstrDateLong(Object obj) {
+		if (!CommonUtil.isEmpty(obj)) {
+			String datestr = obj.toString();
+			Long datelong = str2Date(datestr).getTime();
+			return datelong;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
 	 * 获取日期中的月
 	 * 
 	 * @param date 需要提取的日期

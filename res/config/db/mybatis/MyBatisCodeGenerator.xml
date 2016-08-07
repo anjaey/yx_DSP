@@ -61,9 +61,11 @@
 			<table tableName="yx_popularize_activity" domainObjectName="PopularizeActivity" />
 			<table tableName="yx_refund_record" domainObjectName="RefundRecord" />
 			<table tableName="yx_creative" domainObjectName="Creative" />
+			<table tableName="yx_dictionary" domainObjectName="Dictionary" />
 			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
 			<table tableName="yx_pay_record" domainObjectName="PayRecord" />
 			<table tableName="yx_advertiser" domainObjectName="Advertiser" />
+			<table tableName="yx_creative" domainObjectName="Creative" />
 			<table tableName="yx_invoice" domainObjectName="Invoice" />
 			<table tableName="yx_profit_command" domainObjectName="ProfitCommand" />
 			<table tableName="creative_deduct_quantity_setting_record" domainObjectName="CreativeDeductQuantitySettingRecord" />
@@ -71,10 +73,14 @@
 			<table tableName="yx_address_provinces" domainObjectName="AddressProvinces" />
 			<table tableName="yx_user_basic" domainObjectName="Userbasic" />
 			<table tableName="yx_user_detil" domainObjectName="UserDetil" />
-		-->	
-			
-			
-			<table tableName="yx_advertisement_collimation" domainObjectName="AdvertisementCollimation" />
+			<table tableName="yx_creative_deduct_quantity_setting_record" domainObjectName="CreativeDeductQuantitySettingRecord" />
+	
+			<table tableName="yx_advertiserment_putting_tactics" domainObjectName="AdvertisermentPuttingTactics" />
+			<table tableName="yx_creative_mapping" domainObjectName="CreativeMapping" />
+			<table tableName="yx_advertiserment_putting_tactics" domainObjectName="Dictionary" />
+		
+		-->			
+			<table tableName="yx_creative" domainObjectName="Creative" />
 	</context>
 
 </generatorConfiguration>

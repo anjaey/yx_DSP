@@ -64,6 +64,8 @@ public class PopularizeActivityController extends BaseController{
 	 */
 	@RequestMapping(value = "/addActvity", method = RequestMethod.POST)
 	public void addActvity(@RequestParam Map<String, Object> map) {
+		map.put("createuser", this.getSessionLoginUserid());
+		
 		Map<String, Object> returnmap = popularizeActivityBusiness.insertActivity(map);
 		this.writeJson(returnmap);
 	}

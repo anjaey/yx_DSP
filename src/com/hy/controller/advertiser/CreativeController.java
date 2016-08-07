@@ -37,6 +37,7 @@ public class CreativeController extends BaseController{
 	 */
 	@RequestMapping(value = "/addCreative", method = RequestMethod.POST)
 	public void addCreative(@RequestParam Map<String,Object> map) {
+		map.put("createuser", this.getSessionLoginUserid());  //设置创建人
 		Map<String,Object> returnmap = creativeBusiness.insertCreative(map);
 		this.writeJson(returnmap);
 	}

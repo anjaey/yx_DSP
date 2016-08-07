@@ -30,39 +30,6 @@ public interface IDictBusiness {
 	public List<Map<String, Object>> selectDictByParentid(Map<String, Object> parammap, QueryPage queryPage);
 	
 	/**
-	 * 添加父级字典信息
-	 * @author hy
-	 * @date 2016年6月17日下午3:39:32
-	 * @param map
-	 * @return
-	 * @update
-	 * @date
-	 */
-	public boolean insertDictParent(Map<String, Object> map);
-	
-	/**
-	 * 添加子级信息
-	 * @author hy
-	 * @date 2016年6月17日下午3:39:32
-	 * @param map
-	 * @return
-	 * @update
-	 * @date
-	 */
-	public boolean insertDictSon(Map<String, Object> map);
-	
-	/**
-	 * 修改字典信息
-	 * @author hy
-	 * @date 2016年6月17日下午3:40:05
-	 * @param map
-	 * @return
-	 * @update
-	 * @date
-	 */
-	public boolean updateDict(Map<String, Object> map);
-	
-	/**
 	 * 根据key  查询字典详细信息
 	 * @author hy
 	 * @date 2016年6月17日下午3:40:42

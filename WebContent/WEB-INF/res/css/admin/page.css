@@ -1,0 +1,146 @@
+/*----------首页开始----------*/
+.home_adCn{left: 0px; width: 177px; top: 0px; bottom: 0px; background-color: #ebebeb;}
+.home_adSituation,
+.home_adDetails{display: none; left: 207px; right: 50px; top: 20px; bottom: 20px; overflow: hidden; overflow-y: auto;}
+.home_adDetails{background-color: #FFFFFF;}
+/*广告列表*/
+.home_adInsert{color: #FFFFFF!important; width: 135px; height: 39px; line-height: 39px; background-color: #1770d6; top: 20px; left: 20px; border-radius: 5px; font-size: 14px;}
+.home_adOverview,
+.home_adRecently{color: #353535!important; height: 40px; top: 80px; line-height: 40px; text-indent: 18px; font-size: 14px; font-weight: bold; cursor: pointer;border-top: solid 1px  #e0e0e0;}
+.home_adRecently{border-top: none; top: 120px;}
+.home_adCn .focus{background-color: #f6f6f6;}
+.home_adList{top: 160px; bottom: 0px; overflow: hidden; overflow-y: auto;}
+.home_adSingle{color: #666666; height: 34px; line-height: 34px; text-indent: 34px; cursor: pointer; white-space: nowrap; overflow: hidden;}
+/*概况*/
+.statistics{}
+.statisticsSingle{width: 32%; height: 131px; margin-right: 2%; background-color: #FFFFFF; overflow: hidden;}
+.statisticsSingle:last-child{margin-right: 0px; float: right;}
+.statisticsSingle_left{color: #FFFFFF; width: 100px; height: 100px; line-height: 100px; font-size: 24px; border-radius: 50px; margin-top: 14px; margin-left: 24px; background-color: #42a4ff;}
+.statisticsIcon{margin-top: 30px; margin-left: 30px;}
+.statisticsSingle_right{width: auto; max-width: 50%; min-width:170px; height: 100px; margin-top: 14px; margin-left: 24px;}
+.statisticsSingle_right_top{height: 50px; line-height: 50px; font-size: 30px; white-space: nowrap; overflow: hidden; }
+.statisticsSingle_right_bottom{height: 50px; line-height: 50px; font-size: 14px; white-space: nowrap; overflow: hidden;}
+.statisticsSingle_right a{color: #42a4ff!important;}
+.statisticsSingle_right sub{font-size: 12px;}
+
+.wholeCn{margin-top: 30px; background-color: #FFFFFF; }
+.wholeTitle{height: 60px; width: 98%; margin-left: 1%; margin-top: 20px; }
+.wholeTitle_text{}
+.wholeTitle_text p{font-size: 24px;}
+.wholeTitle_text span{display: block; color: #808080; font-size: 14px;}
+.wholeTitle_screen{margin-top: 10px;}
+.wholeTitle_screen input[type=text]{width: 280px; height: 36px; line-height: 36px; text-indent: 4px; border: solid 1px #cdcdcd;}
+.wholeTitle_screen select{width: 170px; height: 36px; line-height: 36px; border: solid 1px #cdcdcd;}
+.wholeSubtotal{height: 77px; width: 98%; margin-left: 1%; margin-top: 30px; background-color: #f6f6f6;}
+.wholeSubtotal_single{width: 33%; height: 56px; margin-top: 10px; border-right: solid 1px #e6e6e6;}
+.wholeSubtotal_single:last-child{border: none;}
+.wholeSubtotal_single p{font-size: 24px; text-indent: 10px; }
+.wholeSubtotal_single span{display: block; color: #4c5e70; font-size: 14px; text-indent: 10px; }
+.wholeStatistics{width: 98%; height: 260px; margin-left: 1%; margin-top: 30px; overflow: hidden;}
+/*广告详情*/
+.adDetails_title{height: 60px; width: 98%; margin-left: 1%; margin-top: 20px;}
+.adDetails_titleText{}
+.adDetails_titleText p{font-size: 24px;}
+.adDetails_titleText span{display: block; color: #808080; font-size: 14px;}
+.adDetails_titleScreen{margin-top: 10px;}
+.adDetails_titleScreen input[type=text]{width: 280px; height: 36px; line-height: 36px; text-indent: 4px; border: solid 1px #cdcdcd;}
+.adDetails_titleScreen select{width: 170px; height: 36px; line-height: 36px; border: solid 1px #cdcdcd;}
+.adDetailsSubtotal{height: 77px; width: 98%; margin-left: 1%; margin-top: 30px;}
+.adDetailsSubtotal .left{width: 40%; background-color: #f6f6f6;}
+.adDetailsSubtotal .right{width: 58%; background-color: #f6f6f6;}
+.adDetailsSubtotal_single{width: 100%; height: 56px; margin-top: 10px;}
+.adDetailsSubtotal .right .adDetailsSubtotal_single{width: 48%; border-right: solid 1px #e6e6e6;}
+.adDetailsSubtotal .right .adDetailsSubtotal_single:last-child{border: none;}
+.adDetailsSubtotal_single p{font-size: 24px; text-indent: 10px; }
+.adDetailsSubtotal_single span{display: block; color: #4c5e70; font-size: 14px; text-indent: 10px; }
+.adWholeStatistics{width: 98%; margin-left: 1%; margin-top: 30px; overflow: hidden;}
+.adDetailsTable{width: 40%; border: solid 1px #c9c9c9;}
+.adDetailsTable table{table-layout: fixed; max-width: 95%; margin-left: 2.5%; margin-top: 10px; margin-bottom: 10px;}
+.adDetailsTable table caption{height: 50px; line-height: 50px; font-size: 18px;}
+.adDetailsTable table tr{}
+.adDetailsTable table tr th,
+.adDetailsTable table tr td{height: 40px; line-height: 30px; font-size: 14px; font-weight: bold; text-indent: 6px;}
+.adDetailsTable table tr th{width: 100px; text-align: right;}
+.adDetailsStatistics{width: 58%; height: 390px;}
+/*欢迎*/
+.welcomeCa{display: none; left: 0px; right: 0px; top: 0px; bottom: 0px; background-color: rgba(0,0,0,0.3); z-index: 10;}
+.welcomeCn{left: 50%; top: 50%; width: 591px; margin-left: -295px; height: 370px; margin-top: -185px; background: url(../../images/admin/welcomeBj.png) center no-repeat;}
+.welcomeCn table{table-layout: fixed; width: 95%; margin-left: 2.5%; margin-top: 40px;}
+.welcomeCn table caption{text-align: center; margin-bottom: 30px;}
+.welcomeCn table caption p{color: #1770d6; font-size: 24px; font-weight: bold;}
+.welcomeCn table caption span{color: #868686; font-size: 14px;}
+.welcomeCn table tr{}
+.welcomeCn table tr td{}
+.welcomeCn .start,
+.welcomeCn .perfect{color: #4c4c4c; width: 140px; height: 40px; margin-top: 50px; border: none; border: solid 1px #e1e1e1; border-radius: 5px; margin-left: 10px; margin-right: 10px; cursor: pointer;}
+.welcomeCn .perfect{color: #FFFFFF; background-color: #1770d6; border: solid 1px #1770d6;}
+/*----------首页结束----------*/
+
+/*----------推广开始----------*/
+/*小计*/
+.popularizeSubtotal{height: 77px; background-color: #FFFFFF;}
+.popularizeSubtotal_single{width: 33%; height: 56px; margin-top: 10px; border-right: solid 1px #e6e6e6;}
+.popularizeSubtotal_single:last-child{border: none;}
+.popularizeSubtotal_single p{font-size: 24px; text-indent: 10px; }
+.popularizeSubtotal_single span{display: block; color: #4c5e70; font-size: 14px; text-indent: 10px; }
+
+.popularizeSubtotal table{font-size: 14px;}
+.popularizeSubtotal table caption{width: 100%; height: 38px; line-height: 38px; text-indent: 15px;}
+.popularizeSubtotal table caption span{margin-right: 10px;}
+.popularizeSubtotal table caption .name{font-size: 18px;}
+.popularizeSubtotal table caption .state{color:#FFFFFF; padding: 1px 6px; background-color: #86ba34; border-radius: 5px;}
+.popularizeSubtotal table caption .time{color: #6f6f6f; font-size: 12px;}
+.popularizeSubtotal table tr th,
+.popularizeSubtotal table tr td{height: 39px; line-height: 39px;}
+.popularizeSubtotal table tr th{color: #4c5e70; text-indent: 15px; font-weight: 100;}
+/*操作*/
+.operateCn{margin-top: 20px;}
+.operateCn a,
+.operateCn input[type=button]{color: #666666!important; width: 135px; height: 40px; line-height: 40px; text-align: center; font-size: 14px; margin-right: 10px; border: none; border: solid 1px #e1e1e1; border-radius: 5px; background: none; background-color: #FFFFFF; cursor: pointer;}
+.operateCn input[type=submit]{color: #FFFFFF!important; width: 63px; height: 40px; line-height: 40px; text-align: center; font-size: 14px; border: none; border: solid 1px #1770d6; border-radius: 5px; background: none; background-color: #1770d6; cursor: pointer;}
+.operateCn a{height: 38px; line-height: 38px;}
+.operateCn .addOriginality{color: #FFFFFF!important; width: 135px; height: 38px; line-height: 38px; text-align: center; font-size: 14px; border: none; border: solid 1px #1770d6; border-radius: 5px; background: none; background-color: #1770d6; cursor: pointer;}
+.operateCn input[type=text],
+.operateCn select{width: 176px; height: 40px; border: solid 1px #e1e1e1; margin: 0px 10px;}
+/*----------推广结束----------*/
+
+/*----------新建广告开始----------*/
+/*步奏*/
+.stepCn{height: 50px; margin-top: -12px; text-align: center;}
+.stepSingle{display: inline-block; width: 10%; margin: 0px 20px; font-size: 14px;}
+.stepSingle_focus .stepNumber{background-color: #1770d6;}
+.stepSingle_focus .stepName{color: #1770d6;}
+.stepNumber{color: #FFFFFF; width: 20px; height: 20px; line-height: 20px; text-align: center; margin: 0px auto; border-radius: 15px; background-color: #d7d7d7;}
+.stepName{color: #4d4d4d; width: 100%; height: 30px; line-height: 40px; text-align: center;}
+.stepChange{height: 40px; left: 0px; right: 0px; bottom: 0px; overflow: hidden;}
+.stepChange .cancelBtn,
+.stepChange .lastBtn,
+.stepChange .nextBtn,
+.stepChange .submitBtn{color: #FFFFFF; height: 40px; line-height: 40px; padding: 0px 20px; margin: 0px 5px; background: none; background: #1770d6; border: solid 1px #1770d6; border-radius: 3px; font-size: 14px; font-family: "微软雅黑"; cursor: pointer;}
+.stepChange .cancelBtn{color: #606060; border: solid 1px #e1e1e1; background-color: #FFFFFF;}
+
+
+
+.partitionLine{height: 2px; background-color: #f6f6f6;}
+.stepForm{width: 95%; padding: 2.5%;}
+.checkedList{}
+.checkedList tr{}
+.checkedList td{width: 120px;}
+
+.tab_content .leftDiv{left: 0px; right: 220px; overflow-y: auto;}
+.tab_content .rightDiv{width: 220px; right: 0px; background-color: #fcfcfc; overflow-y: auto;}
+.tab_content .rightDiv .stepForm{padding: 0px; width: 100%;}
+.tab_content .rightDiv .dataForm{table-layout: fixed; width: 100%;}
+.tab_content .rightDiv .dataForm caption{color: #000000; font-size: 14px; text-indent: 10px; font-weight: bold; background-color: #e7e7e7; margin: 20px 0px;}
+.tab_content .rightDiv .dataForm tr th,
+.tab_content .rightDiv .dataForm tr td{height: 30px; line-height: 30px; text-indent: 0px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.tab_content .rightDiv .dataForm tr th{width: 90px;}
+/*----------新建广告结束----------*/
+
+
+
+
+
+
+
+

@@ -7,31 +7,7 @@ public class Creative {
 
     private Integer advertisementId;
 
-    private Integer trafficType;
-
-    private Integer creativeType;
-
-    private String targetUrl;
-
-    private String clickUrl;
-
-    private Integer advertId;
-
-    private String monitorUrl;
-
-    private Integer height;
-
-    private Integer weight;
-
-    private String creativeAddress;
-
-    private String creativeName;
-
-    private String creativeDownUrl;
-
-    private String creativeDes;
-
-    private Float creativeAppSize;
+    private String creativeType;
 
     private Long createTime;
 
@@ -52,6 +28,14 @@ public class Creative {
     private Float deductQuantityProportionLater;
 
     private Integer state;
+
+    private String creativeModality;
+
+    private String size;
+
+    private String path;
+
+    private Integer processState;
 
     public Integer getId() {
         return id;
@@ -77,108 +61,12 @@ public class Creative {
         this.advertisementId = advertisementId;
     }
 
-    public Integer getTrafficType() {
-        return trafficType;
-    }
-
-    public void setTrafficType(Integer trafficType) {
-        this.trafficType = trafficType;
-    }
-
-    public Integer getCreativeType() {
+    public String getCreativeType() {
         return creativeType;
     }
 
-    public void setCreativeType(Integer creativeType) {
-        this.creativeType = creativeType;
-    }
-
-    public String getTargetUrl() {
-        return targetUrl;
-    }
-
-    public void setTargetUrl(String targetUrl) {
-        this.targetUrl = targetUrl == null ? null : targetUrl.trim();
-    }
-
-    public String getClickUrl() {
-        return clickUrl;
-    }
-
-    public void setClickUrl(String clickUrl) {
-        this.clickUrl = clickUrl == null ? null : clickUrl.trim();
-    }
-
-    public Integer getAdvertId() {
-        return advertId;
-    }
-
-    public void setAdvertId(Integer advertId) {
-        this.advertId = advertId;
-    }
-
-    public String getMonitorUrl() {
-        return monitorUrl;
-    }
-
-    public void setMonitorUrl(String monitorUrl) {
-        this.monitorUrl = monitorUrl == null ? null : monitorUrl.trim();
-    }
-
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
-    }
-
-    public String getCreativeAddress() {
-        return creativeAddress;
-    }
-
-    public void setCreativeAddress(String creativeAddress) {
-        this.creativeAddress = creativeAddress == null ? null : creativeAddress.trim();
-    }
-
-    public String getCreativeName() {
-        return creativeName;
-    }
-
-    public void setCreativeName(String creativeName) {
-        this.creativeName = creativeName == null ? null : creativeName.trim();
-    }
-
-    public String getCreativeDownUrl() {
-        return creativeDownUrl;
-    }
-
-    public void setCreativeDownUrl(String creativeDownUrl) {
-        this.creativeDownUrl = creativeDownUrl == null ? null : creativeDownUrl.trim();
-    }
-
-    public String getCreativeDes() {
-        return creativeDes;
-    }
-
-    public void setCreativeDes(String creativeDes) {
-        this.creativeDes = creativeDes == null ? null : creativeDes.trim();
-    }
-
-    public Float getCreativeAppSize() {
-        return creativeAppSize;
-    }
-
-    public void setCreativeAppSize(Float creativeAppSize) {
-        this.creativeAppSize = creativeAppSize;
+    public void setCreativeType(String creativeType) {
+        this.creativeType = creativeType == null ? null : creativeType.trim();
     }
 
     public Long getCreateTime() {
@@ -259,5 +147,37 @@ public class Creative {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getCreativeModality() {
+        return creativeModality;
+    }
+
+    public void setCreativeModality(String creativeModality) {
+        this.creativeModality = creativeModality == null ? null : creativeModality.trim();
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size == null ? null : size.trim();
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path == null ? null : path.trim();
+    }
+
+    public Integer getProcessState() {
+        return processState;
+    }
+
+    public void setProcessState(Integer processState) {
+        this.processState = processState;
     }
 }

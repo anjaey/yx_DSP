@@ -12,7 +12,13 @@ import org.springframework.stereotype.Service;
 import com.hy.business.popularizeActivity.IPopularizeActivityBusiness;
 import com.hy.dao.common.JdbcBaseDao;
 import com.hy.dao.common.impl.BaseDaoImpl;
+import com.hy.dao.mybatis.mapper.AdvertisementBasicMapper;
+import com.hy.dao.mybatis.mapper.CreativeMapper;
 import com.hy.dao.mybatis.mapper.PopularizeActivityMapper;
+import com.hy.dao.mybatis.model.AdvertisementBasic;
+import com.hy.dao.mybatis.model.AdvertisementBasicCriteria;
+import com.hy.dao.mybatis.model.Creative;
+import com.hy.dao.mybatis.model.CreativeCriteria;
 import com.hy.dao.mybatis.model.PopularizeActivity;
 import com.hy.dao.mybatis.model.PopularizeActivityCriteria;
 import com.hy.dao.mybatis.model.PopularizeActivityCriteria.Criteria;
@@ -28,6 +34,10 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 
 	@Autowired
 	PopularizeActivityMapper popularizeActivityMapper;
+	@Autowired
+	AdvertisementBasicMapper advertisementBasicMapper;
+	@Autowired
+	CreativeMapper creativeMapper;
 
 	/**
 	 * 分页查询推广活动
@@ -129,12 +139,22 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			String id = createActivityId(jdbcBaseDao);
+			
+			Long starttime = DateUtil.getstrDateLong(map.get("starttime"));
+			map.put("starttime", starttime);
+			
+			Long endtime = DateUtil.getstrDateLong(map.get("endtime"));
+			map.put("endtime", endtime);
 
 			PopularizeActivity pa = (PopularizeActivity)ListMapUtil.setEntityValue(map, PopularizeActivity.class);
 			pa.setActivityId(id);
 			pa.setCreateTime(new Date().getTime());
+			pa.setState(1);
+			
 			popularizeActivityMapper.insertSelective(pa);
 
+			//返回id
+			returnmap.put("activityid", pa.getId());
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -183,6 +203,32 @@ public class PopularizeActivityBusiness extends BaseDaoImpl implements IPopulari
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			PopularizeActivity pa = (PopularizeActivity)ListMapUtil.setEntityValue(map, PopularizeActivity.class);
+			
+			//如果停用/启用时/更改广告下面创意的状态
+			if (pa.getState() == 0) {
+				//查询这个活动的说有广告
+				AdvertisementBasicCriteria abc = new AdvertisementBasicCriteria();
+				abc.createCriteria().andActivityIdEqualTo(pa.getId());
+				
+				List<AdvertisementBasic> listbasic = advertisementBasicMapper.selectByExample(abc);
+				List<Integer> idlist = new ArrayList<Integer>();
+				
+				if (listbasic.size() > 0) {
+					for (AdvertisementBasic ab : listbasic) {
+						idlist.add(ab.getId());
+					}
+					
+					Creative creative = new Creative();
+					creative.setProcessState(6);  //创意全部改为暂停
+					
+					CreativeCriteria cc = new CreativeCriteria();
+					com.hy.dao.mybatis.model.CreativeCriteria.Criteria criteria = cc.createCriteria();
+					criteria.andAdvertisementIdIn(idlist);  //当前活动下所有的广告
+					
+					creativeMapper.updateByExampleSelective(creative, cc);
+				}
+			}
+			
 			popularizeActivityMapper.updateByPrimaryKeySelective(pa);
 		} catch (Exception e) {
 			e.printStackTrace();

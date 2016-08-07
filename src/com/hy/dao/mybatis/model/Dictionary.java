@@ -9,6 +9,8 @@ public class Dictionary {
 
     private Integer parentid;
 
+    private Integer isdelete;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +41,13 @@ public class Dictionary {
 
     public void setParentid(Integer parentid) {
         this.parentid = parentid;
+    }
+
+    public Integer getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 }

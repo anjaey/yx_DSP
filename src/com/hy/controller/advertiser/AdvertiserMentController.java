@@ -134,16 +134,6 @@ public class AdvertiserMentController extends BaseController{
 	 */
 	@RequestMapping(value = "/addAdvertiserMent", method = RequestMethod.POST)
 	public void addAdvertiser(@RequestParam Map<String, Object> map) {
-		//同时添加活动信息
-		Object activityInfoobj = map.get("activityInfo");
-		if (!CommonUtil.isEmpty(activityInfoobj)) {  //创建新的活动
-		 	String activityInfoJson = map.get("activityInfo").toString();
-		 	Map<String, Object> activityInfoMap = JsonUtil.readJson2Map(activityInfoJson);
-		 	if (activityInfoMap.keySet().size() > 0) {
-		 		activityInfoMap.put("createuser", this.getSessionLoginUserid());
-		 		popularizeActivityBusiness.insertActivity(activityInfoMap);
-		 	}
-		}
 		
 		//添加广告信息
 	 	Map<String, Object> returnmap = advertisementBusiness.insertAdvertisement(map, this.getSessionLoginUserid());

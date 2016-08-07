@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hy.business.dict.IDictBusiness;
-import com.hy.dao.common.JdbcBaseDao;
 import com.hy.dao.common.impl.BaseDaoImpl;
 import com.hy.dao.mybatis.mapper.DictionaryMapper;
 import com.hy.dao.mybatis.model.Dictionary;
@@ -44,6 +43,7 @@ public class DictBusinessImpl extends BaseDaoImpl implements IDictBusiness{
 			}
 			int parentid = Integer.parseInt(obj.toString());
 			criteria.andParentidEqualTo(parentid);
+			criteria.andIsdeleteEqualTo(1);
 
 			List<Dictionary> rolelist = dictionaryMapper.selectByExample(dc);
 			listmap = ListMapUtil.convertListEntityToListMap(rolelist);
@@ -61,124 +61,6 @@ public class DictBusinessImpl extends BaseDaoImpl implements IDictBusiness{
 
 		return listmap;
 	}
-	
-	
-	/**
-	 * 创建线程安全的得到最新的流水号
-	 * @author hy
-	 * @date 2016年7月1日下午4:43:36
-	 * @param jdbcBaseDao
-	 * @return
-	 * @update
-	 * @date
-	 */
-	@SuppressWarnings("unchecked")
-	private static synchronized String createDictKeyId(JdbcBaseDao jdbcBaseDao) {
-		String keyid = "dd_000";  //默认可以id 
-		
-		//生成id, 得到最大id
-		String sql = "select (CONVERT(substring(key_id, 4, 3), SIGNED) + 1) as nextkeyid from"
-				+ " yx_dictionary order by key_id desc limit 1";
-		
-		List<Map<String, Object>> list = jdbcBaseDao.findList(sql, null);
-		
-		if (!CommonUtil.isEmpty(list) && list.size() > 0) {
-			Object keyidobj = list.get(0);
-			if (!CommonUtil.isEmpty(keyidobj)) {
-				String keyidstr = keyidobj.toString();
-				if (keyidstr.length() == 1) {
-					keyid = "dd_00" + keyidobj.toString();
-				} else if (keyidstr.length() == 2) {
-					keyid = "dd_0" + keyidobj.toString();
-				} else if (keyidstr.length() == 3) {
-					keyid = "dd_" + keyidobj.toString();
-				}
-			}
-		}
-		
-		return keyid;
-	}
-	
-	@SuppressWarnings("unchecked")
-	private String selectDictKeySon(Integer parentid) {
-		String keyid = "dd_00";  //默认可以id 
-		
-		//查询父级
-		Dictionary dict = dictionaryMapper.selectByPrimaryKey(parentid);
-		
-		if (!CommonUtil.isEmpty(dict)) {
-			return null;
-		}
-		
-		//生成id, 得到最大id
-		String sql = "select (CONVERT(substring(key_id, 8, 2), SIGNED) + 1) as nextkeyid from "
-				+ "yx_dictionary where parentid=" + parentid + " order by key_id desc limit 1";
-		
-		List<Map<String, Object>> list = this.jdbcBaseDao.findList(sql, null);
-		
-		if (!CommonUtil.isEmpty(list) && list.size() > 0) {
-			Object keyidobj = list.get(0);
-			if (!CommonUtil.isEmpty(keyidobj)) {
-				String keyidstr = keyidobj.toString();
-				if (keyidstr.length() == 1) {
-					keyid = "_0" + keyidobj.toString();
-				} else if (keyidstr.length() == 2) {
-					keyid = "_" + keyidobj.toString();
-				}
-			}
-		}
-		
-		return dict.getKeyId() + keyid;
-	}
-
-	@Override
-	public boolean insertDictParent(Map<String, Object> map) {
-		try {
-			Dictionary dict = (Dictionary)ListMapUtil.setEntityValue(map, Dictionary.class);
-			
-			String keyid = createDictKeyId(this.jdbcBaseDao);
-			dict.setKeyId(keyid);
-			
-			dictionaryMapper.insertSelective(dict);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-	
-	@Override
-	public boolean insertDictSon(Map<String, Object> map) {
-		try {
-			Dictionary dict = (Dictionary)ListMapUtil.setEntityValue(map, Dictionary.class);
-			
-			String keyid = selectDictKeySon(dict.getParentid());
-			
-			if (keyid == null) {
-				return false;
-			}
-			
-			dict.setKeyId(keyid);
-			
-			dictionaryMapper.insertSelective(dict);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean updateDict(Map<String, Object> map) {
-		try {
-			Dictionary dict = (Dictionary)ListMapUtil.setEntityValue(map, Dictionary.class);
-			dictionaryMapper.updateByPrimaryKey(dict);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
 
 	@Override
 	public Map<String, Object> selectDiceByKey(String key) {
@@ -187,7 +69,9 @@ public class DictBusinessImpl extends BaseDaoImpl implements IDictBusiness{
 			key = DictKeyMappingUtil.map.get(key);
 			
 			DictionaryCriteria dc = new DictionaryCriteria();
-			dc.createCriteria().andKeyIdEqualTo(key);
+			Criteria criteria = dc.createCriteria();
+			criteria.andKeyIdEqualTo(key);
+			criteria.andIsdeleteEqualTo(1);
 
 			Dictionary dict = dictionaryMapper.selectByExampleForOne(dc);
 			returnmap = ListMapUtil.convertEntityToMap(dict);
@@ -210,8 +94,10 @@ public class DictBusinessImpl extends BaseDaoImpl implements IDictBusiness{
 			}
 			
 			dc = new DictionaryCriteria();
-			dc.createCriteria().andParentidEqualTo(dict.getId());
-
+			Criteria criteria = dc.createCriteria();
+			criteria.andParentidEqualTo(dict.getId());
+			criteria.andIsdeleteEqualTo(1);
+			
 			List<Dictionary> listdict = dictionaryMapper.selectByExample(dc);
 
 			returnlistmap = ListMapUtil.convertListEntityToListMap(listdict);

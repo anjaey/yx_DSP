@@ -15,5 +15,59 @@
 	http://www.springframework.org/schema/cache 
 	http://www.springframework.org/schema/cache/spring-cache.xsd">
     
+    <bean id="dspSaveRedisJob" class="com.hy.util.job.DspSaveRedisJob"></bean>
+    <bean id="creativeSaveRedisJob" class="com.hy.util.job.CreativeSaveRedisJob"></bean>
+    <bean id="incomeSaveIncomeJob" class="com.hy.util.job.IncomeSaveIncomeJob"></bean>
+    <bean id="biddingReportJob" class="com.hy.util.job.BiddingReportJob"></bean>
+    
+    
+	<bean id="dspSaveRedisJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+		<property name="targetObject" ref="dspSaveRedisJob"></property>  
+	    <property name="targetMethod" value="execute"></property>  
+	</bean>
+	<bean id="creativeSaveRedisJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+		<property name="targetObject" ref="creativeSaveRedisJob"></property>  
+	    <property name="targetMethod" value="execute"></property>  
+	</bean>
+	<bean id="incomeSaveIncomeJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+		<property name="targetObject" ref="incomeSaveIncomeJob"></property>  
+	    <property name="targetMethod" value="execute"></property>  
+	</bean>
+	<bean id="biddingReportJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+		<property name="targetObject" ref="biddingReportJob"></property>  
+	    <property name="targetMethod" value="execute"></property>  
+	</bean>
+	
+	
+    
+    <bean id="dspSaveRedisJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="dspSaveRedisJobDetail" />
+        <property name="cronExpression" value="0 0 0/2 * * ?" />
+    </bean>
+    <bean id="creativeSaveRedisJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="creativeSaveRedisJobDetail" />
+        <property name="cronExpression" value="0 0 0/2 * * ?" />
+    </bean>
+    <bean id="incomeSaveIncomeJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="incomeSaveIncomeJobDetail" />
+        <property name="cronExpression" value="0 0/5 * * * ?" />
+    </bean>
+    <bean id="biddingReportJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="biddingReportJobDetail" />
+        <property name="cronExpression" value="0 0 12 1 * ?" />
+    </bean>
+    
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no" >
+        <property name="triggers">
+            <list>
+                <ref bean="dspSaveRedisJobCronTrigger" />
+                <!-- 
+                <ref bean="creativeSaveRedisJobCronTrigger" />
+                 -->
+				<ref bean="incomeSaveIncomeJobCronTrigger" />
+				<ref bean="biddingReportJobCronTrigger" />
+            </list>
+        </property>
+    </bean>
     
 </beans>

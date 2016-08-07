@@ -11,6 +11,7 @@ import com.hy.business.popularizeActivity.IPopularizeActivityBusiness;
 import com.hy.dao.mybatis.mapper.AdvertisementBasicMapper;
 import com.hy.dao.mybatis.mapper.AdvertisementCollimationMapper;
 import com.hy.dao.mybatis.mapper.AdvertisementPricingMapper;
+import com.hy.dao.mybatis.mapper.CreativeMapper;
 import com.hy.dao.mybatis.model.AdvertisementBasic;
 import com.hy.dao.mybatis.model.AdvertisementBasicCriteria;
 import com.hy.dao.mybatis.model.AdvertisementBasicCriteria.Criteria;
@@ -18,6 +19,8 @@ import com.hy.dao.mybatis.model.AdvertisementCollimation;
 import com.hy.dao.mybatis.model.AdvertisementCollimationCriteria;
 import com.hy.dao.mybatis.model.AdvertisementPricing;
 import com.hy.dao.mybatis.model.AdvertisementPricingCriteria;
+import com.hy.dao.mybatis.model.Creative;
+import com.hy.dao.mybatis.model.CreativeCriteria;
 import com.hy.util.common.CommonUtil;
 import com.hy.util.common.ConstantUtil;
 import com.hy.util.common.DateUtil;
@@ -43,6 +46,8 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	AdvertisementCollimationMapper advertisementCollimationMapper;
 	@Autowired
 	IPopularizeActivityBusiness popularizeActivityBusiness;
+	@Autowired
+	CreativeMapper creativeMapper;
 
 	/**
 	 * 分页查询广告
@@ -144,12 +149,30 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 	public Map<String, Object> insertAdvertisement(Map<String, Object> map, Integer userid) {
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
-			//保存基本信息
+			//基本信息
 			String basic = map.get("basic").toString();
 			Map<String, Object> basicmap = JsonUtil.readJson2Map(basic);
+			
+			//添加活动信息
+			Object activityInfoobj = map.get("activityInfo");
+			if (!CommonUtil.isEmpty(activityInfoobj)) {  //创建新的活动
+			 	String activityInfoJson = map.get("activityInfo").toString();
+			 	Map<String, Object> activityInfoMap = JsonUtil.readJson2Map(activityInfoJson);
+			 	if (activityInfoMap.keySet().size() > 0) {
+			 		activityInfoMap.put("createuser", userid);
+			 		Map<String, Object> returnmap1 = popularizeActivityBusiness.insertActivity(activityInfoMap);
+			 		
+			 		//新增新的活动后，把新的活动id 设置到广告中
+			 		basicmap.put("activityid", returnmap1.get("activityid"));
+			 	}
+			}
+			
+			//保存基本信息
 			AdvertisementBasic advertisementBasic = (AdvertisementBasic)ListMapUtil.setEntityValue(basicmap, AdvertisementBasic.class);
 			advertisementBasic.setCreateTime(new Date().getTime());
 			advertisementBasic.setCreateUser(userid);
+			advertisementBasic.setState(1);
+			advertisementBasic.setCheckState(3);
 			advertisementBasicMapper.insert(advertisementBasic);
 			
 			//保存瞄准信息
@@ -204,6 +227,16 @@ public class AdvertisementBusinessImpl implements IAdvertisementBusiness{
 				AdvertisementBasicCriteria abc = new AdvertisementBasicCriteria();
 				abc.createCriteria().andIdEqualTo(basicid);
 				advertisementBasicMapper.updateByExampleSelective(advertisementBasic, abc);
+				
+				//如果停用/启用时/更改广告下面创意的状态
+				if (advertisementBasic.getState() == 0) {
+					Creative creative = new Creative();
+					creative.setProcessState(6);  //创意全部改为暂停
+					
+					CreativeCriteria cc = new CreativeCriteria();
+					cc.createCriteria().andAdvertisementIdEqualTo(basicid);
+					creativeMapper.updateByExampleSelective(creative, cc);
+				}
 			}
 
 			//保存定价信息

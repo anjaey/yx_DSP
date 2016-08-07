@@ -1,11 +1,13 @@
 package com.hy.business.advertisement.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hy.business.advertisement.ICreativeBusiness;
+import com.hy.business.profitCommand.IProfitCommandBusiness;
 import com.hy.dao.common.JdbcBaseDao;
 import com.hy.dao.common.impl.BaseDaoImpl;
 import com.hy.dao.mybatis.mapper.CreativeMapper;
@@ -24,6 +26,9 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 
 	@Autowired
 	private CreativeMapper creativeMapper;
+
+	@Autowired
+	private IProfitCommandBusiness profitCommandBusiness;
 	
 	@Override
 	public List<Map<String, Object>> selectCreativeAndPageByAdvertisementid(Map<String, Object> parammap, QueryPage queryPage) {
@@ -54,7 +59,7 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 			//创意id， 精准查询。
 			Object advertIdobj = parammap.get("advertId");
 			if (!CommonUtil.isEmpty(advertIdobj)) {
-				criteria.andCreativeAddressEqualTo(advertIdobj.toString());
+				criteria.andCreativeIdEqualTo(advertIdobj.toString());
 			}
 			
 			List<Creative> rolelist = creativeMapper.selectByExample(cc);
@@ -83,10 +88,26 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 		Map<String, Object> returnmap = new HashMap<String, Object>();
 		try {
 			Creative creative = (Creative)ListMapUtil.setEntityValue(map, Creative.class);
+			creative.setCreateTime(new Date().getTime());
 			
 			//生成创意ID
 			String creativeId = createCreativeId(this.jdbcBaseDao);
 			creative.setCreativeId(creativeId);
+			//默认为启用
+			creative.setState(1);
+			//过程状态默认为待激活
+			creative.setProcessState(1);
+			
+			//设置创意的默认扣量比例。
+			Map<String, Object> mapobj = profitCommandBusiness.selectProfitCommand();
+			if (mapobj == null) {
+				System.out.println("注意：：没有设置默认扣量比例。");
+			} else {
+				creative.setDeductQuantityProportionBefore(
+						Float.parseFloat(mapobj.get("defaultproportion").toString()));
+			}
+			
+			
 			creativeMapper.insertSelective(creative);
 
 			returnmap.put(ConstantUtil.SYSTEM_DATA_RETURN, ConstantUtil.RETURN_SUCCESS);
@@ -116,9 +137,9 @@ public class CreativeBusinessImpl extends BaseDaoImpl implements ICreativeBusine
 		List<Map<String, Object>> list = jdbcBaseDao.findList(sql, null);
 		
 		if (!CommonUtil.isEmpty(list) && list.size() > 0) {
-			Object keyidobj = list.get(0);
-			if (!CommonUtil.isEmpty(keyidobj)) {
-				String keyidstr = keyidobj.toString();
+			Map<String, Object> keyidmap = list.get(0);
+			if (!CommonUtil.isEmpty(keyidmap)) {
+				String keyidstr = keyidmap.get("nextkeyid").toString();
 				
 				String zero = "ad_";
 				for (int i = 0; i < 8 - keyidstr.length(); i++) {

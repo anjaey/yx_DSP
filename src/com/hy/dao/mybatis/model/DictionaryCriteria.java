@@ -383,6 +383,66 @@ public class DictionaryCriteria {
             addCriterion("parentid not between", value1, value2, "parentid");
             return (Criteria) this;
         }
+
+        public Criteria andIsdeleteIsNull() {
+            addCriterion("isdelete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteIsNotNull() {
+            addCriterion("isdelete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteEqualTo(Integer value) {
+            addCriterion("isdelete =", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteNotEqualTo(Integer value) {
+            addCriterion("isdelete <>", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteGreaterThan(Integer value) {
+            addCriterion("isdelete >", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("isdelete >=", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteLessThan(Integer value) {
+            addCriterion("isdelete <", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("isdelete <=", value, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteIn(List<Integer> values) {
+            addCriterion("isdelete in", values, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteNotIn(List<Integer> values) {
+            addCriterion("isdelete not in", values, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteBetween(Integer value1, Integer value2) {
+            addCriterion("isdelete between", value1, value2, "isdelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("isdelete not between", value1, value2, "isdelete");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
